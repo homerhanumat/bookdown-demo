@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A Minimal Book Example</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie">
+
+<meta name="date" content="2016-05-18">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="literature.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-are-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> What are R and RStudio?</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="introduction.html"><a href="introduction.html#panels-and-tabs"><i class="fa fa-check"></i><b>2.1.1</b> Panels and Tabs</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction.html"><a href="introduction.html#differences-between-rscript-and-rmarkdown-files"><i class="fa fa-check"></i><b>2.1.2</b> Differences Between RScript and RMarkdown Files</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction.html"><a href="introduction.html#basic-r"><i class="fa fa-check"></i><b>2.1.3</b> Basic R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#lets-play-cards"><i class="fa fa-check"></i><b>2.2</b> Let’s play cards!</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#the-game"><i class="fa fa-check"></i><b>2.2.1</b> The Game</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#the-results"><i class="fa fa-check"></i><b>2.2.2</b> The Results</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#the-conclusion"><i class="fa fa-check"></i><b>2.2.3</b> The Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#statistics"><i class="fa fa-check"></i><b>2.3</b> Statistics</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#thoughts-on-r"><i class="fa fa-check"></i><b>2.4</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="7" data-path="placeholder.html"><a href="placeholder.html"><i class="fa fa-check"></i><b>7</b> Placeholder</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<div id="what-are-r-and-rstudio" class="section level2">
+<h2><span class="header-section-number">2.1</span> What are R and RStudio?</h2>
+<p>R is a computer program that can do anything from basic arithmetic to complicated statistical analysis and graphs. Learning the language will take some time, but the best way to learn how to use R is by using it. So, let’s get started.</p>
+<p>RStudio is an integrated development environment (IDE) that facilitates the use of R. In short, RStudio makes using R easier and more fun! You’ll notice that you have four panels in the RStudio window.</p>
+<div id="panels-and-tabs" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Panels and Tabs</h3>
+<p>The <strong>top left panel</strong> is called the Source. You will primarily be working with RScript (.R) and RMarkdown (.Rmd) files. To create a new file, select <em>File</em>, then <em>New File</em>, then select what type of file you want. This will open a new file with a template document to help you get started.</p>
+<p>The <strong>bottom left panel</strong> is called the Console. This panel is the ‘brain’ of RStudio. Anything entered in this panel will be executed by R. Also, R only ‘knows’ what is entered into the Console.</p>
+<p>The <strong>top right panel</strong> has two tabs - Environment and History. As commands are entered into the Console, they are simultaneously stored in the History tab. This gives you a running history of the work you do. You can Search through the History to locate previous commands. You can also highlight a previous command and send it back <em>To Console</em> or <em>To Source</em>. The Workspace tab shows the objects that the Console ‘knows’ - datasets, functions, etc.</p>
+<p>The <strong>bottom right panel</strong> has four tabs that we will work with in this class - Files, Plots, Packages, and Help. The Files tab is exactly what it sounds like - it shows you a list of your available files and allows you to upload new files. The Plots tab displays the plots that you create in the Console. The Packages tab allows you to install and load necessary packages. The Help tab is where you will view R help files.</p>
+<p>This will all start to make more sense as we go along, so don’t worry if it seems overwhelming at first. This information will be more useful as a reference tool as you start getting used to RStudio.</p>
+</div>
+<div id="differences-between-rscript-and-rmarkdown-files" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Differences Between RScript and RMarkdown Files</h3>
+<p>These descriptions of different types of files is not intended to overwhelm you on the first day of class! It should be treated as a resource for you to use as different points throughout the semester as you get used to using RStudio.</p>
+<p>The most basic way to get RStudio to perform a command is to type the command directly into the Console. This tells R what you want it to do and it does it. The drawback to this is that you do not have a saved, and editable, copy of your commands. (Everything you type into the Console is automatically saved in the History tab. However, you cannot edit commands in the History tab.) This becomes an inconvenience if you are typing long commands. It is advantageous to store all of your commands in a file called an RScript. This way, you can go back and edit as you please. Once a command is typed into an RScript you can run it through the console a couple of different ways:</p>
+<ul>
+<li>You can select the entire command with your mouse. Then copy and paste it into the console.</li>
+<li>You can place your cursor on the line that contains your command and press the <code>Run</code> button at the top right of the Source window.</li>
+</ul>
+<p>Another type of file that you will use in this class is an RMarkdown file. It differs slightly from an RScript file. While it is likely that you will primarily read your course notes from the printed version you purchased from the bookstore, you will also have access to the RMarkdown version of these notes and your homework assignments. Other occasions will also arise throughout the semester where you will need to create RMarkdown documents.</p>
+<p>RMarkdown documents integrate text with code into one document that can be compiled, or knit, into a readable HTML. The code in an RMarkdown document is offset by a ‘chunk’. This way, when you knit your HTML, the chunks will all be run through the console as Rcode and any output will be put in your HTML file.</p>
+<p>While you are working in your RMarkdown document, you can run the code in a chunk several different ways:</p>
+<ul>
+<li>You can use your cursor and mouse to copy the code and paste it in the console.</li>
+<li>You can place your cursor anywhere in the chunk and select the ‘Run Current Chunk’ option in the ‘Chunks’ dropdown button at the top right of this window.</li>
+<li>You can place your cursor on the line you want to run and hit ‘Run’ at the top right of this window.</li>
+</ul>
+</div>
+<div id="basic-r" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Basic R</h3>
+<p>In this class, anytime we use R, we will always start by loading two necessary packages.</p>
+<p>The package <code>tigerstats</code> is the main package for our class. It includes all of the datasets, functions, and interactive apps that we will use throughout the semester. Anytime you do any work in RStudio for this class, you will want to <code>require(tigerstats)</code>.</p>
+<p>The <code>mosaic</code> package is a package that contains functions that we will use for some of our work this semester. For this reason, anytime you do any work in RStudio, you will also want to <code>require(mosaic)</code>.</p>
+<p>You will encounter various apps throughout this class that are designed to let you interactively explore concepts that we will be discussing in class. You should always take the time to tinker with these apps, as they will improve your understanding of difficult concepts. The package that must be loaded before you can use these apps is the package <code>manipulate</code>. Anytime you want to play with one of the apps in <code>tigerstats</code>, you must <code>require(manipulate)</code>.</p>
+<p>Let’s start by loading the necessary packages.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tigerstats)
+<span class="kw">require</span>(mosaic) 
+<span class="kw">require</span>(manipulate) <span class="co">#if you want to play with an app in tigerstats</span></code></pre></div>
+<p><strong>Note</strong>: Sometimes when you’re typing code into either a RScript or an RMarkdown, it’s nice to add a note to remind yourself what that particular line does. Anything that is typed after a # will not be run as Rcode in the console. It’s simply a note for yourself.</p>
+<p>There are lots of cool features of R, but let’s begin by using R in the most basic way - like a calculator to do simple calculations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5+4</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">24</span>*<span class="fl">3.7</span></code></pre></div>
+<pre><code>## [1] 88.8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">18</span>/<span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">81</span>) <span class="co">#square root function.</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>It’s that easy! R will do any arithmetic that you want. Just remember to use parentheses where they are appropriate to preserve order of operations.</p>
+<div id="help" class="section level4">
+<h4><span class="header-section-number">2.1.3.1</span> Help</h4>
+<p>Now, suppose that you did not know what the command <code>sqrt()</code> did. You could get the help file for this command by typing <code>help(sqrt)</code> into the Console.</p>
+<p>The Help tab will pop up and display the R Documentation for this command. It will give you:</p>
+<ul>
+<li>a description of what the command does,</li>
+<li>how it is entered into the Console,</li>
+<li>the arguments the command takes,</li>
+<li>some other details and references, and</li>
+<li>most importantly, examples of how to use it</li>
+</ul>
+<p><em>Shortcut Help:</em> If you type in the first couple letters of a command into the Console and then hit the <em>Tab</em> key on your keyboard, a Help window will pop up with possible matches and allow you to select exactly which one you want. If you still need more information, you can then hit <em>F1</em> on your keyboard to open the Help tab to read more about it.</p>
+</div>
+<div id="assigning-values" class="section level4">
+<h4><span class="header-section-number">2.1.3.2</span> Assigning Values</h4>
+<p>If you want to assign a value to a place, you use the <code>&lt;-</code> sign. For example,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mysum &lt;-<span class="st"> </span><span class="dv">5+6</span> </code></pre></div>
+<p>This computes the value of 5+6 and assigns it to the object named <code>mysum</code>. This will not show you what the value is; it simply stores it. If you want to see the value of <code>mysum</code>, you need to call it by typing it into the console (or a code chunk in an RMarkdown file).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mysum </code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myproduct&lt;-<span class="dv">5</span>*<span class="dv">6</span>
+myproduct</code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<p>Assigning values to an object allows you to access them later by their name. For example, suppose that I wanted to add 10 to whatever value I had stored in <code>mysum</code> earlier in my work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mynewsum &lt;-<span class="st"> </span>mysum<span class="dv">+10</span>
+mynewsum</code></pre></div>
+<pre><code>## [1] 21</code></pre>
+<p>Notice that you can choose any name that you wish for the object (the name to the left of the <code>&lt;-</code>). However, you must be careful with what you type to the right of the <code>&lt;-</code>. This must be recognizable by R. It should either by a number, a function, or an object that you have already assigned a value to.</p>
+<p>While it does not really matter what you choose to name objects, you should be a little bit careful.</p>
+<ul>
+<li>It is helpful to choose a name that is descriptive. Notice that we chose the name <code>mysum</code> and <code>mynewsum</code> for the sums that we computed above.<br />
+</li>
+<li>You do not want to name an object something that is already used as a function name or the name of a dataset. This is both confusing and can cause problems for you later.</li>
+<li>You can use some symbols in your names, such as a period (.) and an underscore (_). However, you cannot include other symbols or spaces in your object names.</li>
+</ul>
+</div>
+<div id="several-important-functions" class="section level4">
+<h4><span class="header-section-number">2.1.3.3</span> Several Important Functions</h4>
+<div id="concatenation-function" class="section level5">
+<h5><span class="header-section-number">2.1.3.3.1</span> Concatenation Function</h5>
+<p>Let’s talk about a function that you will see and use alot this semester. The concatenation, <code>c()</code> function combines values into a list. Creating a list of the numbers 1, 3, and 5 can be accomplished by:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+mylist</code></pre></div>
+<pre><code>## [1] 1 3 5</code></pre>
+<p>If you want to combine letters (or words), you must put them in quotes. You can remember this by thinking of R as a really fancy calculator. R operates with numbers and functions, so letters and words have to be treated differently by placing them in quotes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mygrades &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;F&quot;</span>)
+mygrades</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;F&quot;</code></pre>
+</div>
+<div id="replicate-function" class="section level5">
+<h5><span class="header-section-number">2.1.3.3.2</span> Replicate Function</h5>
+<p>Suppose we want to create a list of numbers that are all the same. For example, say we want to make the list 1,1,1,1,1. We could accomplish this with the concatenation function by</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myreps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+myreps</code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<p>This will work, but there is an easier way to do this, using the replicate function, <code>rep()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myreps &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>)
+myreps</code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<p>The replication function requires two inputs. The first input is the value that we want to be replicated and the second is the number of times we want that value replicated.</p>
+<p>You can also combine the concatenation and replication functions to create a list of repeated letters or words. Just make sure that you use quotes for the letters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myletters&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">7</span>))
+myletters</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot;
+## [18] &quot;C&quot; &quot;C&quot; &quot;C&quot;</code></pre>
+</div>
+<div id="sequence-function" class="section level5">
+<h5><span class="header-section-number">2.1.3.3.3</span> Sequence Function</h5>
+<p>Suppose we want to create a list of numbers that appear in a certain sequence. For example, say we want to make the list 1, 2, 3, 4, 5, 6. Again, we could accomplish this with the concatenation function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myseq &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+myseq</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>The sequence function, <code>seq()</code>, makes this task easier.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myseq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">5</span>, <span class="dt">by=</span><span class="dv">1</span>)
+myseq</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>The sequence function requires three pieces of information.<br />
+* Where the sequence should start, <code>from=</code> * Where the sequence should end, <code>to=</code> * The increment, <code>by=</code></p>
+<p>Suppose we want to create the sequence 55, 57, 59, 61, 63, 65, 67, 69, 71.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">55</span>, <span class="dt">to=</span><span class="dv">71</span>, <span class="dt">by=</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 55 57 59 61 63 65 67 69 71</code></pre>
+<p>Notice that we did not store the sequence above in a object. The sequence was still created, but we will not be able to access it later.</p>
+<p>That should be enough to get you started (and overwhelmed). Remember, treat this chapter as a reference guide to help you throughout the semester.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="lets-play-cards" class="section level2">
+<h2><span class="header-section-number">2.2</span> Let’s play cards!</h2>
+<div id="the-game" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> The Game</h3>
+<p>We are going to introduce an important statistical concept that will be a continuing theme throughout this class by playing a game with a standard deck of cards. In a standard 52 card deck, there are 4 suits (Hearts, Diamonds, Spades, Clubs). Each suit has an Ace, King, Queen, Jack, 2, 3, 4, 5, 6, 7, 8, 9, and 10. Half of the cards are red (Hearts and Diamonds) and half of the cards are black (Spades and Clubs).</p>
+<p>Here’s the game: A volunteer draws 10 cards from our classroom deck of cards, with replacement. The cards will be shuffled between each draw. The volunteer wins a point for each red card drawn and the dealer wins a point for each black card drawn.</p>
+<p>Drawing the cards <strong>with replacement</strong> means that the volunteer will draw one card, record the color, and then put it back in the deck before drawing another card. Doing it this way assures that each color has the same chance of being drawn each time.</p>
+<p>Let’s think about a couple of questions before playing. <em>If</em> we are playing with a standard deck,</p>
+<ul>
+<li><p>What is the probability that the volunteer will pull out a red card?</p></li>
+<li><p>Of the 10 cards drawn, how many do you <em>expect</em> to be red?</p></li>
+</ul>
+<p><em>This is our best guess (hypothesis), based on the information we have at hand.</em></p>
+<ul>
+<li>Do we think that the volunteer will draw <strong>exactly</strong> the hypothesized number of red cards?</li>
+</ul>
+<p><em>There is randomness at play when we draw cards from a deck.</em></p>
+<p>Okay, enough thinking. Let’s play!</p>
+</div>
+<div id="the-results" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> The Results</h3>
+<p>Suppose that our class drew 9 red cards (out of 10 cards drawn). Consider the following questions:</p>
+<ul>
+<li><p>Do these results seem consistent with how many we <em>expected</em> to be red? Or do they seem strange?</p></li>
+<li><p>Do you still believe your hypothesized probability of drawing a red card? In other words, do you still believe that we are playing with a standard deck?</p></li>
+</ul>
+<p>Although these results may seem strange, this was only one game. We agreed that there is randomness at play here, so our results may have just been a fluke. Let’s test this by playing the game again. Better yet, we can speed things up by simulating the game in RStudio. This way, we can play <em>lots</em> of games quickly to see if the results we got in our classroom game are really that surprising.</p>
+<p>We can easily create a virtual deck of cards using the concatenation function. Since we only care about the color of the card (not the suit or the face value), let’s make it easier to count by using a virtual deck that tells us only the color. We’ll need 26 red cards and 26 black cards.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mycards&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;Red&quot;</span>,<span class="dv">26</span>),<span class="kw">rep</span>(<span class="st">&quot;Black&quot;</span>,<span class="dv">26</span>))
+mycards</code></pre></div>
+<pre><code>##  [1] &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;  
+##  [9] &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;  
+## [17] &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;  
+## [25] &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;
+## [33] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;
+## [41] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;
+## [49] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;</code></pre>
+<p>Let’s again start by shuffling the deck.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shuffle</span>(mycards)</code></pre></div>
+<pre><code>##  [1] &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot;
+##  [9] &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;  
+## [17] &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot;
+## [25] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot;
+## [33] &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;  
+## [41] &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot;
+## [49] &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot;</code></pre>
+<p>We will randomly deal 10 cards from this new deck using the <code>sample</code> function. The <code>sample</code> function takes three arguments. You need to tell is where to sample from, how many to sample, and whether or not to sample with replacement.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(mycards, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##  [1] &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;  
+##  [9] &quot;Black&quot; &quot;Red&quot;</code></pre>
+<p>Let’s create a table to count the number of red cards and black cards that were in our hand of 10.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">sample</span>(mycards, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>## 
+## Black   Red 
+##     4     6</code></pre>
+<p>Again, this was just one game. We would like to repeat this lots of times to see if our class results were really that unusual. We are looking to answer the questions:</p>
+<ul>
+<li>How <em>often</em> do we see our in-class results when we’re playing with a standard deck? * What are the <em>chances</em> (or <em>probability</em>) of seeing our in-class results when we’re playing with a standard deck?</li>
+</ul>
+<p>Let’s repeat the game three times.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">do</span>(<span class="dv">3</span>)*<span class="kw">table</span>(<span class="kw">sample</span>(mycards, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>##   Black Red
+## 1     7   3
+## 2     4   6
+## 3     2   8</code></pre>
+<p>The first row of this table represents the first game in which 7 black cards were drawn and 3 red cards were drawn. The second row of this table represents the second game in which 4 black cards were drawn and 6 red cards were drawn. The third row of this table represents the third game in which 2 black cards were drawn and 8 red cards were drawn. If you wanted to simulate more games, you could change the 3 in the line of code above. For example, suppose you wanted to simulate 20 games. You would simply type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">do</span>(<span class="dv">20</span>)*<span class="kw">table</span>(<span class="kw">sample</span>(mycards, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>))</code></pre></div>
+<p>Let’s look at this another way by creating a table that keeps track of how many of our games result in a certain number of red cards drawn.</p>
+<pre><code>## Red
+##  0  1  2  3  4  5  6  7  8  9 10 
+##  0  0  0  1  0  0  1  0  1  0  0</code></pre>
+<p>The first row of this table represents the number of red cards drawn. The second row gives the number of games (out of the three that we played) that resulted in drawing that many red cards. We had one game where 3 red cards were drawn, one game where 6 red cards were drawn, and one game where 8 red cards were drawn.</p>
+<p>We could get an even better idea of what’s going on if we could simulate the game many times, say 1000 times! We will create the same type of table we just did to keep track of these games.</p>
+<pre><code>## Red
+##   0   1   2   3   4   5   6   7   8   9  10 
+##   0   5  41 119 205 249 209 121  42   8   1</code></pre>
+<p>At this point, it’s starting to seem that drawing a high number of red cards doesn’t happen very often. It seems unlikely, but it sure would be nice to have an idea of just how unlikely it is.</p>
+<p>Perhaps having this table in terms of percents is more useful:</p>
+<pre><code>##    
+## Red 0   1   2    3    4    5    6    7   8   9  10 Total
+##     0 0.5 4.1 11.9 20.5 24.9 20.9 12.1 4.2 0.8 0.1   100</code></pre>
+<p>Consider the following questions based on our simulation:</p>
+<p>If we draw 10 cards from a standard deck,</p>
+<ul>
+<li>What is the estimated <em>chance</em> of drawing 5 red cards?</li>
+</ul>
+<p>Answer: There is a 24.9% chance of drawing 5 red cards.</p>
+<ul>
+<li>What is the estimated <em>probability</em> of drawing 1 red card?</li>
+</ul>
+<p>Answer: There is a 0.5% probability of drawing 1 red card.</p>
+<ul>
+<li>How <em>likely</em> is it that our volunteer drew their original hand, based on our simulations?</li>
+</ul>
+<p>Answer: Assuming that our volunteer drew 9 red cards, the likelihood that our volunteer drew their original hand (based on our simulations) is 0.8%.</p>
+<p><strong>Based on this likelihood, does it seem reasonable to believe that the deck we used in class was a standard deck?</strong></p>
+<p>Let’s check out how RStudio can help us to visualize the data from our 1000 simulated games graphically, in the form of a histogram. We will be learning more about histograms in Chapter 2.</p>
+<p>Here is the table again followed by the graphical representation (histogram). See Figure[Histogram].</p>
+<pre><code>##    
+## Red 0   1   2    3    4    5    6    7   8   9  10 Total
+##     0 0.5 4.1 11.9 20.5 24.9 20.9 12.1 4.2 0.8 0.1   100</code></pre>
+<pre><code>## Warning in mean.default(eval(formula[[2]], data, .envir), ...): argument is
+## not numeric or logical: returning NA</code></pre>
+<pre><code>## Warning in var(if (is.vector(x) || is.factor(x)) x else as.double(x), na.rm = na.rm): Calling var(x) on a factor x is deprecated and will become an error.
+##   Use something like &#39;all(duplicated(x)[-1L])&#39; to test for a constant vector.</code></pre>
+<div class="figure"><span id="fig:cardshist"></span>
+<img src="bookdown-demo_files/figure-html/cardshist-1.png" alt="Histogram:  Graphical representation of the table of counts for the 1000 simulated games." width="672" />
+<p class="caption">
+Figure 2.1: Histogram: Graphical representation of the table of counts for the 1000 simulated games.
+</p>
+</div>
+<p>The horizontal axis gives us the number of red cards drawn in a hand of 10 cards from a standard deck. The vertical axis gives us the percent of times (out of the 1000 simulated games) that a particular number of red cards was drawn.</p>
+<p>Notice that the width of each bar in the histogram is 1 and the height of each bar is equal to the percent of the 1000 games that resulted in that number of red cards.</p>
+<p>We can color the bar in the histogram to mark how many red cards our volunteer drew in the class game. See Figure[Class Probablity].</p>
+<pre><code>## Warning: &#39;perctable&#39; is deprecated.
+## Use &#39;tally&#39; instead.
+## See help(&quot;Deprecated&quot;)</code></pre>
+<div class="figure"><span id="fig:classprobhist"></span>
+<img src="bookdown-demo_files/figure-html/classprobhist-1.png" alt="Class Probability:  The shaded rectangle in the histogram represents the probability that the volunteer would draw 9 cards if they were drawing from a standard deck of playing cards." width="672" />
+<p class="caption">
+Figure 2.2: Class Probability: The shaded rectangle in the histogram represents the probability that the volunteer would draw 9 cards if they were drawing from a standard deck of playing cards.
+</p>
+</div>
+<p>This colored part of the histogram represents the estimated <em>chance</em> of drawing our particular draw from a standard deck.</p>
+<p>We can think about how <em>likely</em> it is that our class game resulted in such a high number of red cards (or higher). This <em>likelihood</em> is called a <strong>p-value</strong>. We can compute the p-value numerically and view it graphically on the histogram.</p>
+<p>Numerically, the p-value is:</p>
+<pre><code>## Warning: &#39;proptable&#39; is deprecated.
+## Use &#39;tally&#39; instead.
+## See help(&quot;Deprecated&quot;)</code></pre>
+<pre><code>##     9 
+## 0.009</code></pre>
+<p>The p-value is the estimated <em>probability</em> of drawing as many red cards or more (out of 10) as our volunteer drew if we are drawing from a standard deck of playing cards.</p>
+<p>Graphically, the P-value is the total area in the histogram that lies to the right of the vertical line in the graph. See Figure[P-Value].</p>
+<div class="figure"><span id="fig:pvaluehist"></span>
+<img src="bookdown-demo_files/figure-html/pvaluehist-1.png" alt="P-Value:  The area of the histogram that lies to the right of the vertical line is the p-value." width="672" />
+<p class="caption">
+Figure 2.3: P-Value: The area of the histogram that lies to the right of the vertical line is the p-value.
+</p>
+</div>
+</div>
+<div id="the-conclusion" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> The Conclusion</h3>
+<p>Summing this up:</p>
+<ol style="list-style-type: decimal">
+<li><p>We started with a hypothesis. We assumed that we were playing with a standard deck.</p></li>
+<li><p>We gathered data from a real-world experiment to test our hypothesis. We played one real game.</p></li>
+<li><p>Our results seemed strange, so we wondered if our hypothesis was true. We questioned: How likely was it to draw the hand that we did if we drew from a standard deck?</p></li>
+<li><p>We tested the hypothesis by simulating 1000 games using R. We counted up the number of games that gave us the result we got in class.</p></li>
+<li><p>We calculated a P-value, the probability of getting results as extreme as ours (or more so!) from a standard deck.</p></li>
+<li><p>Finally, we need to draw a conclusion.</p></li>
+</ol>
+<p>Conclusion: If we assume that our volunteer drew 10 cards from a standard deck of cards, there is about a 0.009 (0.9 %) chance of drawing 9 red cards. Since the probability of drawing 9 (or more) red cards is so small, this should cause you to question whether the volunteer was really drawing from a standard deck.</p>
+</div>
+</div>
+<div id="statistics" class="section level2">
+<h2><span class="header-section-number">2.3</span> Statistics</h2>
+<p>The ultimate goal of <strong>statistics</strong> is to translate data into knowledge and understanding of the world around us. It’s the art and science of learning from data!</p>
+<p>The card game we played above is a perfect example of the three aspects of statistics.</p>
+<p><strong>Design</strong> - asking the right questions and collecting useful data.</p>
+<p>After we played the card game in class, we questioned whether we were playing with a standard deck of cards. We came up with a logical way to test whether our results were really as unlikely as they seemed. We used the power and speed of RStudio to quickly simulate 1000 games. This was our <em>data</em>.</p>
+<p><strong>Description</strong> - summarizing and analyzing data.</p>
+<p>Once we had the raw data, we summarized it in the form of a table and a histogram. These summaries allowed us to analyze the data by calculating a p-value. A p-value is the probability of obtaining our results (or more extreme results) if our original hypothesis is true.</p>
+<p><strong>Inference</strong> - making decisions, generalizations, and turning data into new knowledge.</p>
+<p>This is where the <em>art</em> of statistics comes into play. Based on your analysis, how convinced are you that the deck was stacked? How much evidence is enough? Were you convinced after 1 game, 3 games, 1000 games? Are you convinced now or do you think we should gather more data?</p>
+<p>These are all ideas that we will investigate more thoroughly throughout the semester! As we continue to talk about these things, keep the Card Game in mind as a reference example.</p>
+</div>
+<div id="thoughts-on-r" class="section level2">
+<h2><span class="header-section-number">2.4</span> Thoughts on R</h2>
+<p>Important R commands:</p>
+<ul>
+<li><code>a+b</code> basic addition, “a plus b”</li>
+<li><code>a-b</code> basic subtraction, “a minus b”</li>
+<li><code>a*b</code> basic multiplication, “a times b”</li>
+<li><code>a/b</code> basic division, “a divided by b”</li>
+</ul>
+<p>Know how to use these functions:</p>
+<ul>
+<li><code>sqrt()</code> square root function</li>
+<li><code>help()</code> help function will pull up the help file for any function for which you need more information</li>
+<li><code>c()</code> concatenation function combines values, letters, or words into a list</li>
+<li><code>rep()</code> replication function creates a list of repeated values, letters, or words.</li>
+<li><code>seq()</code> sequence function creates a sequence of values starting and ending at a specified spot with a specified increment.</li>
+</ul>
+<p>Always remember to <strong><code>require()</code></strong> the needed packages.</p>
+<ul>
+<li><code>require(tigerstats)</code> anytime that you open a new Rscript or RMarkdown file.</li>
+<li><code>require(knitr)</code> anytime that you are working in a RMarkdown file.<br />
+</li>
+<li><code>require(manipulate)</code> anytime you want to run one of the class apps, available in <code>tigerstats</code>.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literature.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-introduction.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

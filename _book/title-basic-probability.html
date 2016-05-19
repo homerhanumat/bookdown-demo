@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Elementary Statistics with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision.">
+  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Elementary Statistics with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  <meta name="github-repo" content="homerhanumat/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Elementary Statistics with R" />
+  
+  <meta name="twitter:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  
+
+<meta name="author" content="Rebekah Robinson and Homer White">
+
+<meta name="date" content="2016-05-18">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="design-of-studies.html">
+<link rel="next" href="the-population-and-the-sample.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Elementary Statistics With R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> automatically create a bib database for R packages</a></li>
+<li class="chapter" data-level="2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html"><i class="fa fa-check"></i><b>2</b> Describing Patterns in Data</a></li>
+<li class="chapter" data-level="3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html"><i class="fa fa-check"></i><b>3</b> Relationships Between Two Factor Variables</a></li>
+<li class="chapter" data-level="4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html"><i class="fa fa-check"></i><b>4</b> Relationships Between Two Numerical Variables</a></li>
+<li class="chapter" data-level="5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html"><i class="fa fa-check"></i><b>5</b> Sampling and Surveys</a></li>
+<li class="chapter" data-level="6" data-path="design-of-studies.html"><a href="design-of-studies.html"><i class="fa fa-check"></i><b>6</b> Design of Studies</a></li>
+<li class="chapter" data-level="7" data-path="title-basic-probability.html"><a href="title-basic-probability.html"><i class="fa fa-check"></i><b>7</b> title: Basic Probability</a><ul>
+<li class="chapter" data-level="7.1" data-path="title-basic-probability.html"><a href="title-basic-probability.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="title-basic-probability.html"><a href="title-basic-probability.html#probability"><i class="fa fa-check"></i><b>7.2</b> Probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="title-basic-probability.html"><a href="title-basic-probability.html#subjective-probability"><i class="fa fa-check"></i><b>7.2.1</b> Subjective Probability</a></li>
+<li class="chapter" data-level="7.2.2" data-path="title-basic-probability.html"><a href="title-basic-probability.html#theoretical-probability"><i class="fa fa-check"></i><b>7.2.2</b> Theoretical Probability</a></li>
+<li class="chapter" data-level="7.2.3" data-path="title-basic-probability.html"><a href="title-basic-probability.html#long-run-frequency-probability"><i class="fa fa-check"></i><b>7.2.3</b> Long-run Frequency Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="title-basic-probability.html"><a href="title-basic-probability.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>7.3</b> What is a Random Variable?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="title-basic-probability.html"><a href="title-basic-probability.html#notation"><i class="fa fa-check"></i><b>7.3.1</b> Notation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="title-basic-probability.html"><a href="title-basic-probability.html#discrete-random-variables"><i class="fa fa-check"></i><b>7.4</b> Discrete Random Variables</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="title-basic-probability.html"><a href="title-basic-probability.html#probability-distribution-functions-for-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.1</b> Probability Distribution Functions for Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.2" data-path="title-basic-probability.html"><a href="title-basic-probability.html#expectation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.2</b> Expectation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.3" data-path="title-basic-probability.html"><a href="title-basic-probability.html#standard-deviation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.3</b> Standard Deviation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.4" data-path="title-basic-probability.html"><a href="title-basic-probability.html#using-ev-and-sd-to-evaluate-a-game"><i class="fa fa-check"></i><b>7.4.4</b> Using EV and SD to Evaluate a Game</a></li>
+<li class="chapter" data-level="7.4.5" data-path="title-basic-probability.html"><a href="title-basic-probability.html#independence"><i class="fa fa-check"></i><b>7.4.5</b> Independence</a></li>
+<li class="chapter" data-level="7.4.6" data-path="title-basic-probability.html"><a href="title-basic-probability.html#a-special-discrete-random-variable-binomial-random-variable"><i class="fa fa-check"></i><b>7.4.6</b> A Special Discrete Random Variable: Binomial Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="title-basic-probability.html"><a href="title-basic-probability.html#continuous-random-variables"><i class="fa fa-check"></i><b>7.5</b> Continuous Random Variables</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="title-basic-probability.html"><a href="title-basic-probability.html#probability-density-functions-for-continuous-random-variables"><i class="fa fa-check"></i><b>7.5.1</b> Probability Density Functions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="7.5.2" data-path="title-basic-probability.html"><a href="title-basic-probability.html#a-special-continuous-random-variable-normal-random-variable"><i class="fa fa-check"></i><b>7.5.2</b> A Special Continuous Random Variable: Normal Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="title-basic-probability.html"><a href="title-basic-probability.html#approximating-binomial-probabilities"><i class="fa fa-check"></i><b>7.6</b> Approximating Binomial Probabilities</a></li>
+<li class="chapter" data-level="7.7" data-path="title-basic-probability.html"><a href="title-basic-probability.html#thoughts-on-r"><i class="fa fa-check"></i><b>7.7</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="title-basic-probability.html"><a href="title-basic-probability.html#new-r-functions"><i class="fa fa-check"></i><b>7.7.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-population-and-the-sample.html"><a href="the-population-and-the-sample.html"><i class="fa fa-check"></i><b>8</b> The Population and the Sample</a></li>
+<li class="chapter" data-level="9" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
+<li class="chapter" data-level="11" data-path="the-gamblers-die.html"><a href="the-gamblers-die.html"><i class="fa fa-check"></i><b>11</b> The Gambler’s Die</a></li>
+<li class="chapter" data-level="12" data-path="chapter-2.html"><a href="chapter-2.html"><i class="fa fa-check"></i><b>12</b> Chapter 2</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Elementary Statistics with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="title-basic-probability" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> title: Basic Probability</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">7.1</span> Introduction</h2>
+<p><em>Statistical inference</em> is the process of forming judgments about a population based on information gathered from a sample of that population. Our goal in this chapter is to describe populations and samples using the language of probability.</p>
+</div>
+<div id="probability" class="section level2">
+<h2><span class="header-section-number">7.2</span> Probability</h2>
+<p>By <strong>probability</strong>, we mean some number between 0 and 1 that describes the <em>likelihood</em>, or <em>chance</em>, that an event occurs. Probability is a way to quantify <em>uncertainty</em>.</p>
+<p>There are several different interpretations of the word <strong>probability</strong> that come from understanding how the numbers are generated.</p>
+<div id="subjective-probability" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Subjective Probability</h3>
+<dl>
+<dt>Subjective Probabilbities</dt>
+<dd><p>Probabilities that are assigned or postulated based on a personal belief that an outcome will occur are called <em>subjective probabilities</em>.</p>
+</dd>
+</dl>
+<p><strong>Example</strong>: A surgeon, who is performing a surgery for the very first time, tells his patient that he feels that the probability that it will be successful is 0.99. This probability is <em>subjective</em> because it is based entirely on the surgeon’s belief.</p>
+<p>In this class, we will not be very interested in subjective probabilities since they are not supported by data.</p>
+</div>
+<div id="theoretical-probability" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Theoretical Probability</h3>
+<p>To discuss theoretical probabilities, let’s first state some definitions.</p>
+<dl>
+<dt>Sample Space</dt>
+<dd><p>The <em>sample space</em> is the set of all possible outcomes of ane experiment.</p>
+</dd>
+<dt>Event</dt>
+<dd><p>An <em>event</em> is a subset of the sample space. In other words, an event is a collection of outcomes.</p>
+</dd>
+</dl>
+<p>Suppose that all outcomes in a sample space are equally likely - i.e. they have the same chance of occurring. Then, the probability of an event is the number of outcomes in the event divided by the total number of outcomes in the sample space. In symbols, this is</p>
+<p><span class="math display">\[\mbox{P(event)} = \dfrac{\mbox{number of outcomes in the event}}{\mbox{total number of outcomes in the sample space}}.\]</span></p>
+<p><strong>Example:</strong> Consider tossing a fair coin. There are two possible outcomes - tossing a head or tossing a tail. The sample space is the set of all possible outcomes, so the sample space is {H, T}. Since the coin is <em>fair</em>, the outcomes are equally likely. The probability of the event <strong>toss a head</strong> is <span class="math inline">\(\dfrac{1}{2}=0.5\)</span>. In symbols, we can write this as <span class="math inline">\(\mbox{P(toss a head)}=0.5\)</span> or, for short, <span class="math inline">\(\mbox{P(H)}=0.5\)</span>.</p>
+<p><strong>Example:</strong> Consider tossing two fair coins. The sample space is {HH, HT, TH, TT}. Here, HH represents both coins landing heads up and TH represents the first coin landing tails and second coin landing H. Since the coin is fair, each of the four outcomes is equally likely. We can compute various probabilities.</p>
+<ul>
+<li>What is <span class="math inline">\(\mbox{P(HH)}\)</span>?</li>
+</ul>
+<blockquote>
+<p><strong>Answer:</strong> <span class="math inline">\(\mbox{P(HH)}=\dfrac{1}{4}=0.25\)</span>. This is the probability of tossing 2 heads in two tosses of a fair coin. One of the four events in the sample space corresponds to 2 heads being tossed - HH.</p>
+</blockquote>
+<ul>
+<li>What is the probability of tossing exactly one head?</li>
+</ul>
+<blockquote>
+<p><strong>Answer:</strong> <span class="math inline">\(\mbox{P(toss exactly one head)}=\mbox{P(HT or TH)} = \dfrac{2}{4}=0.5\)</span>. This is the probability of tossing exactly 1 heads in two tosses of a fair coin. Two of the four events in the sample space corresponds to exactly 1 head being tossed - HT, TH.</p>
+</blockquote>
+<ul>
+<li>What is the probability of getting a head on the first toss?</li>
+</ul>
+<blockquote>
+<p><strong>Answer:</strong> <span class="math inline">\(\mbox{P(toss a head on Toss 1)}=\mbox{P(HT or HH)} = \dfrac{2}{4}=0.5\)</span>. This is the probability of tossing a head on the first toss in two tosses of a fair coin. Two of the four events in the sample space corresponds to this - HT, HH.</p>
+</blockquote>
+</div>
+<div id="long-run-frequency-probability" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Long-run Frequency Probability</h3>
+<p>The final type of probability we should discuss is really an <em>approximation</em> to the theoretical probability.</p>
+<dl>
+<dt>Long-Run Frequency Probability</dt>
+<dd><p>A <em>long-run frequency probability</em> comes from knowing the proportion of times that the event occurs when the experiment is performed over and over again. This is an approximation to a theoretical probability.</p>
+</dd>
+</dl>
+<p><strong>Example:</strong> Suppose you toss a fair coin 1000 times and it comes up as a tail 502 times. Then the <em>long run frequency</em> is <span class="math inline">\(\dfrac{502}{1000}=0.502\)</span>. We know that the theoretial (true) probability of a fair coin landing heads is 0.50. The long run frequency is an approximation this. The more times the coin is tossed, the better the long run frequency does at approximating the true probability of landing tails.</p>
+</div>
+</div>
+<div id="what-is-a-random-variable" class="section level2">
+<h2><span class="header-section-number">7.3</span> What is a Random Variable?</h2>
+<p>Here is a very important definition:</p>
+<dl>
+<dt>Random Variable</dt>
+<dd><p>A <em>random variable</em> is a variable whose value is the outcome of a chance experiment.</p>
+</dd>
+</dl>
+<p>Calling it a <em>variable</em> may be somewhat confusing! It is actually a function on the sample space of an experiment. It can take on a set of possible different values. We make a distinction between whether or not we know, or have observed, the value of the random variable. Once observed, the random variable is known. Prior to being observed, it is full of potential - it can take on any value in the set of possible values. However, some of the possible values may be more likely than others. There is an associated <em>probability</em> that the random variable is equal to some value (or is in some range of values).</p>
+<div id="notation" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Notation</h3>
+<p>Letters near the end of the alphabet are typically used to symbolize a random variable. If the random variable has not yet been observed, we use uppercase letters, such as <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span>. If the value of the random variable is known, we use lowercase letters, such as <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>, to refer to the random variable.</p>
+<p>Just as numeric data is either discrete or continuous, random variables are classified as either <strong>discrete</strong> or <strong>continuous</strong>. This is determined by what kinds of numbers are in the set of possible values that the random variable can assume.</p>
+</div>
+</div>
+<div id="discrete-random-variables" class="section level2">
+<h2><span class="header-section-number">7.4</span> Discrete Random Variables</h2>
+<dl>
+<dt>Discrete random Variable</dt>
+<dd><p>A <em>discrete random variable</em> is a random variable whose possible values come from a set of discrete numbers.</p>
+</dd>
+</dl>
+<p><strong>Example</strong>: Suppose that we toss a fair coin two times.</p>
+<ul>
+<li><p>The <em>sample space</em> is {HH, HT, TH, TT}.</p></li>
+<li><p>A possible random variable associated with this experiment is <span class="math inline">\(X=\mbox{ number of heads tossed}\)</span>.</p></li>
+<li><p>The set of possible values that <span class="math inline">\(X\)</span> can assume is {0, 1, 2}. Since this is a set of discrete values, we classify <span class="math inline">\(X\)</span> as a <strong>discrete random variable</strong>.</p></li>
+<li>Recall that there is an associated <strong>probability</strong> that the random variable is equal to some value. For this example, it is more likely that <span class="math inline">\(X=1\)</span> than <span class="math inline">\(X=0\)</span> or <span class="math inline">\(X=2\)</span>. This can be seen by looking at the probabilities:
+<ul>
+<li><p><span class="math inline">\(\mbox{P}(X=0)=1/4=0.25\)</span>. Keep in mind that <span class="math inline">\(X\)</span> is the random variable that represents the “number of heads tossed in two tosses of a fair coin”. This is just another way to represent the <span class="math inline">\(\mbox{P(TT)}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mbox{P}(X=1)=2/4=0.5\)</span>. This is just another way to represent .</p></li>
+<li><p><span class="math inline">\(\mbox{P}(X=2)=1/4=0.25\)</span>. This is just another way to represent the <span class="math inline">\(\mbox{P(HH)}\)</span>.</p></li>
+</ul></li>
+</ul>
+<div id="probability-distribution-functions-for-discrete-random-variables" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Probability Distribution Functions for Discrete Random Variables</h3>
+<p>It is nice to display the probabilities associated with a random variable in a table or graph.</p>
+<dl>
+<dt>Probability Distribution Function (pdf)</dt>
+<dd><p>The <em>probability distribution function</em> (pdf, for short) for a discrete random variable <span class="math inline">\(X\)</span> is a function that assigns probabilities to the possible values of <span class="math inline">\(X\)</span>. It may be viewed in the form of a table or a histogram.</p>
+</dd>
+</dl>
+<p>For the two-coin toss example, the pdf for the random variable <span class="math inline">\(X=\mbox{ number of heads tossed}\)</span> looks like:</p>
+<table>
+<caption>Probability distribution function for two-coin toss</caption>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(x\)</span></th>
+<th align="right">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(P(X=x)\)</span></td>
+<td align="right">0.25</td>
+<td align="center">0.50</td>
+<td align="center">0.25</td>
+</tr>
+</tbody>
+</table>
+<p>From the pdf, we can easily see that the probabilities of all possible values of a discrete random variable add up to 1.</p>
+<p><span class="math display">\[ \sum \mbox{P}(X=x)=1  \]</span></p>
+<p>We can use a histogram (See Figure[Two Coin Toss pdf]) to visualize the pdf where</p>
+<ul>
+<li><p>the possible outcomes for the random variable <span class="math inline">\(X\)</span> are placed on the horizontal axis,</p></li>
+<li><p>the probabilities for the possible outcomes are placed on the vertical axis, and</p></li>
+<li><p>a bar is centered on each possible value and its height is equal to the probability of that value.</p></li>
+</ul>
+<div class="figure"><span id="fig:twocointosspdf"></span>
+<img src="bookdown-demo_files/figure-html/twocointosspdf-1.png" alt="Two Coin Toss pdf:  The probability distribution function, in histogram form, for a two coin toss." width="672" />
+<p class="caption">
+Figure 7.1: Two Coin Toss pdf: The probability distribution function, in histogram form, for a two coin toss.
+</p>
+</div>
+<p>We can use the pdf and the histogram of the two coin toss example to calculate probabilities.</p>
+<p><strong>Example:</strong> <span class="math inline">\(\mbox{P}(X = 1)=0.5\)</span>. This is the probability of tossing <em>exactly</em> 1 head in two tosses of a fair coin. This corresponds to the area of the pink rectangle in the histogram shown below. See Figure[Exactly 1 Head].</p>
+<div class="figure"><span id="fig:twocointossx1"></span>
+<img src="bookdown-demo_files/figure-html/twocointossx1-1.png" alt="Exactly 1 Head:  The shaded region of the pdf represents the probability of tossing exactly 1 head in two tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.2: Exactly 1 Head: The shaded region of the pdf represents the probability of tossing exactly 1 head in two tosses of a fair coin.
+</p>
+</div>
+<p><strong>Example:</strong> <span class="math inline">\(\mbox{P}(X\geq 1)=0.5+0.25=0.75\)</span>. This is the probability of tossing <em>at least</em> 1 head in two tosses of a fair coin. <em>At least</em> 1 head means that you toss 1 head <strong>OR</strong> 2 heads. In two tosses of a fair coin, the chance that you will toss 1 head is 0.5 and the chance that you will toss 2 heads is 0.25. So the likelihood that you will toss 1 <strong>OR</strong> 2 heads is 0.5 + 0.25 = 0.75. This corresponds to summing the area of the pink rectangles in the histogram shown below. See Figure[At Least 1 Head].</p>
+<div class="figure"><span id="fig:twocointossxatleast1"></span>
+<img src="bookdown-demo_files/figure-html/twocointossxatleast1-1.png" alt="At Least 1 Head:  The shaded region of the pdf represents the probability of tossing at least 1 head in two tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.3: At Least 1 Head: The shaded region of the pdf represents the probability of tossing at least 1 head in two tosses of a fair coin.
+</p>
+</div>
+<p><strong>Example:</strong> <span class="math inline">\(\mbox{P}(X \leq 1)=0.25 +0.5=0.75\)</span>. This is the probability of tossing <em>at most</em> 1 head in two tosses of a fair coin. <em>At most</em> one head means that we toss 0 heads <strong>OR</strong> 1 head. In two tosses of a fair coin, the chance that you will toss 0 heads is 0.25 and the chance that you will toss 1 head is 0.5. So the likelihood that you will toss 0 <strong>OR</strong> 1 head is 0.25 + 0.5 = 0.75. This is called a <strong>cumulative probability</strong> - it’s the probability that a random variable is less than or equal to some value. This corresponds to summing the area of the pink rectangles in the histogram shown below. See Figure[At Most 1 Head].</p>
+<div class="figure"><span id="fig:twocointossxatmost1"></span>
+<img src="bookdown-demo_files/figure-html/twocointossxatmost1-1.png" alt="At Most 1 Head:  The shaded region of the pdf represents the probability of tossing at most 1 head in two tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.4: At Most 1 Head: The shaded region of the pdf represents the probability of tossing at most 1 head in two tosses of a fair coin.
+</p>
+</div>
+</div>
+<div id="expectation-of-discrete-random-variables" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Expectation of Discrete Random Variables</h3>
+<p>So far, we have talked about the possible values that a random variable might be. We have also talked about the probability, or chance, that the random variable equals one of those values. Some of the possible values for a random variable are <em>more likely</em> than others. This prompts the question: In the long run, what value do we <strong>expect</strong> the random variable to be?</p>
+<p>Let’s return to our two coin toss and recap what we know.</p>
+<ul>
+<li><p>If our random variable <span class="math inline">\(X=\mbox{number of heads tossed in two tosses of a fair coin}\)</span>, then the <em>possible</em> values for <span class="math inline">\(X\)</span> are {0, 1, 2}.</p></li>
+<li><p>We’ve also found that <span class="math inline">\(X\)</span> is more likely to be 1 than it is to be 0 or 2.</p></li>
+<li><p>So, if we repeated the two coin toss over and over again, we would <em>expect</em> to see <span class="math inline">\(X=1\)</span> more often than <span class="math inline">\(X=0\)</span> or <span class="math inline">\(X=2\)</span>.</p></li>
+</ul>
+<dl>
+<dt>Expected Value</dt>
+<dd><p>The <em>expected value</em> of a random variable <span class="math inline">\(X\)</span> is the value of <span class="math inline">\(X\)</span> that we would expect to see if we repeated our experiment many times.</p>
+</dd>
+</dl>
+<p>Expected value is like an <em>average</em>, of sorts. In fact, it’s a <em>weighted</em> average. Each possible value of <span class="math inline">\(X\)</span> is weighted by the likelihood that <span class="math inline">\(X\)</span> is that value. The expected value of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mbox{E}(X)\)</span>, can be calculated by the formula.</p>
+<p><span class="math display">\[\mbox{E}(X)=\sum x\cdot \mbox{P}(X=x)\]</span></p>
+<p>Step by step, this is:</p>
+<ul>
+<li>Multiply every possible value for <span class="math inline">\(X\)</span> by it’s corresponding probability.</li>
+<li>Sum these products.</li>
+</ul>
+<p>For our two coin toss example, the expected value of <span class="math inline">\(X\)</span> can be found with the following R code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>) <span class="co">#Possible values for X.</span>
+prob.x&lt;-<span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co">#Corresponding probabilities </span>
+EV.X&lt;-<span class="kw">sum</span>(x*prob.x) <span class="co">#Expected Value of X.</span>
+EV.X</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>It turns out that <span class="math inline">\(\mbox{E}(X)=\)</span> 1, exactly as we had thought!</p>
+</div>
+<div id="standard-deviation-of-discrete-random-variables" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> Standard Deviation of Discrete Random Variables</h3>
+<p>Another measure that we are interested in is the <em>standard deviation</em> for random variables.</p>
+<dl>
+<dt>Standard Deviation</dt>
+<dd><p>The <em>standard deviation</em> is a measurement of how much the random variable random variable can be expected to differ from its expected value.</p>
+</dd>
+</dl>
+<p>In other words, if we repeat an experiment over and over, the standard deviation of a random variable is the average distance that it will fall from its expected value. Of course, this average is <em>weighted</em> by the probabilities. The standard deviation of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mbox{SD}(X)\)</span>, can be calculated by the formula.</p>
+<p><span class="math display">\[\mbox{SD}(X)=\sqrt{\sum \bigg(x-\mbox{E}(X)\bigg)^2\cdot \mbox{P}(X=x)}\]</span></p>
+<p>Step by step, this is:</p>
+<ul>
+<li>Calculate the difference between each of the possible values for <span class="math inline">\(X\)</span> and the expected value for <span class="math inline">\(X\)</span>.<br />
+</li>
+<li>Square these differences.<br />
+</li>
+<li>Multiply the squared differences by the probability that <span class="math inline">\(X\)</span> equals that value.</li>
+<li>Sum these products.</li>
+<li>Take the square root.</li>
+</ul>
+<p>For our two coin toss example, the standard deviation of <span class="math inline">\(X\)</span> can be found with the following R code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>) <span class="co">#Possible values for X.</span>
+prob.x&lt;-<span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co">#Corresponding probabilities.</span>
+EV.X&lt;-<span class="kw">sum</span>(x*prob.x) <span class="co">#Expected value of X.  </span>
+SD.X&lt;-<span class="kw">sqrt</span>(<span class="kw">sum</span>((x-EV.X)^<span class="dv">2</span>*prob.x)) <span class="co">#Standard deviation of X.  </span>
+SD.X</code></pre></div>
+<pre><code>## [1] 0.7071068</code></pre>
+<p>So, if we toss a fair coin two times, the number of heads that we would expect to toss is 1. On average, the number of heads will differ from 1 by 0.7071068.</p>
+</div>
+<div id="using-ev-and-sd-to-evaluate-a-game" class="section level3">
+<h3><span class="header-section-number">7.4.4</span> Using EV and SD to Evaluate a Game</h3>
+<p>The <strong>expected value</strong> and <strong>standard deviation</strong> work together to describe how a random variable is <em>likely</em> to turn out. This comes in handy for situations like the following example.</p>
+<p><strong>Example:</strong> Suppose that you decide to invest $100 in a scheme that will hopefully make you some money. You have 2 investment options, Plan 1 and Plan 2. Let the random variable <span class="math inline">\(X=\mbox{net gain from Plan 1}\)</span> and the random variable <span class="math inline">\(Y=\mbox{net gain from Plan 2}\)</span>. The probability distribution functions for the plans are shown below.</p>
+<p><strong>Plan 1</strong>:</p>
+<table>
+<caption>Probability Distribution Function for Investment Plan 1</caption>
+<thead>
+<tr class="header">
+<th align="center">x</th>
+<th align="center">$5,000</th>
+<th align="center">$1,000</th>
+<th align="center">$0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(P(X=x)\)</span></td>
+<td align="center">0.001</td>
+<td align="center">0.005</td>
+<td align="center">0.994</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plan 2</strong>:</p>
+<table>
+<caption>Probability Distribution Function for Investment Plan 2</caption>
+<thead>
+<tr class="header">
+<th align="center">y</th>
+<th align="center">$20</th>
+<th align="center">$10</th>
+<th align="center">$4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(P(Y=y)\)</span></td>
+<td align="center">0.30</td>
+<td align="center">0.20</td>
+<td align="center">0.50</td>
+</tr>
+</tbody>
+</table>
+<p>Which plan do you choose? Plan 1 is the riskier plan. You have a chance to get rich off of your investment, but it’s also very likely that will gain nothing! On the other hand, Plan 2 is a safe plan. You won’t get rich, but you are <em>guaranteed</em> to gain some money.</p>
+<p>Putting personal desires aside, let’s think about this mathematically by calculating the expected value of each plan.</p>
+<p>*Coding <a href="Tip:*" class="uri">Tip:*</a> Since we want to calculate the expected value for 2 different random variables, it’s a good idea to name these variables something slightly different. This helps to keep track of which random variable we’re talking about.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#EV Plan 1</span>
+x1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">5000</span>, <span class="dv">1000</span>, <span class="dv">0</span>)
+prob.x1 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.001</span>, <span class="fl">0.005</span>, <span class="fl">0.994</span>)
+EV.X1 =<span class="st"> </span><span class="kw">sum</span>(x1 *<span class="st"> </span>prob.x1)
+EV.X1</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#EV Plan 2</span>
+x2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">4</span>)
+prob.x2 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.50</span>)
+EV.X2 =<span class="st"> </span><span class="kw">sum</span>(x2 *<span class="st"> </span>prob.x2)
+EV.X2</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>The expected amount of money you gain from investing in Plan 1 is $10. So, if you could invest your $100 in Plan 1 over and over again, on average you would walk away with a net gain of $10.</p>
+<p>The expected gain from investing in Plan 2 is also $10. So, if you could invest your $100 in Plan 2 over and over again, on average you would also have a net gain of $10.</p>
+<p>Based on expected values, it seems that the plans are the same! Before you get too excited and invest all of your money in the plan with the highest possible reward, let’s compare the standard deviations. This will give us an idea about how much the net gain for each plan will differ, on average, from the expected value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SD Plan 1</span>
+x1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">5000</span>, <span class="dv">1000</span>, <span class="dv">0</span>)
+prob.x1 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.001</span>, <span class="fl">0.005</span>, <span class="fl">0.994</span>)
+EV.X1 =<span class="st"> </span><span class="kw">sum</span>(x1 *<span class="st"> </span>prob.x1)
+SD.X1=<span class="kw">sqrt</span>(<span class="kw">sum</span>((x1-EV.X1)^<span class="dv">2</span>*prob.x1))
+SD.X1</code></pre></div>
+<pre><code>## [1] 172.9162</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SD Plan 2</span>
+x2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">4</span>)
+prob.x2 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.50</span>)
+EV.X2 =<span class="st"> </span><span class="kw">sum</span>(x2 *<span class="st"> </span>prob.x2)
+SD.X2=<span class="kw">sqrt</span>(<span class="kw">sum</span>((x2-EV.X2)^<span class="dv">2</span>*prob.x2))
+SD.X2</code></pre></div>
+<pre><code>## [1] 6.928203</code></pre>
+<p>Now, we have a better idea of how <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are likely to turn out!</p>
+<ul>
+<li><p>The net gain for Plan 1, <span class="math inline">\(X\)</span>, has an expected value of $10 with a standard deviation of $172.92.</p></li>
+<li><p>The net gain for Plan 2, <span class="math inline">\(Y\)</span>, has an expected value of $10 with a standard deviation of $6.93.</p></li>
+</ul>
+<p>Knowing all of this, which plan would you choose?</p>
+</div>
+<div id="independence" class="section level3">
+<h3><span class="header-section-number">7.4.5</span> Independence</h3>
+<dl>
+<dt>Independence</dt>
+<dd><p>Two events are considered <em>independent</em> if the outcome of one event does not affect the outcome of the other.</p>
+</dd>
+</dl>
+<p>Suppose that we draw two cards from a standard 52-card deck. We want to know the probability of drawing a Jack.</p>
+<p>If we draw the cards <em>with replacement</em>, then we draw a card from the deck, record the result, and replace the card before we draw again. In other words, we return the deck to it’s original state before drawing the second card. This ensures that the probability of drawing a Jack on the first try is the same as the probability of drawing a Jack on the second try.</p>
+<p><span class="math inline">\(\mbox{P(first draw is a Jack)}=\frac{4}{52}\)</span> and <span class="math inline">\(\mbox{P(second draw is a Jack)}=\frac{4}{52}\)</span>. The outcome of our first try did not affect the outcome of our second try. Drawing with replacement makes our two draws <em>independent</em>.</p>
+<p>On the other hand, if we draw the cards <em>without replacement</em>, then we do not return the first card to the deck before drawing the second card. The first draw is as before, so <span class="math inline">\(\mbox{P(first draw is a Jack)}=\frac{4}{52}\)</span>. However, now the state of the deck has been changed, so the chance of drawing a Jack on the second try <em>depends</em> on what happened on the first try.</p>
+<p>If our first draw was a Jack, then the deck is left with only 3 Jacks out of 51 total cards. So, <span class="math inline">\(\mbox{P(second draw is a Jack given that the first draw was a Jack)}=\frac{3}{51}\)</span>.</p>
+<p>If our first draw was not a Jack, then the deck is left with 4 Jacks out of 51 total cards. So, <span class="math inline">\(\mbox{P(second draw is a Jack given that the first draw was not a Jack)}=\frac{4}{51}\)</span>. Drawing without replacement makes our two draws <em>dependent</em>.</p>
+</div>
+<div id="a-special-discrete-random-variable-binomial-random-variable" class="section level3">
+<h3><span class="header-section-number">7.4.6</span> A Special Discrete Random Variable: Binomial Random Variable</h3>
+<p>The coin toss example that we have been looking at is actually an example of a special type of discrete random variable called a <em>binomial random variable</em>.</p>
+<dl>
+<dt>Binomial Random Variable</dt>
+<dd><p>A <em>binomial random variable</em> is a random variable that counts how often a particular event occurs in a specified number of tries.</p>
+</dd>
+</dl>
+<p>To be a <em>binomial random variable</em>, a random variable must meet all of the following conditions:</p>
+<ol style="list-style-type: decimal">
+<li>There are a specified number of tries. This is sometimes referred to as “size”.</li>
+<li>On each try, the event of interest either occurs or it does not. In other words, we have a <em>success</em> or a <em>failure</em> on each try.</li>
+<li>The probability of success is the same on each try. (We will denote the probability of success as <span class="math inline">\(p\)</span>. In each trial, you will either succeed or you will fail, so the probability of failure will be the <em>complement</em> of a success: <span class="math inline">\(1-p\)</span>.)</li>
+<li>The tries are independent of one another.</li>
+</ol>
+<p>Let’s revisit the two coin toss example using the language of a binomial random variable. Suppose we toss a fair coin twice and let the random variable <span class="math inline">\(X=\mbox{number of heads tossed}\)</span>. This is a binomial random variable because it fits the 4 conditions:</p>
+<ul>
+<li>Since we are tossing the coin twice, the specified number of trials, or size, is <span class="math inline">\(n=2\)</span>.</li>
+<li>Each toss is either heads (<em>success</em>) or tails (<em>failure</em>). Since it is a fair coin, the probability of success is <span class="math inline">\(p=0.5\)</span> and the probability of failure is <span class="math inline">\(1-p=1-0.5=0.5\)</span>.</li>
+<li>The chance of tossing a head is the same on each toss of the coin.</li>
+<li>The trials are <strong>independent</strong>. What you tossed on the first toss does not affect what happens on the second toss.</li>
+</ul>
+<p>Let’s try another example.</p>
+<p><strong>Example:</strong> Suppose we toss a fair coin 5 times. Let the random variable <span class="math inline">\(X=\mbox{number of tails tossed}\)</span>. This is a binomial random variable:</p>
+<ul>
+<li>Since we are tossing the coin five time, the specified number of trials, or size, is <span class="math inline">\(n=5\)</span>.</li>
+<li>Each toss is either heads (<em>success</em>) or tails (<em>failure</em>). Since it is a fair coin, the probability of success is <span class="math inline">\(p=0.5\)</span> and the probability of failure is <span class="math inline">\(1-p=1-0.5=0.5\)</span>.</li>
+<li>The chance of tossing a head is the same on each toss of the coin.</li>
+<li>The trials are <strong>independent</strong>.</li>
+</ul>
+<p>Listing out the sample space, and calculating probabilities from it, for a five-coin toss would be rather tedious. There is a function in <code>tigerstats</code> that calculates these probabilities (and produces graphs of the pdf) for us. Let’s calculate a few probabilities using this function <code>pbinomGC</code>.</p>
+<div id="mboxpx-2" class="section level4">
+<h4><span class="header-section-number">7.4.6.1</span> <span class="math inline">\(\mbox{P}(X&gt; 2)\)</span></h4>
+<p>We will start by calculating <span class="math inline">\(\mbox{P}(X&gt; 2)\)</span>. To use <code>pbinomGC</code> we need to supply several inputs:</p>
+<ul>
+<li>The <em>bound</em> - for our example, the bound is 2</li>
+<li>The <em>region</em> - this is given by the sign in the probability. For our example, we are dealing with &gt;, so our region is <code>&quot;above&quot;</code>. Other options for the region are <code>&quot;above&quot;</code>, <code>&quot;below&quot;</code>, and <code>&quot;outside&quot;</code>.</li>
+<li>The <em>size</em> - for our example, the number of trials is <span class="math inline">\(n=5\)</span>.</li>
+<li>The <em>prob</em>ability of success - for our example, <span class="math inline">\(p=0.5\)</span>.</li>
+<li>Whether or not you want to display a graph of the probability. The default of this function is to not produce a graph. If you would like to see one, you should include <code>graph=TRUE</code>.</li>
+</ul>
+<p>Let’s compute <span class="math inline">\(\mbox{P}(X&gt; 2)\)</span> and view a graph of the probability. See Figure[Binomial Greater Than].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="dv">2</span>,<span class="dt">region=</span><span class="st">&quot;above&quot;</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:binomgreaterthan"></span>
+<img src="bookdown-demo_files/figure-html/binomgreaterthan-1.png" alt="Binomial Greater Than:  Shaded region represents the probability that more than 2 heads are tossed in 5 tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.5: Binomial Greater Than: Shaded region represents the probability that more than 2 heads are tossed in 5 tosses of a fair coin.
+</p>
+</div>
+<pre><code>## [1] 0.5</code></pre>
+<p>To just find the probability without producing the graph:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="dv">2</span>,<span class="dt">region=</span><span class="st">&quot;above&quot;</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>)</code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>So, in five tosses of a fair coin, the probability of tossing more than 2 heads is <span class="math inline">\(\mbox{P}(X&gt;2)=\)</span> 0.5.</p>
+</div>
+<div id="mboxpxgeq-2" class="section level4">
+<h4><span class="header-section-number">7.4.6.2</span> <span class="math inline">\(\mbox{P}(X\geq 2)\)</span></h4>
+<p>Now, suppose you want to know <span class="math inline">\(P(X\geq 2)\)</span>. Since the possible values for <span class="math inline">\(X\)</span> are {0,1,2, 3, 4, 5}, <span class="math inline">\(X\geq 2\)</span> is the same as <span class="math inline">\(X&gt; 1\)</span>. The following code will calculate <span class="math inline">\(P(X&gt;1)\)</span>. Look at the graph in Figure[Binomial Greater Than or Equal].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="dv">1</span>, <span class="dt">region=</span><span class="st">&quot;above&quot;</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>, <span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:binomgreaterthanequal"></span>
+<img src="bookdown-demo_files/figure-html/binomgreaterthanequal-1.png" alt="Binomial Greater Than or Equal:  Shaded region represents the probability that at least 2 heads are tossed in 5 tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.6: Binomial Greater Than or Equal: Shaded region represents the probability that at least 2 heads are tossed in 5 tosses of a fair coin.
+</p>
+</div>
+<pre><code>## [1] 0.8125</code></pre>
+<p>Thus, the probability of tossing at least 2 heads is <span class="math inline">\(\mbox{P}(X\geq 2)=\)</span> 0.8125</p>
+</div>
+<div id="mboxpxleq-3" class="section level4">
+<h4><span class="header-section-number">7.4.6.3</span> <span class="math inline">\(\mbox{P}(X\leq 3)\)</span></h4>
+<p>Now, let’s look at finding the probability that there are at most than 3 heads in five tosses of a fair coin. See Figure[Binomial Less Than or Equal].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="dv">3</span>,<span class="dt">region=</span><span class="st">&quot;below&quot;</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:binomlessthanequal"></span>
+<img src="bookdown-demo_files/figure-html/binomlessthanequal-1.png" alt="Binomial Less Than or Equal:  Shaded region represents the probability that at most 3 heads are tossed in 5 tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.7: Binomial Less Than or Equal: Shaded region represents the probability that at most 3 heads are tossed in 5 tosses of a fair coin.
+</p>
+</div>
+<pre><code>## [1] 0.8125</code></pre>
+<p>Thus, <span class="math inline">\(\mbox{P}(X\leq 3)=\)</span> 0.8125.</p>
+</div>
+<div id="mboxpx-3" class="section level4">
+<h4><span class="header-section-number">7.4.6.4</span> <span class="math inline">\(\mbox{P}(X&lt; 3)\)</span></h4>
+<p>Now, let’s look at finding the probability that there are less than 3 heads in five tosses of a fair coin. Note that for a binomial random variable, <span class="math inline">\(X&lt;3\)</span> is the same as <span class="math inline">\(X\leq 2\)</span>. See Figure[Binomial Less Than or Equal].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="dv">2</span>,<span class="dt">region=</span><span class="st">&quot;below&quot;</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:binomlessthan"></span>
+<img src="bookdown-demo_files/figure-html/binomlessthan-1.png" alt="Binomial Less Than:  Shaded region represents the probability that there are less than 3 heads are tossed in 5 tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.8: Binomial Less Than: Shaded region represents the probability that there are less than 3 heads are tossed in 5 tosses of a fair coin.
+</p>
+</div>
+<pre><code>## [1] 0.5</code></pre>
+<p>Thus, <span class="math inline">\(\mbox{P}(X\leq 3)=\)</span> 0.8125.</p>
+</div>
+<div id="mboxp2leq-xleq-4" class="section level4">
+<h4><span class="header-section-number">7.4.6.5</span> <span class="math inline">\(\mbox{P}(2\leq X\leq 4)\)</span></h4>
+<p>Say we are interested in finding the probability of tossing at least 2 but not more than 4 heads in five tosses of a fair coin, <span class="math inline">\(\mbox{P}(2\leq X\leq 4)\)</span>. Put another way, this is the probability of tossing 2, 3, or 4 heads in five tosses of a fair coin. See Figure [Binomial Between].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:binomialbetween"></span>
+<img src="bookdown-demo_files/figure-html/binomialbetween-1.png" alt="Binomial Between:  Shaded region represents the probability that at least 2 but at most 4 heads are tossed in 5 tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.9: Binomial Between: Shaded region represents the probability that at least 2 but at most 4 heads are tossed in 5 tosses of a fair coin.
+</p>
+</div>
+<pre><code>## [1] 0.78125</code></pre>
+<p>Thus, <span class="math inline">\(\mbox{P}(1\leq X\leq 4)=\)</span> 0.78125.</p>
+</div>
+<div id="mboxpx2" class="section level4">
+<h4><span class="header-section-number">7.4.6.6</span> <span class="math inline">\(\mbox{P}(X=2)\)</span></h4>
+<p>Finally, suppose we want to find the probability of tossing exactly 2 heads in five tosses of a fair coin. See Figure[Binomial Equal].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinomGC</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>, <span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span><span class="fl">0.5</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:binomialequal"></span>
+<img src="bookdown-demo_files/figure-html/binomialequal-1.png" alt="Binomial Equal:  Shaded region represents the probability that exactly 2 heads are tossed in 5 tosses of a fair coin." width="672" />
+<p class="caption">
+Figure 7.10: Binomial Equal: Shaded region represents the probability that exactly 2 heads are tossed in 5 tosses of a fair coin.
+</p>
+</div>
+<pre><code>## [1] 0.3125</code></pre>
+<p>So, <span class="math inline">\(\mbox{P}(X=2)=\)</span> 0.3125.</p>
+</div>
+<div id="expected-value-and-standard-deviation-for-a-binomial-random-variable" class="section level4">
+<h4><span class="header-section-number">7.4.6.7</span> Expected Value and Standard Deviation for a Binomial Random Variable</h4>
+<p>Although expected value and standard deviation can be calculated for binomial random variables the same way as we did before, there are nice formulas that make the calculation easier!</p>
+<p>For a binomial random variable, <span class="math inline">\(X\)</span>, based on <span class="math inline">\(n\)</span> independent trials with probability of success <span class="math inline">\(p\)</span>,</p>
+<ul>
+<li>the expected value is <span class="math inline">\(EV(X)=n\cdot p\)</span></li>
+<li>the standard deviation is <span class="math inline">\(SD(X)=\sqrt{n\cdot p\cdot (1-p)}\)</span>.</li>
+</ul>
+<p><strong>Example:</strong> Let’s compute the expected value for the random variable <span class="math inline">\(X=\mbox{ number of heads tossed}\)</span> in the five coin toss example.</p>
+<p>The expected value, <span class="math inline">\(EV(X)=5 \cdot 0.5 = 2.5\)</span>. Using R,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span>*<span class="fl">0.5</span></code></pre></div>
+<pre><code>## [1] 2.5</code></pre>
+<p>The standard deviation, <span class="math inline">\(SD(X) =\sqrt{5\cdot 0.5\cdot (1-0.5)}= 1.118034\)</span>. Using R,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">5</span>*<span class="fl">0.5</span>*(<span class="dv">1</span><span class="fl">-0.5</span>))</code></pre></div>
+<pre><code>## [1] 1.118034</code></pre>
+</div>
+</div>
+</div>
+<div id="continuous-random-variables" class="section level2">
+<h2><span class="header-section-number">7.5</span> Continuous Random Variables</h2>
+<dl>
+<dt>Continuous Random Variables</dt>
+<dd><p>A <em>continuous random variable</em> is a random variable whose possible values come from a range of real numbers, with no smallest difference between values.</p>
+</dd>
+</dl>
+<p><strong>Example</strong>: If you let <span class="math inline">\(X\)</span> be the height in inches of a randomly selected person, then <span class="math inline">\(X\)</span> is a continuous random variables. That’s because there is no smallest possible difference between thow heights: two people could be an differ by one inch, 0.1 inches, 0.001 inches, and so on.</p>
+<p><strong>Non-Example</strong>: If you let <span class="math inline">\(X\)</span> be the number of shoes a randomly-selected person owns, then <span class="math inline">\(X\)</span> is not a continuous random variable. After all, there is a smallest difference between two values of <span class="math inline">\(X\)</span>: one person can have two shoes and another could have three, but nobody can have any value in between, such as 2.3 shoes!</p>
+<p><strong>Note</strong>: For a <em>discrete</em> random variable, <span class="math inline">\(X\)</span>, we could find the following types of probabilities:</p>
+<ul>
+<li><span class="math inline">\(P(X=x)\)</span></li>
+<li><span class="math inline">\(P(X\leq x)\)</span></li>
+<li><span class="math inline">\(P(X &lt; x)\)</span></li>
+<li><span class="math inline">\(P(X\geq x)\)</span></li>
+<li><span class="math inline">\(P(X&gt;x)\)</span></li>
+<li><span class="math inline">\(P(a\leq X\leq x)\)</span></li>
+</ul>
+<p>For a <em>continuous</em> random variable, <span class="math inline">\(X\)</span>, we can only find the following types of probabilities:</p>
+<ul>
+<li><span class="math inline">\(P(X\leq x)\)</span></li>
+<li><span class="math inline">\(P(X &lt; x)\)</span></li>
+<li><span class="math inline">\(P(X\geq x)\)</span></li>
+<li><span class="math inline">\(P(X&gt;x)\)</span></li>
+<li><span class="math inline">\(P(a\leq X\leq x)\)</span></li>
+</ul>
+<p>In other words, we were able to find the probability that a discrete random variable took on an <em>exact</em> value. We can only find the probablity that a continuous random variable falls in some <em>range</em> of values. Since we cannot find the probability that a continuous random variable equals an <em>exact</em> value, the following probabilities are the same for continuous random variables:</p>
+<ul>
+<li><span class="math inline">\(P(X\leq x)=P(X &lt; x)\)</span></li>
+<li><span class="math inline">\(P(X\geq x)=P(X&gt;x)\)</span></li>
+<li><span class="math inline">\(P(a \leq X \leq x)=P(a &lt; X &lt; b)=P(a \leq X &lt; b)=P(a &lt; X\leq b)\)</span></li>
+</ul>
+<div id="probability-density-functions-for-continuous-random-variables" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Probability Density Functions for Continuous Random Variables</h3>
+<p>For <em>discrete</em> random variables, we used the <strong>probability distribution function (pdf)</strong> to find probabilities. The <strong>pdf</strong> for a discrete random variable was a table or a histogram.</p>
+<p>For <em>continuous</em> random variables, we will use the <strong>probability density function (pdf)</strong> to find probabilities. The <strong>pdf</strong> for a continous random variable is a smooth curve.</p>
+<p>The best way to get an idea of how this works is to examine an example of a continous random variable.</p>
+</div>
+<div id="a-special-continuous-random-variable-normal-random-variable" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> A Special Continuous Random Variable: Normal Random Variable</h3>
+<p>The only special type of continuous random variable that we will be looking at in this class is a <strong>normal random variable</strong>. There are many other continuous random variables, but normal random variables are the most commonly used continuous random variable.</p>
+<blockquote>
+<p>A <strong>normal random variable</strong>, <span class="math inline">\(X\)</span></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>is said to have a <strong>normal distribution</strong>,</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>is completely characterized by it’s mean, <span class="math inline">\(EV(X)=\mu\)</span>, and it’s standard deviation, <span class="math inline">\(SD(X)=\sigma\)</span>, (These are the symbols that were introduced in Chapter 5.)</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>has a probability density function (pdf) that is bell-shaped, or symmetric. The pdf is called a <strong>normal curve</strong>. An example of this curve is shown in Figure[Normal Curve].</li>
+</ul>
+</blockquote>
+<div class="figure"><span id="fig:normalcurve"></span>
+<img src="bookdown-demo_files/figure-html/normalcurve-1.png" alt="Normal Curve" width="672" />
+<p class="caption">
+Figure 7.11: Normal Curve
+</p>
+</div>
+<p>Here is an important special type of normal random variable:</p>
+<dl>
+<dt>Standard Normal Random Variable</dt>
+<dd><p>A normal random variables with mean, <span class="math inline">\(\mu=0\)</span>, and standard deviation, <span class="math inline">\(\sigma=1\)</span> is called a <em>standard normal random variable</em>.</p>
+</dd>
+</dl>
+<p>The following is a list of features of a normal curve.</p>
+<ul>
+<li><p>Centered at the mean, <span class="math inline">\(\mu\)</span>. Since it is bell-shaped, the curve is symmetric about the mean.</p></li>
+<li><p><span class="math inline">\(P(X\leq \mu)=0.5\)</span>. Likewise, <span class="math inline">\(P(X\geq \mu)=0.5\)</span>.</p></li>
+<li>Normal Random Variables follow the <strong>68-95 Rule</strong> (also called the <strong>Empirical Rule</strong>)
+<ul>
+<li><p>The probability that a random variable is within one standard deviation of the mean is about 68%. This can be written: <span class="math display">\[P(\mu-\sigma&lt; X &lt; \mu+\sigma)\approx 0.68\]</span></p></li>
+<li><p>The probability that a random variable is within two standard deviations of the mean is about 95%. This can be written: <span class="math display">\[P(\mu-2\sigma&lt; X &lt; \mu+2\sigma)\approx 0.95\]</span></p></li>
+<li><p>The probability that a random variable is within three standard deviations of the mean is about 99.7%. This can be written: <span class="math display">\[P(\mu-3\sigma&lt; X &lt; \mu+3\sigma)\approx 0.997\]</span></p></li>
+</ul></li>
+</ul>
+<p><strong>Example</strong>: Suppose that the distribution of the heights of college males follow a normal distribution with mean <span class="math inline">\(\mu=72\)</span> inches and standard deviation <span class="math inline">\(\sigma=3.1\)</span> inches. Let the random variable <span class="math inline">\(X=\mbox{heights of college males}\)</span>. We can approximate various probabilities using the 68-95 Rule.</p>
+<ul>
+<li>About 95% of males are between what two heights?<br />
+P(________ &lt; <span class="math inline">\(X\)</span> &lt; ________) <span class="math inline">\(\approx\)</span> 0.95</li>
+</ul>
+<blockquote>
+<p><strong>Answer</strong>: We can determine this using the second statement of the 68-95 Rule. The two heights we are looking for are:</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">72-2</span>*<span class="fl">3.1</span></code></pre></div>
+<pre><code>## [1] 65.8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">72+2</span>*<span class="fl">3.1</span></code></pre></div>
+<pre><code>## [1] 78.2</code></pre>
+<blockquote>
+<p>So, P(65.8 &lt; <span class="math inline">\(X\)</span> &lt; 78.2) <span class="math inline">\(\approx\)</span> 0.95. See Figure[68-95 Rule Between 65.8 and 78.2].</p>
+</blockquote>
+<div class="figure"><span id="fig:emprule2"></span>
+<img src="bookdown-demo_files/figure-html/emprule2-1.png" alt="68-95 Rule Between 65.8 and 78.2:  The shaded part of this graph is the percentage of college males that are between 65.8 inches and 78.2 inches tall." width="432" />
+<p class="caption">
+Figure 7.12: 68-95 Rule Between 65.8 and 78.2: The shaded part of this graph is the percentage of college males that are between 65.8 inches and 78.2 inches tall.
+</p>
+</div>
+<ul>
+<li>About what percentage of males are less than 65.8 inches tall?<br />
+P(<span class="math inline">\(X\)</span> &lt; 65.8) <span class="math inline">\(\approx\)</span> _________</li>
+</ul>
+<blockquote>
+<p><strong>Answer</strong>: We know that 65.8 is two standard deviations below the mean. We also know that about 95% of males are between 65.8 and 78.2 inches tall. This means that about 5% of males are either shorter than 65.8 inches or taller than 78.2 inches. Since a normal curve is symmetric, then 2.5% of males are shorter than 65.8 inches and 2.5% of males are taller than 78.2 inches.</p>
+</blockquote>
+<blockquote>
+<p>So, P(<span class="math inline">\(X\)</span> &lt; 65.8) <span class="math inline">\(\approx\)</span> 2.5%. See Figure[68-95 Rule Below 65.8].</p>
+</blockquote>
+<div class="figure"><span id="fig:emprule2lefttail"></span>
+<img src="bookdown-demo_files/figure-html/emprule2lefttail-1.png" alt="68-95 Rule Below 65.8:  The shaded part of this graph is the percentage of college males that are shorter than 65.8 inches." width="432" />
+<p class="caption">
+Figure 7.13: 68-95 Rule Below 65.8: The shaded part of this graph is the percentage of college males that are shorter than 65.8 inches.
+</p>
+</div>
+<ul>
+<li>About what percentage of males are more than 65.8 inches tall? P(<span class="math inline">\(X\)</span> &gt; 65.8) <span class="math inline">\(\approx\)</span> _____________</li>
+</ul>
+<blockquote>
+<p><strong>Answer</strong>: Since about 2.5% of males are shorter than 65.8 inches, then 100%-2.5%=97.5% of males are taller than 65.8 inches.</p>
+</blockquote>
+<blockquote>
+<p>So, P(<span class="math inline">\(X\)</span> &gt; 65.8) <span class="math inline">\(\approx\)</span> 97.5%. See Figure [68-95 Rule Above 65.8].</p>
+</blockquote>
+<div class="figure"><span id="fig:emprule2righttail"></span>
+<img src="bookdown-demo_files/figure-html/emprule2righttail-1.png" alt="68-95 Rule Above 65.8:  The shaded part of this graph is the percentage of college males that are taller than 65.8 inches." width="432" />
+<p class="caption">
+Figure 7.14: 68-95 Rule Above 65.8: The shaded part of this graph is the percentage of college males that are taller than 65.8 inches.
+</p>
+</div>
+<p>We can see the 68-95 Rule in action using the following app. You may find this app useful for various problems throughout the semester. All you have to do is change the mean and standard deviation to match the problem you are working on.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">EmpRuleGC</span>(<span class="dt">mean=</span><span class="dv">72</span>,<span class="dt">sd=</span><span class="fl">3.1</span>, <span class="dt">xlab=</span><span class="st">&quot;Heights (inches)&quot;</span>)</code></pre></div>
+<p>There is a function in R, similar to the one we used for binomial probability, that we can us to calculate probabilities other than those that are apparent from the 68-95 Rule. The <code>pnormGC</code> function will do this for you.</p>
+<p>P<span class="math inline">\((X&gt;70.9)\)</span> can be found using the following code. See Figure[Normal Greater Than].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnormGC</span>(<span class="fl">70.9</span>,<span class="dt">region=</span><span class="st">&quot;above&quot;</span>, <span class="dt">mean=</span><span class="dv">72</span>,<span class="dt">sd=</span><span class="fl">3.1</span>, <span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:normalgreater"></span>
+<img src="bookdown-demo_files/figure-html/normalgreater-1.png" alt="Normal Greater Than:  The area of the shaded region is the percentage of males that are taller than 70.9 inches." width="672" />
+<p class="caption">
+Figure 7.15: Normal Greater Than: The area of the shaded region is the percentage of males that are taller than 70.9 inches.
+</p>
+</div>
+<pre><code>## [1] 0.6386448</code></pre>
+<p>Thus, P<span class="math inline">\((X&gt;70.9)=\)</span> 0.6386448.</p>
+<p>P<span class="math inline">\((X&lt; 69.4 \mbox{ or } X&gt;79.1)\)</span> can be found using the following code. See Figure[Normal Outside].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnormGC</span>(<span class="kw">c</span>(<span class="fl">69.4</span>,<span class="fl">79.1</span>),<span class="dt">region=</span><span class="st">&quot;outside&quot;</span>, <span class="dt">mean=</span><span class="dv">72</span>,<span class="dt">sd=</span><span class="fl">3.1</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:normaloutside"></span>
+<img src="bookdown-demo_files/figure-html/normaloutside-1.png" alt="Normal Outside:  The area of the shaded region is the percentage of males that are shorter than 69.4 inches or taller than 79.1 inches." width="672" />
+<p class="caption">
+Figure 7.16: Normal Outside: The area of the shaded region is the percentage of males that are shorter than 69.4 inches or taller than 79.1 inches.
+</p>
+</div>
+<pre><code>## [1] 0.2118174</code></pre>
+<p>Let’s switch this up a little. Suppose we want to know the height of a male that is taller than 80% of college men. Now we know the probability (or quantile) and we would like to know the <span class="math inline">\(x\)</span> that goes with it. Here, <span class="math inline">\(x\)</span> is called a <strong>percentile ranking</strong>. We are looking for <span class="math inline">\(P(X\leq x)=0.80\)</span>.</p>
+<p>This can be found using the <code>qnorm</code> function. This function requires three inputs - quantile, mean, and standard deviation. It returns the percentile ranking.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.80</span>,<span class="dt">mean=</span><span class="dv">72</span>,<span class="dt">sd=</span><span class="fl">3.1</span>)</code></pre></div>
+<pre><code>## [1] 74.60903</code></pre>
+<p>So, <span class="math inline">\(x=74.6\)</span>. In other words, a male that is 74.6 inches tall is taller than about 80% of college men: P<span class="math inline">\((X&lt;\leq 74.6)=\)</span> 80%. We can use this number to look at the graph. See Figure[Quantile].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnormGC</span>(<span class="fl">74.60903</span>,<span class="dt">mean=</span><span class="dv">72</span>,<span class="dt">sd=</span><span class="fl">3.1</span>,<span class="dt">region=</span><span class="st">&quot;below&quot;</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:quantile"></span>
+<img src="bookdown-demo_files/figure-html/quantile-1.png" alt="Quantile:  This graph represents the 80th quantile.  " width="672" />
+<p class="caption">
+Figure 7.17: Quantile: This graph represents the 80th quantile.
+</p>
+</div>
+<pre><code>## [1] 0.8000004</code></pre>
+</div>
+</div>
+<div id="approximating-binomial-probabilities" class="section level2">
+<h2><span class="header-section-number">7.6</span> Approximating Binomial Probabilities</h2>
+<p>Recall that a <strong>binomial random variable</strong> is defined by the number of trials, <span class="math inline">\(n\)</span>, and the probability of success, <span class="math inline">\(p\)</span>. If the number of trials, <span class="math inline">\(n\)</span>, is large enough, a binomial random variable can be well approximated by a <strong>normal distribution</strong> on <em>two conditions</em>:</p>
+<ul>
+<li><p>There are at least 10 successes, <span class="math inline">\(n\cdot p \geq 10\)</span>.</p></li>
+<li><p>There are at least 10 failures, <span class="math inline">\(n \cdot (1-p) \geq 10\)</span>.</p></li>
+</ul>
+<p>This can be seen by looking at the graphs of a binomial random variable. You can see that as <span class="math inline">\(n\)</span> increases, the binomial distribution begins to look more and more like the normal curve using the following app.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">BinomNorm</span>()</code></pre></div>
+<p>You can also use the following app to see that if either the <em>expected number of successes</em> is too small (<span class="math inline">\(n\cdot p \leq 10\)</span>) <strong>or</strong> the <em>expected number of failures</em> is too small (<span class="math inline">\(n \cdot (1-p) \leq 10\)</span>), the normal curve does not do a very good job at approximating the binomial distribution.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">BinomSkew</span>()</code></pre></div>
+</div>
+<div id="thoughts-on-r" class="section level2">
+<h2><span class="header-section-number">7.7</span> Thoughts on R</h2>
+<div id="new-r-functions" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> New R Functions</h3>
+<p>Know how to use these functions:</p>
+<ul>
+<li><code>pbinomGC</code></li>
+<li><code>pnormGC</code></li>
+<li><code>qnorm</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="design-of-studies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-population-and-the-sample.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-Probability.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

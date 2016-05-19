@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A Minimal Book Example</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie">
+
+<meta name="date" content="2016-05-18">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="introduction.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> automatically create a bib database for R packages</a></li>
+<li class="chapter" data-level="2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html"><i class="fa fa-check"></i><b>2</b> Describing Patterns in Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#data-basics"><i class="fa fa-check"></i><b>2.1</b> Data Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#getting-data-in-r"><i class="fa fa-check"></i><b>2.1.1</b> Getting Data in R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#variable-types"><i class="fa fa-check"></i><b>2.1.2</b> Variable Types</a></li>
+<li class="chapter" data-level="2.1.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.1.3</b> Descriptive Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#outline"><i class="fa fa-check"></i><b>2.2</b> Outline</a></li>
+<li class="chapter" data-level="2.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-factor-variable"><i class="fa fa-check"></i><b>2.3</b> One Factor Variable</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#tables"><i class="fa fa-check"></i><b>2.3.1</b> Tables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts."><i class="fa fa-check"></i><b>2.3.2</b> Barcharts.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-factor-variables"><i class="fa fa-check"></i><b>2.4</b> Two Factor Variables</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-way-tables"><i class="fa fa-check"></i><b>2.4.1</b> Two-Way Tables</a></li>
+<li class="chapter" data-level="2.4.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts-again"><i class="fa fa-check"></i><b>2.4.2</b> Barcharts Again</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-numerical-variable"><i class="fa fa-check"></i><b>2.5</b> One Numerical Variable</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-measures"><i class="fa fa-check"></i><b>2.5.1</b> Numerical Measures</a></li>
+<li class="chapter" data-level="2.5.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools"><i class="fa fa-check"></i><b>2.5.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#factor-and-numerical-variable"><i class="fa fa-check"></i><b>2.6</b> Factor and Numerical Variable</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-tools"><i class="fa fa-check"></i><b>2.6.1</b> Numerical Tools</a></li>
+<li class="chapter" data-level="2.6.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools-1"><i class="fa fa-check"></i><b>2.6.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#choice-of-measures"><i class="fa fa-check"></i><b>2.7</b> Choice of Measures</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-skewness"><i class="fa fa-check"></i><b>2.7.1</b> Mean, Median and Skewness</a></li>
+<li class="chapter" data-level="2.7.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-outliers"><i class="fa fa-check"></i><b>2.7.2</b> Mean, Median and Outliers</a></li>
+<li class="chapter" data-level="2.7.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#meansd-vs.medianiqr"><i class="fa fa-check"></i><b>2.7.3</b> Mean/SD vs. Median/IQR</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#bell-shaped-distributions"><i class="fa fa-check"></i><b>2.8</b> Bell-Shaped Distributions</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#the-68-95-rule"><i class="fa fa-check"></i><b>2.8.1</b> The 68-95 Rule</a></li>
+<li class="chapter" data-level="2.8.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#z-scores"><i class="fa fa-check"></i><b>2.8.2</b> <span class="math inline">\(z\)</span>-scores</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#reading-in-statistics"><i class="fa fa-check"></i><b>2.9</b> Reading in Statistics</a></li>
+<li class="chapter" data-level="2.10" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#thoughts-on-r"><i class="fa fa-check"></i><b>2.10</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#new-r-functions"><i class="fa fa-check"></i><b>2.10.1</b> New R Functions</a></li>
+<li class="chapter" data-level="2.10.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#those-pesky-formulas"><i class="fa fa-check"></i><b>2.10.2</b> Those Pesky Formulas!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
+<li class="chapter" data-level="4" data-path="outline-1.html"><a href="outline-1.html"><i class="fa fa-check"></i><b>4</b> Outline</a></li>
+<li class="chapter" data-level="5" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>5</b> Introduction</a></li>
+<li class="chapter" data-level="6" data-path="observational-studies-and-experiments.html"><a href="observational-studies-and-experiments.html"><i class="fa fa-check"></i><b>6</b> Observational Studies and Experiments</a></li>
+<li class="chapter" data-level="7" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>7</b> Introduction</a></li>
+<li class="chapter" data-level="8" data-path="the-population-and-the-sample.html"><a href="the-population-and-the-sample.html"><i class="fa fa-check"></i><b>8</b> The Population and the Sample</a></li>
+<li class="chapter" data-level="9" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
+<li class="chapter" data-level="11" data-path="the-gamblers-die.html"><a href="the-gamblers-die.html"><i class="fa fa-check"></i><b>11</b> The Gambler’s Die</a></li>
+<li class="chapter" data-level="12" data-path="chapter-2.html"><a href="chapter-2.html"><i class="fa fa-check"></i><b>12</b> Chapter 2</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="describing-patterns-in-data" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Describing Patterns in Data</h1>
+<p>Before you begin work, it’s a good idea to check that the necessary packages are loaded:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tigerstats)</code></pre></div>
+<div id="data-basics" class="section level2">
+<h2><span class="header-section-number">2.1</span> Data Basics</h2>
+<div id="getting-data-in-r" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Getting Data in R</h3>
+<p>To start, let’s work with the <code>m111survey</code> data. It is always present when you load <code>tigerstats</code>, and can be used right away. However, when a dataset is new to you, you should first take a few steps to become familiar with it. We recommend the following procedure:</p>
+<p>First, put <code>m111survey</code> into your Global Environment:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(m111survey)</code></pre></div>
+<p>Next, take a quick look at it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(m111survey)</code></pre></div>
+<p>Finally, learn more about the dataset: who collected it and why, and what the variables mean. You can do this quickly with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(m111survey)</code></pre></div>
+<p>This is <em>sample data</em>: we took a sample from the population of all GC students. It comes in the form of a <em>data frame</em>. Each row corresponds to an <em>individual</em> (sometimes called an <em>observation</em>). Each column corresponds to a <em>variable</em>. A variable is something that you measure on an individual. The <em>value</em> of the variable can change from one individual to another.</p>
+</div>
+<div id="variable-types" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Variable Types</h3>
+<ul>
+<li><em>Categorical</em> (called “factor” in R“). Values are not numbers. Example: <strong>sex</strong> in <code>m111survey</code>. The values of <strong>sex</strong> are:”female&quot; and “male”). Some categorical variables come in a natural order, and so are called <em>ordinal</em> variables. Example: <strong>seat</strong> in <code>m111survey</code>.</li>
+<li><em>Quantitative</em> (called “numeric” in R“). Values are numbers. There are two sub-types:
+<ul>
+<li><em>Discrete</em> (called “integer” in R). Values are whole numbers. Example: how many brothers you have. Possibles values are 0,1,2 ….</li>
+<li><em>Continuous</em> (officially called “double” in R, but usually just listed as “numeric”). Values lie in a range of real numbers. Example: <strong>height</strong> in <code>m111survey</code>.</li>
+</ul></li>
+</ul>
+<p>R will classify the variables in a data frame for you, if you call the <strong>str</strong> (structure) function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(m111survey)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    71 obs. of  12 variables:
+##  $ height         : num  76 74 64 62 72 70.8 70 79 59 67 ...
+##  $ ideal_ht       : num  78 76 NA 65 72 NA 72 76 61 67 ...
+##  $ sleep          : num  9.5 7 9 7 8 10 4 6 7 7 ...
+##  $ fastest        : int  119 110 85 100 95 100 85 160 90 90 ...
+##  $ weight_feel    : Factor w/ 3 levels &quot;1_underweight&quot;,..: 1 2 2 1 1 3 2 2 2 3 ...
+##  $ love_first     : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ extra_life     : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 2 1 1 2 1 2 2 2 1 ...
+##  $ seat           : Factor w/ 3 levels &quot;1_front&quot;,&quot;2_middle&quot;,..: 1 2 2 1 3 1 1 3 3 2 ...
+##  $ GPA            : num  3.56 2.5 3.8 3.5 3.2 3.1 3.68 2.7 2.8 NA ...
+##  $ enough_Sleep   : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 2 1 2 1 2 ...
+##  $ sex            : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 1 1 2 2 2 2 1 1 ...
+##  $ diff.ideal.act.: num  2 2 NA 3 0 NA 2 -3 2 0 ...</code></pre>
+<p><strong>Structure guides interpretation!</strong> We will see this in the next section: the types of the variables you are interested in determine the methods you will use to study them and to describe them to other people.</p>
+</div>
+<div id="descriptive-statistics" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Descriptive Statistics</h3>
+<p><strong>Reading Data for Interpretaion:</strong> When you look at sample data, you may wish to examine it to see what patterns it has, and you may wish to summarize the data and describe these patterns to others. Such practices are called <em>descriptive statistics</em>. The tools for both of these jobs are the same, but the specific tools you use depend on the kind <em>Research Question</em> you have about the data.</p>
+</div>
+</div>
+<div id="outline" class="section level2">
+<h2><span class="header-section-number">2.2</span> Outline</h2>
+<p>There are many tools in statistics to describe patterns in data, and in the next few chapters we will introduce you to some of them. Since the tools you use will depend on the research Question you have in mind, we will organize the discussion around the different types of Research Questions, and introduce the tools as we need them.</p>
+<p>In this chapter we will cover the basic tools needed to address Research Questions involving:</p>
+<ul>
+<li>One factor variable</li>
+<li>One numeric variable</li>
+<li>Relationship between two factor variables</li>
+<li>Relationship between a factor variable and a numeric variable</li>
+</ul>
+<p>Questions about relationships between variables are especially interesting, so in the next chapter, we will look more deeply into the relationship between two factor variables, and in the chapter after that we will consider the relationship between two numeric variables.</p>
+<p>The <code>m111survey</code> data frame will be used in most of the examples in this chapter, but from time to time we will introduce additional data frames.</p>
+</div>
+<div id="one-factor-variable" class="section level2">
+<h2><span class="header-section-number">2.3</span> One Factor Variable</h2>
+<p>Say that we are interested in the following:</p>
+<blockquote>
+<p><strong>Research Question</strong>: What percentage of the sample are females?</p>
+</blockquote>
+<p>This Research Question is about <strong>one factor variable</strong>, namely the variable <strong>sex</strong>. We can describe it in two ways, <em>graphically</em> and <em>numerically</em>. Let’s first try a numerical approach.</p>
+<div id="tables" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Tables</h3>
+<p>We can make a tally of males and females:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xtabs</span>(~sex,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>## sex
+## female   male 
+##     40     31</code></pre>
+<p>This gives us counts, but we would like to see percents, so we try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowPerc</span>(<span class="kw">xtabs</span>(~sex,<span class="dt">data=</span>m111survey))</code></pre></div>
+<pre><code>##    
+## sex female  male Total
+##      56.34 43.66   100</code></pre>
+<p>We see that a majority (56.34%) of the students in the sample are female.</p>
+<p><strong>Note:</strong> If you want to see both the counts and the percentages without having to do too much typing, then you should first store the table in a new object, with a good descriptive name of your own choosing, one that will help you remember what the object contains. Here, we will use the name <code>tablesex</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tablesex &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~sex,<span class="dt">data=</span>m111survey)</code></pre></div>
+<p>Then you can print the table to the console simply by typing:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tablesex</code></pre></div>
+<pre><code>## sex
+## female   male 
+##     40     31</code></pre>
+<p>You can also get the row percents with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowPerc</span>(tablesex)</code></pre></div>
+<pre><code>##    
+## sex female  male Total
+##      56.34 43.66   100</code></pre>
+<p>Here is another example:</p>
+<blockquote>
+<p><strong>Research Questions</strong>: <em>What is the distribution of seating preference in the sample, and what percentage of students prefer to sit in the front of a classroom?</em></p>
+</blockquote>
+<p>The <em>distribution</em> of a categorical variable is simply a statement of the percentage of the time it takes on each of its possible values, so we would compute:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowPerc</span>(<span class="kw">xtabs</span>(~seat,<span class="dt">data=</span>m111survey))</code></pre></div>
+<pre><code>##     
+## seat 1_front 2_middle 3_back Total
+##        38.03    45.07   16.9   100</code></pre>
+<p>Apparently the students in the sample tend to prefer front and middle (38% and 45% respectively) more than they prefer the back (only about 17%).</p>
+</div>
+<div id="barcharts." class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Barcharts.</h3>
+<p>Barcharts convey the same information as <code>xtabs</code>, but in a graphical way.</p>
+<p>To make a barchart, send your table to the <strong>barchart</strong> function (see Figure [Barchart]).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barchartGC</span>(~sex,<span class="dt">data=</span>m111survey,
+           <span class="dt">main=</span><span class="st">&quot;Distribution of Sex&quot;</span>,
+           <span class="dt">type=</span><span class="st">&quot;percent&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:bar"></span>
+<img src="bookdown-demo_files/figure-html/bar-1.png" alt="Barchart" width="672" />
+<p class="caption">
+Figure 2.1: Barchart
+</p>
+</div>
+</div>
+</div>
+<div id="two-factor-variables" class="section level2">
+<h2><span class="header-section-number">2.4</span> Two Factor Variables</h2>
+<p>Now let’s say that we are interested in the following:</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>Who is more likely to sit in the front: a guy or a gal?</em></p>
+</blockquote>
+<p>This Research Question is about the relationship between two factor variables, namely <strong>sex</strong> and <strong>seat</strong>. We wonder whether knowing a person’s sex might help us predict where the person prefers to sit, so we think of <strong>sex</strong> as the <em>explanatory</em> variable and <strong>seat</strong> as the <em>response</em> variable.</p>
+<p><strong>Important Idea</strong>: When we are studying the relationship between two variables X and Y, and we think that X might help to cause or explain Y, or if we simply wish to use X to help predict Y, then we call X the <em>explanatory</em> variable and Y the <em>response</em> variable.</p>
+<div id="two-way-tables" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Two-Way Tables</h3>
+<p>These are also called <em>cross-tables</em> or <em>contingency tables</em>. You can make them using <code>xtabs()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tabsexseat &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~sex+seat,<span class="dt">data=</span>m111survey)
+tabsexseat</code></pre></div>
+<pre><code>##         seat
+## sex      1_front 2_middle 3_back
+##   female      19       16      5
+##   male         8       16      7</code></pre>
+<p>In the formula for <code>xtabs()</code> above, the variable you put first goes along the rows of the table. As a rule, we like to put the explanatory variable first.</p>
+<p>The counts in the two-way table don’t do much to help us figure out if guys and gals differ with regard to seating preference. That’s because there are more gals than guys in the sample, in the first place, so just because there are more gals in the sample who prefer the front than guys in the sample who prefer the front (19 vs. 8) doesn’t tell you much. What we really want to do is to compare percentages:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowPerc</span>(tabsexseat)</code></pre></div>
+<pre><code>##         seat
+## sex      1_front 2_middle 3_back  Total
+##   female   47.50    40.00  12.50 100.00
+##   male     25.81    51.61  22.58 100.00</code></pre>
+<p>We see that 47.5% of the women prefer the front, whereas only 25.81% of the men prefer the front. Looking at all the row percentages, it appears that as far as the sample is concerned the guys tend to sit more towards the back, as compared to gals.</p>
+</div>
+<div id="barcharts-again" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Barcharts Again</h3>
+<p>Again, a barchart will convey the information in a table, but in graphical form (see Figure [A Two-Way Barchart]).</p>
+<div class="figure"><span id="fig:barsexseat"></span>
+<img src="bookdown-demo_files/figure-html/barsexseat-1.png" alt="A Two-Way Barchart" width="576" />
+<p class="caption">
+Figure 2.2: A Two-Way Barchart
+</p>
+</div>
+<p>Some people like to make “flat” barchaerts, using the optional <code>flat</code> parameter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barchartGC</span>(~sex+seat,
+           <span class="dt">data=</span>m111survey,
+           <span class="dt">type=</span><span class="st">&quot;percent&quot;</span>,
+           <span class="dt">main=</span><span class="st">&quot;Sex and Seating Preference&quot;</span>,
+           <span class="dt">flat=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:barsexseatflat"></span>
+<img src="bookdown-demo_files/figure-html/barsexseatflat-1.png" alt="A Flat Two-Way Barchart" width="576" />
+<p class="caption">
+Figure 2.3: A Flat Two-Way Barchart
+</p>
+</div>
+<p>The lure of flat barcharts (like Figure [Flat Two-Way Barchart]) is that they are a visual “match” for a two-way table of row percentages.</p>
+<p>Here is another example:</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>Who is more likely to believe in love at first sight: a guy or a gal?</em></p>
+</blockquote>
+<p>To address the question numerically, we make a two-way table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sexlove &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~sex+love_first,<span class="dt">data=</span>m111survey)
+sexlove</code></pre></div>
+<pre><code>##         love_first
+## sex      no yes
+##   female 22  18
+##   male   23   8</code></pre>
+<p>The row percents are:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowPerc</span>(sexlove)</code></pre></div>
+<pre><code>##         love_first
+## sex          no    yes  Total
+##   female  55.00  45.00 100.00
+##   male    74.19  25.81 100.00</code></pre>
+<p>In the sample, females appear to be more likely to believe in love at first sight (45% vs about 26% for the guys).</p>
+<p>Figure [Barchart Sex and Love] shows the same thing graphically.</p>
+<div class="figure"><span id="fig:sexlovebar"></span>
+<img src="bookdown-demo_files/figure-html/sexlovebar-1.png" alt="Barchart Sex and Love:  belief in love at first sight in the m111survey data, broken down by sex of respondent." width="672" />
+<p class="caption">
+Figure 2.4: Barchart Sex and Love: belief in love at first sight in the m111survey data, broken down by sex of respondent.
+</p>
+</div>
+</div>
+</div>
+<div id="one-numerical-variable" class="section level2">
+<h2><span class="header-section-number">2.5</span> One Numerical Variable</h2>
+<p>Suppose we are interested in the following:</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>How fast do GC students drive, when they drive their fastest?</em></p>
+</blockquote>
+<p>This Research Question deals with <strong>one numerical variable.</strong> As usual, it can be explored both graphically and numerically. There is a lot to say about numerical variables, and many tools have been developed to study them.</p>
+<p>Describing the distribution of a single factor variable is pretty straightforward: one simply states the percentages of the time each value of the variable occurs in the data. When we describe a single numerical variable, there is more to say. Specifically, we want to describe:</p>
+<ul>
+<li>The Center</li>
+<li>The Spread</li>
+<li>The Shape</li>
+</ul>
+<p>We will learn more about these terms as we go along.</p>
+<p>To help with describing center and spread, we will learn about several numerical measurements:</p>
+<ul>
+<li>the median and other percentiles</li>
+<li>the five-Number Summary</li>
+<li>the mean</li>
+<li>the standard deviation</li>
+<li>the Interquartile Range</li>
+</ul>
+<p>To help with describing shape, we will consider three graphical tools:</p>
+<ul>
+<li>Histogram</li>
+<li>Density Plot</li>
+<li>Boxplot</li>
+</ul>
+<div id="numerical-measures" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Numerical Measures</h3>
+<p>A convenient way to obtain some important numerical summaries of a dataset is provided by the R-function <code>favstats</code>. For the current Research Question, we would invoke:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~fastest,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>##  min   Q1 median    Q3 max     mean      sd  n missing
+##   60 90.5    102 119.5 190 105.9014 20.8773 71       0</code></pre>
+<p>In this section we will discuss each of the measurements provided by <code>favstats</code>.</p>
+<div id="the-mean" class="section level4">
+<h4><span class="header-section-number">2.5.1.1</span> The Mean</h4>
+<p>The mean of a list of numbers is the sum of the numbers, divided by how many there are. When the list of numbers is a sample from a population, then the mean is called the <em>sample mean</em> and is written <span class="math inline">\(\bar{x}\)</span>. The mean of a population is called the the <em>population mean</em> and it is often written as <span class="math inline">\(\mu\)</span>.</p>
+<p>Sometimes you see the formula for the sample mean written like this:</p>
+<p><span class="math display">\[\bar{x}=\frac{\sum{x_i}}{n},\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\sum\)</span> means summing</li>
+<li><span class="math inline">\(x_i\)</span> denotes the individual values to be summed</li>
+<li><span class="math inline">\(n\)</span> denotes the number of values in the list.</li>
+</ul>
+<p>Most of the time we will get the mean of a variable through favstats, but if we ever want the mean alone we can get it with the R-function <code>mean</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">FakeData &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">10</span>)
+<span class="kw">mean</span>(FakeData)</code></pre></div>
+<pre><code>## [1] 6.4</code></pre>
+<p>Sometimes it’s just easiest to compute the mean “by hand”, or use R as a calculator to compute the mean:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2+4+7+9+10</span>)/<span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 6.4</code></pre>
+<p>For many data sets, the mean appears to be about in the “middle” of the data, so it is often used as a measure of the center of the distribution of a variable.</p>
+</div>
+<div id="the-standard-deviation" class="section level4">
+<h4><span class="header-section-number">2.5.1.2</span> The Standard Deviation</h4>
+<p>The standard deviation (or SD for short, or even just <span class="math inline">\(s\)</span>) indicates how much a typical data value differs from the mean of the data.</p>
+<p>Here is the mathematical formula for the SD of a sample:</p>
+<p><span class="math display">\[s = \sqrt{(\sum{(x_i - \bar{x})^2})/(n-1)}.\]</span></p>
+<p>This is a symbolic way of saying:</p>
+<ul>
+<li>Find the mean of the numbers.</li>
+<li>Subtract the mean from each number <span class="math inline">\(x_i\)</span> (the results are called the <em>deviations</em>), and then square the deviations.</li>
+<li>Add up the squared deviations.</li>
+<li>Average them, almost, by dividing the sum by how many there are MINUS ONE. (What’s up with <em>that</em>?? Consult the GeekNotes to find out!)</li>
+<li>Take the square root of this “almost-average.”</li>
+</ul>
+<p>The bigger the SD, the more spread out the data are, and so the SD is often used as a measure of the spread of the distribution of a variable. Most of the time, a majority of the numbers in a dataset lie within one standard of the mean, and nearly all of them lie within two SDs of the mean. We’ll learn more about this later, when we come to the 68-95 Rule.</p>
+</div>
+<div id="the-median" class="section level4">
+<h4><span class="header-section-number">2.5.1.3</span> The Median</h4>
+<p>Suppose that you have some data, sorted in order from lowest to highest:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">FakeData &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">10</span>)</code></pre></div>
+<p>The <em>median</em> of the data is the number that is right in the middle:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(FakeData)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>If there are an even number of data points, then the median is the average of the two points closest to the middle:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">FakeData2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">15</span>)
+<span class="kw">median</span>(FakeData2)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Note that in <code>FakeData2</code> the values 7 and 9 were closest to the middle, and the median is the average of these two values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">7+9</span>)/<span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>About 50% of the data values will lie below the the median of the data. Like the mean, it is often used as a measure of the center of a distribution.</p>
+</div>
+<div id="quantiles-and-the-iqr" class="section level4">
+<h4><span class="header-section-number">2.5.1.4</span> Quantiles and the IQR</h4>
+<p>Since the median lies above about 50% of the data, it is often called the 50th <em>percentile</em> of the data, or the 50th <em>quantile</em> of the data. For every percentage from 0% to 100% there is a corresponding quantile. You can get as many of them as you like by using R’s <code>quantile</code> function. For example, if you want the 20th, 50th, 80th and 90th quantiles of the variable <strong>fastest</strong> in the <code>mat111survey</code> data, try</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(m111survey,
+     <span class="kw">quantile</span>(fastest,<span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.8</span>,<span class="fl">0.9</span>))
+     )</code></pre></div>
+<pre><code>## 20% 50% 80% 90% 
+##  90 102 120 130</code></pre>
+<p>Here’s you interpret the quantiles provided above:</p>
+<ul>
+<li>About 20% of the students in the survey drove slower than 90 mph.</li>
+<li>About 50% of the students in the survey drove slower than 102 mph. (This is the median.)</li>
+<li>About 80% of the students in the survey drove slower than 120 mph.</li>
+<li>About 90% of the students in the survey drove slower than 130 mph.</li>
+</ul>
+<p>Of course you could also say:</p>
+<ul>
+<li>About 80% of the students in the survey drove <em>faster</em> than 90 mp.</li>
+<li>About 50% of the students in the survey drove <em>faster</em> than 102 mph.,</li>
+</ul>
+<p>and so on!</p>
+<p>Two important quantiles are:</p>
+<ul>
+<li>the 25th quantile (also called the <em>first quartile</em>)</li>
+<li>the 75th quantile (also called the <em>third quartile</em>)</li>
+</ul>
+<p>They are provided in <code>favstats</code> as Q1 and Q3 respectively:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~fastest,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>##  min   Q1 median    Q3 max     mean      sd  n missing
+##   60 90.5    102 119.5 190 105.9014 20.8773 71       0</code></pre>
+<p>The difference between them is called the <em>interquartile range</em>, or IQR for short:</p>
+<blockquote>
+<p><span class="math display">\[IQR=Q3-Q1=119.5-90.5=29.\]</span></p>
+</blockquote>
+<p>The IQR tells you the range of the middle 50% of the data, so it is often used as a measure of spread: the bigger the IQR, the more spread out your data are.</p>
+<p>The <em>five-number summary</em> gives you a good quick impression of the distribution of a variable: The five numbers are:</p>
+<ul>
+<li>the minimum value of the data</li>
+<li>the first quartile Q1</li>
+<li>the median</li>
+<li>the third quartile Q3</li>
+<li>the maximum value of the data</li>
+</ul>
+<p>Note that all of these measurements are provided in <code>favstats</code>.</p>
+</div>
+</div>
+<div id="graphical-tools" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Graphical Tools</h3>
+<p>Numerical measurements aren’t very satisfying on their own. To understand fully what they are telling you, and to be able to say something about the <em>shape</em> of a distribution as well, you need to combine them with graphical tools for describing the variable.</p>
+<div id="the-histogram" class="section level4">
+<h4><span class="header-section-number">2.5.2.1</span> The Histogram</h4>
+<p>The histogram is a popular device for representing the shape of the distribution of a numerical variable. Figure [Two Histograms] shows two common types: a <em>frequency</em> histogram on the left, and a <em>percentage</em> or <em>relative frequency</em> histogram on the right.</p>
+<div class="figure"><span id="fig:fastesthist"></span>
+<img src="bookdown-demo_files/figure-html/fastesthist-1.png" alt="Two Histograms.  Histograms of the variable **fastest** in the m111survey data.  On the left the vertical axis indicates the count of observations falling in each rectangle; on the right the vertical axis indicates percents." width="268.8" />
+<p class="caption">
+Figure 2.5: Two Histograms. Histograms of the variable <strong>fastest</strong> in the m111survey data. On the left the vertical axis indicates the count of observations falling in each rectangle; on the right the vertical axis indicates percents.
+</p>
+</div>
+<div class="figure"><span id="fig:fastesthist"></span>
+<img src="bookdown-demo_files/figure-html/fastesthist-2.png" alt="Two Histograms.  Histograms of the variable **fastest** in the m111survey data.  On the left the vertical axis indicates the count of observations falling in each rectangle; on the right the vertical axis indicates percents." width="268.8" />
+<p class="caption">
+Figure 2.6: Two Histograms. Histograms of the variable <strong>fastest</strong> in the m111survey data. On the left the vertical axis indicates the count of observations falling in each rectangle; on the right the vertical axis indicates percents.
+</p>
+</div>
+<p>Here’s the difference:</p>
+<ul>
+<li>In a frequency histogram, the height of a rectangle gives the number of observations falling within the boundaries indicated by the rectangle’s base. For example, in the frequency histogram on the left, the rectangle from 60 to 80 mph on the the <span class="math inline">\(x\)</span>-axis is 5 units high: this means that five of the students drove between 60 and 80 mph, when driving their fastest. (The speed 60 mph is included in this rectangle, whereas a speed of 80 mph would be included in the next rectangle.)</li>
+<li>In a relative frequency histogram, the height of a rectangle gives the <em>percentage</em> of the observations falling within the boundaries indicated by the rectangle’s base. For example, in the relative frequency histogram on the right, the rectangle from 80 to 100 mph on the the <span class="math inline">\(x\)</span>-axis is about 42 units high: this means that about 42% of the students drove between 60 and 80 mph, when driving their fastest.</li>
+</ul>
+<p>Most of the time, we will deal with a third type of histogram known as a <em>density</em> histogram. An example is given in Figure [Density Histogram].</p>
+<div class="figure"><span id="fig:densityhist"></span>
+<img src="bookdown-demo_files/figure-html/densityhist-1.png" alt="Density Histogram.  The area of each rectangle gives the proportion of observations that fall within the boundaries indicated at the base of the rectangle." width="672" />
+<p class="caption">
+Figure 2.7: Density Histogram. The area of each rectangle gives the proportion of observations that fall within the boundaries indicated at the base of the rectangle.
+</p>
+</div>
+<p>In a density histogram:</p>
+<ul>
+<li>the <em>area</em> of a rectangle gives you the proportion of data values that lie within the left and right-hand endpoints of the rectangle;</li>
+<li>the total area of all of the rectangles equals 1.</li>
+</ul>
+<p>For example, in the rectangle from 100 to 120 mph, the width is 20 and the height is about 0.016, so the area is</p>
+<p><span class="math display">\[20 * 0.016=0.32,\]</span></p>
+<p>which says that 0.32 is the proportion of the students who drove between 100 and 120 mph. In more familiar terms, we would say that about 32% of the students drove between 100 and 120 mph.</p>
+<p>Density histograms seem to be a round-about way to get percentages: why not just look at relative frequency histograms instead? The answer will become more clear when we study the next graphical device: the density plot.</p>
+</div>
+<div id="density-plots" class="section level4">
+<h4><span class="header-section-number">2.5.2.2</span> Density Plots</h4>
+<p>From time to time we will work with an imaginary population contained in the data frame <code>imagpop</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(imagpop)</code></pre></div>
+<p>There are 10,000 people in this population.</p>
+<p>Figure [Income Histogram] shows a density histogram of the annual incomes in this population. The histogram consists of approximately 100 rectangles.</p>
+<div class="figure"><span id="fig:incomehist"></span>
+<img src="bookdown-demo_files/figure-html/incomehist-1.png" alt="Income Histogram.  The number of rectangles has been chosen to be very large." width="672" />
+<p class="caption">
+Figure 2.8: Income Histogram. The number of rectangles has been chosen to be very large.
+</p>
+</div>
+<p>When the number of rectangles is very large, don’t you just <em>see</em>, in your mind, a smooth curve that the tops of the rectangles seem to follow? R can draw that curve for you if you call the function <code>densityplot</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityplot</span>(~income,<span class="dt">data=</span>imagpop,
+            <span class="dt">main=</span><span class="st">&quot;Distribution of Income</span><span class="ch">\n</span><span class="st">(Density Plot)&quot;</span>,
+            <span class="dt">xlab=</span><span class="st">&quot;Annual Income (dollars)&quot;</span>,
+            <span class="dt">plot.points=</span><span class="ot">FALSE</span>)</code></pre></div>
+<div class="figure"><span id="fig:incomedensity"></span>
+<img src="bookdown-demo_files/figure-html/incomedensity-1.png" alt="Income Density Plot.  The plot shows the general shape of the distribution." width="672" />
+<p class="caption">
+Figure 2.9: Income Density Plot. The plot shows the general shape of the distribution.
+</p>
+</div>
+<p>The results are shown in Figure [Income Density Plot]. Areas under a density curve give you proportions, so the total are under a density curve is 1.</p>
+<p>Density plots aren’t just for whole populations. When you are dealing with sample data from a population the density plot gives you an estimate–based on your sample–of what the distribution of the population might look like. Figure [Fastest Density Plot] shows a density plot of the fastest speed ever driven for the subjects in <code>m111survey</code> sample.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityplot</span>(~fastest,<span class="dt">data=</span>m111survey,
+            <span class="dt">main=</span><span class="st">&quot;Fastest Speed Ever Driven&quot;</span>,
+            <span class="dt">xlab=</span><span class="st">&quot;speed (mph)&quot;</span>,
+            <span class="dt">plot.points=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:fastestdensity"></span>
+<img src="bookdown-demo_files/figure-html/fastestdensity-1.png" alt="Fastest Density Plot.  When the number of data points is not too large, it is good to produce a "rug" of individual points by setting plot.points to TRUE." width="672" />
+<p class="caption">
+Figure 2.10: Fastest Density Plot. When the number of data points is not too large, it is good to produce a “rug” of individual points by setting plot.points to TRUE.
+</p>
+</div>
+</div>
+<div id="describing-shape" class="section level4">
+<h4><span class="header-section-number">2.5.2.3</span> Describing Shape</h4>
+<p>When it comes to describing a distribution, recall that we want to describe center, spread and shape. So far we have measures for:</p>
+<ul>
+<li>Center (mean, median)</li>
+<li>Spread (standard deviation, interquartile range)</li>
+</ul>
+<p>We use our graphical tools to describe shape. Some important features to look for when describing the shape are:</p>
+<ul>
+<li>skewness (left-skewed, right skewed)</li>
+<li>symmetry</li>
+<li>number of modes (unimodal, bimodal)</li>
+</ul>
+<p>A <em>symmetric</em> distribution looks like a mirror image of itself around some central vertical line. A <em>skewed</em> distribution has a <em>tail</em> running off to the left (smaller values) or to the right (larger values). The <em>modes</em> of a distribution correspond to “humps” in the density curve: values that occur quite commonly in the data. Look at Figure [Shapes] for standard examples of these concepts.</p>
+<div class="figure"><span id="fig:distshapes"></span>
+<img src="bookdown-demo_files/figure-html/distshapes-1.png" alt="Shapes.  Terminology for describing the shape of a distribution." width="384" />
+<p class="caption">
+Figure 2.11: Shapes. Terminology for describing the shape of a distribution.
+</p>
+</div>
+<p>Here are some examples:</p>
+<ul>
+<li>Looking back at Figure [Fastest Density Plot], we see that the distribution of the variable <strong>fastest</strong> is unimodal, and skewed a bit to the right.</li>
+<li>Figure [Kim Kardashian Temperature] shows a density histogram of ratings given by people in <code>imagpop</code> to the celebrity Kim Kardashian. The ratings are on a scale of 0 to 100, where 0 indicates that one doesn’t like her, and 100 indicates a very high level of liking. The ratings distribution is symmetric, but bimodal: there are “humps” near 0 and near 100.</li>
+</ul>
+<div class="figure"><span id="fig:unnamed-chunk-27"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-27-1.png" alt="Kim Kardashian Temperature.  People either love her or hate her!" width="672" />
+<p class="caption">
+Figure 2.12: Kim Kardashian Temperature. People either love her or hate her!
+</p>
+</div>
+</div>
+<div id="box-and-whisker-plots" class="section level4">
+<h4><span class="header-section-number">2.5.2.4</span> Box-and-Whisker Plots</h4>
+<p>The five-number summary is the basis for a very useful graphical tool known as the <em>box-and-whisker plot</em>, or just “boxplot” for short. Figure [Boxplot] shows a boxplot of some imaginary data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ImaginaryData &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">7.1</span>,<span class="fl">7.3</span>,<span class="fl">7.5</span>,<span class="fl">8.2</span>,<span class="fl">8.5</span>,<span class="fl">9.1</span>,<span class="fl">9.5</span>,
+                   <span class="fl">9.8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="fl">9.9</span>,<span class="dv">10</span>,<span class="fl">10.5</span>,<span class="dv">10</span>,<span class="dv">9</span>)
+<span class="kw">bwplot</span>(~ImaginaryData,<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Example Boxplot&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:boximaginary"></span>
+<img src="bookdown-demo_files/figure-html/boximaginary-1.png" alt="Boxplot.  Box-and-whisker plot of some imaginary data." width="672" />
+<p class="caption">
+Figure 2.13: Boxplot. Box-and-whisker plot of some imaginary data.
+</p>
+</div>
+<p>Here are the basic features of a boxplot:</p>
+<ul>
+<li>The dot is at the median of the data.</li>
+<li>The box starts at Q1 and goes to Q3. Therefore the length of the box is the IQR of the data. The middle 50% of the data lie within the box.</li>
+<li>The lower hinge is at the minimum of the data. From the lower hinge to Q1, we see the lower “whisker”, indicated by a dotted horizontal line. The lowest 25% of the data is in this whisker.</li>
+<li>The upper hinge is at the maximum of the data. The upper whisker extends from Q3 to the upper hinge, and contains the largest 25% of the data.</li>
+</ul>
+<p>Figure [Boxplot Height] shows a boxplot of the heights of the students in <code>m111survey</code>. It was produced as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bwplot</span>(~height,<span class="dt">data=</span>m111survey,
+       <span class="dt">main=</span><span class="st">&quot;Height at GC&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;height (inches)&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:boxheight"></span>
+<img src="bookdown-demo_files/figure-html/boxheight-1.png" alt="Boxplot Height.  Note the two outliers." width="672" />
+<p class="caption">
+Figure 2.14: Boxplot Height. Note the two outliers.
+</p>
+</div>
+<p>Note that this time the lower hinge does not extend all of the way down to the minimum value: there are two heights so small that R decided that you might consider them to be outliers. An <em>outlier</em> in a dataset is a value that lies far above or far below most of the other values. When R detects possible outliers, they are plotted as individual points.</p>
+<p>When R plots outliers on a boxplot, it extends the whisker to the most extreme value that it did NOT consider to be an outlier. Thus in the heights data, there was at least one person who was 59 inches tall (lower hinge at 59), but this value was not deemed an outlier.</p>
+<p>Boxplots are not only useful for detecting possible outliers: they can also detect skewness easily. Look at Figure [Boxplot Fastest], which shows the fastest speeds driven by the <code>m111survey</code> participants. As we have seen previously, this distribution is a bit skewed to the right, and the boxplot shows the skewness: the upper whisker is somewhat longer than the lower whisker, indicating that there is longer “tail” toward the higher values of speed. We also see that there is an outlier at 190 miles per hour.</p>
+<div class="figure"><span id="fig:boxfastest"></span>
+<img src="bookdown-demo_files/figure-html/boxfastest-1.png" alt="Boxplot Fastest.  The distribution is a little bit skewed to the right, and there is an oulier at about 190 mph." width="672" />
+<p class="caption">
+Figure 2.15: Boxplot Fastest. The distribution is a little bit skewed to the right, and there is an oulier at about 190 mph.
+</p>
+</div>
+<p>Although boxplots excel at detecting skewness and outliers, they fail miserably at detecting modes, so if you are interested in modes you should look at a density plot or histogram as well. Figure [Kardashian Violin] shows a combination of a violin plot and a boxplot for the Kim Kardashian ratings in the <code>imagpop</code> population. A violin plot is nothing more than a density plot combined with a mirror image of itself. Places where the violin is “thick” are regions where data values are relatively crowded together; in “thin” regions, data values are more widely separated from one another. Note that the boxplot correctly indicates that the distribution is symmetric, but entirely misses the bimodality.</p>
+<div class="figure"><span id="fig:kardashviolin"></span>
+<img src="bookdown-demo_files/figure-html/kardashviolin-1.png" alt="Kardashian Violin.  The violin plot supplements the boxplot, indicating that the data are clumped around 0 and around 100, and are quite sparse in the middle." width="672" />
+<p class="caption">
+Figure 2.16: Kardashian Violin. The violin plot supplements the boxplot, indicating that the data are clumped around 0 and around 100, and are quite sparse in the middle.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="factor-and-numerical-variable" class="section level2">
+<h2><span class="header-section-number">2.6</span> Factor and Numerical Variable</h2>
+<p>Suppose that we are interested in the following:</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>Who tends to drive faster: GC guys or GC gals?</em></p>
+</blockquote>
+<p>This research question concerns the relationship between two variables in the <code>m111survey</code> data: <strong>fastest</strong> and <strong>sex</strong>. <strong>fastest</strong> is numerical, and <strong>sex</strong> is a factor. Since we are inclined to think that one’s sex might, through cultural conditioning, have some effect on how fast one likes to drive, we shall consider <strong>sex</strong> to be the explanatory variable and take <strong>fastest</strong> to be the response variable.</p>
+<p>Let’s investigate this question both numerically and graphically.</p>
+<div id="numerical-tools" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Numerical Tools</h3>
+<p>We use the same numerical measurements as when we are studying one numerical variable, but we have to compute them separately for each of the groups that go along with the different possible values of the factor variable. In the current Research Question, the factor variable <strong>sex</strong> has two values (“female” and “male”), so we need to separate the two sexes and compute numerical statistics for each of the two groups thus formed.</p>
+<p>The R-function <code>favstats</code> can do this easily. For formula-data input, we use <code>m111survey</code> as the data, just as usual, but the formula must look like</p>
+<blockquote>
+<p><span class="math display">\[numerical \sim factor\]</span></p>
+</blockquote>
+<p>Thus we compute:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(fastest~sex,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>##      sex min Q1 median    Q3 max     mean       sd  n missing
+## 1 female  60 90     95 110.0 145 100.0500 17.60966 40       0
+## 2   male  85 99    110 122.5 190 113.4516 22.56818 31       0</code></pre>
+<p>The next step is to decide what numbers to compare. The minima and the maxima differ a lot for the two groups, but each of these numbers might be based on only one individual. It’s better, therefore, to compare measures of center. The mean for the males is 113.5 mph, considerably higher than the female mean of 100 mph. Therefore it seems that the males tend to drive faster, on average than the females in the sample drive. (One could also compare medians and arrive at the same conclusion.)</p>
+</div>
+<div id="graphical-tools-1" class="section level3">
+<h3><span class="header-section-number">2.6.2</span> Graphical Tools</h3>
+<p>Again, we can use histograms, density plot and boxplots, but whichever tool we choose we must “break down” the numerical data into groups determined by the values of the factor variable.</p>
+<div id="parallel-boxplots" class="section level4">
+<h4><span class="header-section-number">2.6.2.1</span> Parallel Boxplots</h4>
+<p>For boxplots, use the same <span class="math inline">\(numerical \sim factor\)</span> formula as for <code>favstats</code>. Figure [Boxplot of Fastest by Sex] shows that guys tend to drive faster: the median for the guys is somewhat higher than the median for the gals. We might also point out that “box” for the guys, which represents the middle 50% of the guys’ speeds, is higher than the middle 50% of the gals’ speeds.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bwplot</span>(fastest~sex,<span class="dt">data=</span>m111survey,
+       <span class="dt">main=</span><span class="st">&quot;Fastest Speed Driven, by Sex&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;Sex&quot;</span>,
+       <span class="dt">ylab=</span><span class="st">&quot;speed (mph)&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:fastestsexbox"></span>
+<img src="bookdown-demo_files/figure-html/fastestsexbox-1.png" alt="Boxplot of Fastest by Sex." width="672" />
+<p class="caption">
+Figure 2.17: Boxplot of Fastest by Sex.
+</p>
+</div>
+<p>Here is another example:</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>Who tends to have higher GPAs? People who prefer sitting in the front, the middle or the back?</em></p>
+</blockquote>
+<p>We will investigate the question graphically and numerically. For a numerical approach, we use <code>favstats</code>. The variable <strong>GPA</strong> is numerical, and <strong>seat</strong> is a factor, This tells us how to call the <code>favstats</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(GPA~seat,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>##       seat min   Q1 median  Q3 max     mean        sd  n missing
+## 1  1_front 2.1 3.05  3.500 3.7 4.0 3.337667 0.4822950 27       0
+## 2 2_middle 1.9 2.90  3.200 3.5 3.9 3.110645 0.5344276 31       1
+## 3   3_back 2.2 2.80  3.057 3.5 3.7 3.092333 0.4473687 12       0</code></pre>
+<p>Front-sitters seem to have a little bit higher GPA, on average, than other folks do (3.34 for front-sitters, vs. about 3.1 for the other two groups). It’s not clear whether this is a really big or important difference, though.</p>
+<p>For a graphical approach, let’s look at Figure [GPA by Seat]. We see that the front-sitters have a higher median than the other two groups do.</p>
+<div class="figure"><span id="fig:gpaseatviolin"></span>
+<img src="bookdown-demo_files/figure-html/gpaseatviolin-1.png" alt="GPA by Seat." width="672" />
+<p class="caption">
+Figure 2.18: GPA by Seat.
+</p>
+</div>
+</div>
+<div id="side-by-side-histograms" class="section level4">
+<h4><span class="header-section-number">2.6.2.2</span> Side-by-Side Histograms</h4>
+<p>In order to make a histogram for each group determined by the values of a factor variable, you need to “condition” the numerical variable the factor variable in your formula. This is accomplished using the vertical line “|” on your keyboard (look above the backslash character). In the Research Question about the relationship between <strong>fastest</strong> and <strong>sex</strong>, we would invoke:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~fastest|sex,<span class="dt">data=</span>m111survey,
+       <span class="dt">type=</span><span class="st">&quot;density&quot;</span>,
+       <span class="dt">main=</span><span class="st">&quot;Fastest Speed Driven, by Sex&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;Fastest Speed, in mph&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:fastestsexcond"></span>
+<img src="bookdown-demo_files/figure-html/fastestsexcond-1.png" alt="Speed by Sex.  Histogram for female and male speeds appear in separate panels." width="672" />
+<p class="caption">
+Figure 2.19: Speed by Sex. Histogram for female and male speeds appear in separate panels.
+</p>
+</div>
+<p>The results appear in Figure [Speed by Sex], which shows that the guys tend to drive faster: the male histogram is shifted somewhat toward higher speeds, as compared to the female histogram.</p>
+</div>
+<div id="verical-layout" class="section level4">
+<h4><span class="header-section-number">2.6.2.3</span> Verical Layout</h4>
+<p>It’s not always easy to compare histograms side-by-side. You may prefer to use the arrange the histograms vertically using the <code>layout</code> option:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~fastest|sex,<span class="dt">data=</span>m111survey,
+       <span class="dt">type=</span><span class="st">&quot;density&quot;</span>,
+       <span class="dt">main=</span><span class="st">&quot;Fastest Speed Driven, by Sex&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;Fastest Speed, in mph&quot;</span>,
+       <span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</code></pre></div>
+<div class="figure"><span id="fig:fastestsexcondvert"></span>
+<img src="bookdown-demo_files/figure-html/fastestsexcondvert-1.png" alt="Speed by Sex (2).  Histogram for female and male speeds appear in separate panels, laid out in one column." width="672" />
+<p class="caption">
+Figure 2.20: Speed by Sex (2). Histogram for female and male speeds appear in separate panels, laid out in one column.
+</p>
+</div>
+<p>In the graph [Speed by Sex (2)], the variable <strong>sex</strong> has two values, so you want the vertical layout to have two rows. The option <code>layout=c(1,2)</code> in the code for the graph specifies one column and two rows.</p>
+</div>
+<div id="grouped-density-plots" class="section level4">
+<h4><span class="header-section-number">2.6.2.4</span> Grouped Density Plots</h4>
+<p>Overlaying two density plots – one for the guys and one for the gals – can make the difference between the two distributions quite clear. Overlaying can be accomplished using the <em>groups</em> argument:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityplot</span>(~fastest,<span class="dt">data=</span>m111survey,
+       <span class="dt">groups=</span>sex,
+       <span class="dt">main=</span><span class="st">&quot;Fastest Speed Driven, by Sex&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;speed (mph)&quot;</span>,
+       <span class="dt">auto.key=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure"><span id="fig:fastestsexdensity"></span>
+<img src="bookdown-demo_files/figure-html/fastestsexdensity-1.png" alt="Grouped Density Plots.  It is very easy to see that the mode for the males is greater than the mode for the females." width="672" />
+<p class="caption">
+Figure 2.21: Grouped Density Plots. It is very easy to see that the mode for the males is greater than the mode for the females.
+</p>
+</div>
+<p>Figure <a href="describing-patterns-in-data.html#grouped-density-plots">Grouped Density Plots</a> shows the results. Indeed, the guys drive faster: their density plot is shifted a bit to the right, in comparison to that of the gals.</p>
+<p>If you would rather see the plots in different panles, you can do so in the same way you did with histrograms. Again, you might want to include the <code>layout</code> argument. Figure [fastestsexdensity2] shows the results</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityplot</span>(~fastest|sex,<span class="dt">data=</span>m111survey,
+       <span class="dt">main=</span><span class="st">&quot;Fastest Speed Driven, by Sex&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;speed (mph)&quot;</span>,
+       <span class="dt">auto.key=</span><span class="ot">TRUE</span>,
+       <span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</code></pre></div>
+<div class="figure"><span id="fig:fastestsexdensity2"></span>
+<img src="bookdown-demo_files/figure-html/fastestsexdensity2-1.png" alt="Density Plots arranged vertically.  Again it is easy to see that the mode for the males is greater than the mode for the females." width="672" />
+<p class="caption">
+Figure 2.22: Density Plots arranged vertically. Again it is easy to see that the mode for the males is greater than the mode for the females.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="choice-of-measures" class="section level2">
+<h2><span class="header-section-number">2.7</span> Choice of Measures</h2>
+<div id="mean-median-and-skewness" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Mean, Median and Skewness</h3>
+<p>If you are looking at a histogram or density plot of some numerical data, then:</p>
+<ul>
+<li>about half of the area of the plot will lie below the median (this is because about 50% of the data values are less than the median);</li>
+<li>the mean of the data will be approximately the place where you would put your finger, if you wanted the histogram or density plot to “balance”&quot; if you held it up supported only by your finger.</li>
+</ul>
+<p>Accordingly, when the distribution is symmetric the mean and the median will be about the same. But what happens if the distribution is skewed? In order to make the plot balance, the mean will have to be closer to the tail of the data than the median is. Figure [Symmetry and Skewness] illustrates what happens.</p>
+<div class="figure"><span id="fig:meanmedskew"></span>
+<img src="bookdown-demo_files/figure-html/meanmedskew-1.png" alt="Symmetry and Skewness.  The mean and the median are about the same when the distribution is symmetric.  For right-skewed distributions the mean is bigger than the median, and for left-skewed distributions the reverse is true." width="672" />
+<p class="caption">
+Figure 2.23: Symmetry and Skewness. The mean and the median are about the same when the distribution is symmetric. For right-skewed distributions the mean is bigger than the median, and for left-skewed distributions the reverse is true.
+</p>
+</div>
+<p>You can investigate these ideas with following app, too:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">Skewer</span>()</code></pre></div>
+</div>
+<div id="mean-median-and-outliers" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Mean, Median and Outliers</h3>
+<p>Not only is the mean “dragged” toward the tail of a skewed distribution – it is also dragged toward outliers. the median, on the other hand, is not much affected by outliers at all. For example, consider the small dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SmallDataset</code></pre></div>
+<pre><code>## [1] 32 45 47 47 49 56 56 56 57</code></pre>
+<p>SmallDataset has just nine values. A call to <code>favstats</code> gives:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~SmallDataset)</code></pre></div>
+<pre><code>##  min Q1 median Q3 max     mean       sd n missing
+##   32 47     49 56  57 49.44444 8.079466 9       0</code></pre>
+<p>The mean is about 49.4, and the median is the fifth value in the dataset: the 49. Now let’s add just one extreme value to the data, say the number 200:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NewData &lt;-<span class="st"> </span><span class="kw">c</span>(SmallDataset,<span class="dv">200</span>)
+NewData</code></pre></div>
+<pre><code>##  [1]  32  45  47  47  49  56  56  56  57 200</code></pre>
+<p>Then call up <code>favstats</code> again:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~NewData)</code></pre></div>
+<pre><code>##  min Q1 median Q3 max mean       sd  n missing
+##   32 47   52.5 56 200 64.5 48.21537 10       0</code></pre>
+<p>The median is now the average of the fifth and sixth data values: <span class="math inline">\((49+56)/2=52.5\)</span>, so it has gone up just a bit. But the mean has increased markedly, from 49.4 to 64.5. In fact, the mean is now considerably larger than every data value except for the outlier at 200 – it no longer serves well to indicate what a “typical” data value might be.</p>
+<p>Note also that the SD is affected by the outlier, increasing from about 8 (SmallDataset) to about 48 (NewData). No longer does it serve well as a measure of how “spread out” most of the data is. The IQR, on the other hand, is scarcely affected by the outlier.</p>
+</div>
+<div id="meansd-vs.medianiqr" class="section level3">
+<h3><span class="header-section-number">2.7.3</span> Mean/SD vs. Median/IQR</h3>
+<p>We have two sets of measures for the center and the spread of a distribution:</p>
+<blockquote>
+<ul>
+<li>the mean (center) and the SD (spread);</li>
+<li>the median (center) and the IQR (spread).</li>
+</ul>
+</blockquote>
+<p>In many circumstances either one of these pairs serves well to describe center and spread. However:</p>
+<blockquote>
+<ul>
+<li>when a distribution is STRONGLY skewed, or</li>
+<li>when it has SEVERE outliers in one direction but not the other,</li>
+</ul>
+</blockquote>
+<p>the preferred measures of center and spread are the median and the IQR, rather than the mean and the SD. The graphs and calculations from the previous section back up this criterion.</p>
+</div>
+</div>
+<div id="bell-shaped-distributions" class="section level2">
+<h2><span class="header-section-number">2.8</span> Bell-Shaped Distributions</h2>
+<div id="the-68-95-rule" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> The 68-95 Rule</h3>
+<p>People like to use the mean as a measure of center and the SD as a measure of spread, because of the following rule of thumb:</p>
+<p><strong>The 68-95 Rule</strong> (also known as the <em>Empirical Rule</em>): If the distribution of sample data or of a population resembles a unimodal symmetric (“bell-shaped”)&quot; curve, then</p>
+<ul>
+<li>About 68% of the values lie within one SD of the mean.</li>
+<li>About 95% of the values lies within two SDs of the mean.</li>
+<li>About 99.7% of the values lie within three SDs of the mean.</li>
+</ul>
+<p>The rule works surprisingly well, even when the data are somewhat skewed. The following manipulate app illustrates something of the scope and the limitations of the 68-95 Rule:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">EmpRule</span>()</code></pre></div>
+<p>Here is an example of the use of the 68-95 Rule:</p>
+<blockquote>
+<p>A certain population consists of people whose heights have a roughly-bell-shaped distribution, with a mean of 70 inches and a standard deviation of 3 inches.</p>
+</blockquote>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>About what percentage of the people in the population are between 67 and 73 inches tall?</li>
+<li>About what percentage are more than 73 inches tall?</li>
+<li>About what percentage are less than 64 inches tall?</li>
+</ol>
+</blockquote>
+<p>For the first question, we note than 67 and 73 are respectively one SD below and one SD above the mean of 70. Hence by the “68” part of the 68-95 Rule, <strong>about 68% of the population should be between 67 and 73 inches tall</strong>.</p>
+<p>For the second question, note that 64 is two SDs below the mean of 70. By the “95” part of the 68-95 Rule, we know that about 95% of the population is between 64 and 76 inches tall (76 is two SD <em>above</em> the mean of 70). The remaining 5% lies outside of this range, and since bell-shaped distribution is symmetric, about half of this amount should lie below 64 and about half should lie above 76. Half of 5% is 2.5%, so <strong>about 2.5% of the poulation is less than 64 inches tall</strong>.</p>
+<p>It is good to have graphs in mind when you think about the 68-95 Rule. The app <code>EmpRuleGC</code> provides a graphical way to use the 68-95 Rule. In order to solve the problems in the previous example, just try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">EmpRuleGC</span>(<span class="dt">mean=</span><span class="dv">70</span>,<span class="dt">sd=</span><span class="dv">3</span>,<span class="dt">xlab=</span><span class="st">&quot;height (inches)&quot;</span>)</code></pre></div>
+</div>
+<div id="z-scores" class="section level3">
+<h3><span class="header-section-number">2.8.2</span> <span class="math inline">\(z\)</span>-scores</h3>
+<p>When we use the 68-95 Rule, we think about how many SDs a number is away from the mean of the data. In general, even when we aren’t thinking about the 68-95 Rule, we can measure how “unusual” a data value is by figuring out how many SDs it is above or below the mean of all of the data. If <span class="math inline">\(x\)</span> is some value, then we compute:</p>
+<p><span class="math display">\[z = \frac{x-\bar{x}}{s},\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> is the actual value</li>
+<li><span class="math inline">\(\bar{x}\)</span> is the mean of the data</li>
+<li><span class="math inline">\(s\)</span> is the standard deviation of the data.</li>
+</ul>
+<p><span class="math inline">\(z\)</span> is called the <em>z-score</em> for <span class="math inline">\(x\)</span>.</p>
+<p>For example, suppose that Linda is 72 inches tall. How does she compare with the other GC students in the <code>m111survey</code> data? Is she unusually tall, unusually short, or rather typical? We can use her <span class="math inline">\(z\)</span>-score to judge.</p>
+<p>To find Linda’s <span class="math inline">\(z\)</span>-score, we need the mean and the SD of the heights in the <code>m111survey</code> data, so we call:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~height,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>##  min Q1 median    Q3 max     mean       sd  n missing
+##   51 65     68 71.75  79 67.98662 5.296414 71       0</code></pre>
+<p>The mean is about 67.987 inches, and the SD is about 5.296 inches. Hence Linda’s <span class="math inline">\(z\)</span>-score is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">72</span><span class="fl">-67.987</span>)/<span class="fl">5.296</span></code></pre></div>
+<pre><code>## [1] 0.7577417</code></pre>
+<p>The <span class="math inline">\(z\)</span> score is about 0.76, which means that Linda is only about three-fourths of a standard deviation above the mean height. She is not that unusual. If she were a full standard deviation above the mean, then the 68-95 Rule would tell us that about 16% of the students in the <code>m111survey</code> data are taller than her (think about why this is so), but since she is not quite as tall as that we know that probably MORE than 16% of the students are taller than her. So Linda is taller than average, but not unusually tall.</p>
+<p>Of course, we might wonder whether Linda is unusually tall, <em>for a female.</em> To find her <span class="math inline">\(z\)</span>-score relative to females, we need the mean and the SD for females in <code>m111survey</code>, so we call:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(height~sex,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>##      sex min Q1 median Q3 max     mean       sd  n missing
+## 1 female  51 63     65 68  78 64.93750 4.621837 40       0
+## 2   male  65 70     72 74  79 71.92097 3.048545 31       0</code></pre>
+<p>We find that the mean for the female sis about 64.938 inches, and the SD is about 4.622 inches. Linda’s <span class="math inline">\(z\)</span>-score relative to the females is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">72</span><span class="fl">-64.838</span>)/<span class="fl">4.622</span></code></pre></div>
+<pre><code>## [1] 1.549546</code></pre>
+<p>So Linda is about 1.55 SDs above the mean female height. That’s more impressive, but still not terribly unusual.</p>
+<p>Let’s adopt the following convention:</p>
+<blockquote>
+<p><em>A value shall be considered <strong>unusual</strong> if its z-score is less than -2 or more than 2.</em></p>
+</blockquote>
+<p>This convention is most useful when the distribution is roughly bell-shaped, but it makes sense for other distributions, too, as long as they are not too strongly skewed, and don’t have extreme outliers.</p>
+<p>Here is another example, in which we use <span class="math inline">\(z\)</span>-scores to compare individuals.</p>
+<blockquote>
+<p><strong>Example</strong>. George comes from a school where the mean GPA is 3.4, with a SD of 0.3. Linda comes from a school where the mean GPA is 2.8, with a SD of 0.4. George’s GPA is 3.6, and Linda’s GPA is 3.3. Although the schools have different grading patterns, the students at both schools are believed to be equally strong, on the whole.</p>
+</blockquote>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Compute George’s z-score.</li>
+<li>Compute Linda’s z-score.</li>
+<li>Based on the z-scores, who do you think is the stronger student?</li>
+<li>Harold is from the same school as George. His z-score is -0.5. Is Harold above or below average? What is Harold’s actual GPA?</li>
+</ol>
+</blockquote>
+<p>For Question 1, we simply compute George’s <span class="math inline">\(z\)</span>-score as follows, using the mean and SD for Harold’s school:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="fl">3.6-3.4</span>)/<span class="fl">0.3</span></code></pre></div>
+<pre><code>## [1] 0.6666667</code></pre>
+<p>For Question 2, we compute Linda’s <span class="math inline">\(z\)</span>-score, using the mean and SD for her school:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="fl">3.3-2.8</span>)/<span class="fl">0.4</span></code></pre></div>
+<pre><code>## [1] 1.25</code></pre>
+<p>For Question 3, we check to see who has the higher <span class="math inline">\(z\)</span>-score. Linda is 1.25 SDs above the mean for her school, whereas George is only 0.67 SDs above the mean for his school. Since both schools are thought to be equally strong in terms of the academic profile of their students, we conclude that Linda is the more outstanding student.</p>
+<p>For Question 4, we note that Harold’s <span class="math inline">\(z\)</span>-score is -0.5, putting him half of a standard deviation below average for his school. Since the mean is 3.4 and the SD is 0.3, Harold’s actual GPA must be:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">3.4-0.5</span>*<span class="fl">0.3</span></code></pre></div>
+<pre><code>## [1] 3.25</code></pre>
+<p>So Harold’s GPA is 3.25.</p>
+<p>Here is one last example:</p>
+<blockquote>
+<p><strong>Example</strong>. Belinda comes from a school where the mean GPA is 3.2, with a SD of 0.25. At this school you win a small scholarship if oyur GPA is higher than all but 97.5% of the other students. Approximately what is the minimum GPA that will secure Belinda a scholarship?</p>
+</blockquote>
+<p>To answer this question, we recall that about 95% of the students will have GPAs within 2 SDs of the mean. Two SDs is <span class="math inline">\(2 \times 0.25= 0.5\)</span>, so 95% are between <span class="math inline">\(3.2-0.5=2.7\)</span> and <span class="math inline">\(3.2+0.5=3.7\)</span>. Half of the remaining 5% (that’s 2.5%) will be bigger than 3.7, so the rest (97.5%) will be BELOW 3.7. This is our answer: Belinda needs to secure a GPA of at least 3.7 in order to get the scholarship.</p>
+</div>
+</div>
+<div id="reading-in-statistics" class="section level2">
+<h2><span class="header-section-number">2.9</span> Reading in Statistics</h2>
+<p>Reading is a primary skill that is developed during your first year at Georgetown College (think about your FDN 111 class). IN FDN 111, you learn that the Read Skill has four components:</p>
+<ul>
+<li>Reading in context</li>
+<li>Reading for structure</li>
+<li>Reading to interpret</li>
+<li>Reading in a spirit of critical engagement</li>
+</ul>
+<p>In this course, we not only read the course text, we also read data and we read tables and graphs. Even in this “quantitative” type of reading, all of the four components of the Read Skill come into play:</p>
+<ul>
+<li>We read data for <strong>structure</strong>: we note rows (individuals) and columns (variables). We look at the structure of the data, because the type of a variable determines how we explore and describe it.</li>
+<li>We read data to <strong>interpret</strong> it. Once we know the type of a variable, we know what descriptive techniques might help us to summarize and describe it.</li>
+<li>We read tables and graphs <strong>for structure</strong> and <strong>to interpret</strong> them. Tables and graphs have their own structures. Tables have rows, columns, cells, and sometimes marginal totals. Graphs have axes, scales on the axes, axis labels, titles, legends, etc. The parts work together to guide us to a good summary of the data.</li>
+<li>We read data <strong>in context</strong>. For example, it is important to recall the Help file on <strong>mat111</strong>: the Help file said that the survey was a survey of MAT 111 students at Georgetown College, and it told us what the variable names meant, what units they were measured in, etc. In more involved situations, such as data analysis in science, reading in context also means learning about the scientific problem that motivated the collection of the data.</li>
+<li>We read in a spirit of <strong>critical engagement.</strong> For example, when we learn that the students in the <code>m111survey</code> data are all from MAT 111, we might wonder whether this sample is very much like a random sample. If not, it might be trustworthy as a guide to how the GC population looks. Also, even when the sample is random we always wonder: “Are the patterns we see in the data also present in the population, or are they just due to chance?” As we proceed in the course, we’ll learn how to answer this sort of question.</li>
+</ul>
+<p>As we go along in the course, we will find that the Argue and Write skills are also very much in play when we practice statistics.</p>
+</div>
+<div id="thoughts-on-r" class="section level2">
+<h2><span class="header-section-number">2.10</span> Thoughts on R</h2>
+<div id="new-r-functions" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> New R Functions</h3>
+<p>Know how to use these functions:</p>
+<ul>
+<li><code>xtabs</code></li>
+<li><code>rowPerc</code></li>
+<li><code>barchartGC</code></li>
+<li><code>histogram</code>, <code>densityplot</code>, <code>bwplot</code></li>
+<li><code>quantile</code></li>
+<li><code>favstats</code></li>
+</ul>
+</div>
+<div id="those-pesky-formulas" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Those Pesky Formulas!</h3>
+<p>The formula-data input format can be confusing at first. However, there are some patterns that will make life easier for you:</p>
+<p>The symbol “~” appears somewhere in every formula. This is what alerts R to the presence of a formula.</p>
+<p>When you deal with just one variable <span class="math inline">\(x\)</span>, the format is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goal</span>(~x,<span class="dt">data =</span> MyData)</code></pre></div>
+<p>When you deal with the relationship between a numerical value <span class="math inline">\(y\)</span> and a factor variable <span class="math inline">\(x\)</span>, the format is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goal</span>(y~x,<span class="dt">data =</span> MyData)</code></pre></div>
+<p>In the formula above <span class="math inline">\(y\)</span> is usually the response variable and <span class="math inline">\(x\)</span> is the explanatory, but R doesn’t know anything about that. R just puts the values of the first variable along the y axis, and the values of the second variable along the x-axis.</p>
+<p>When you deal with the relationship between two factor variables, the format is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goal</span>(~x+y, <span class="dt">data =</span> MyData)</code></pre></div>
+<p>If there is an explanatory variable, we will try to remember to put it first, and the response variable second. (But R neither knows nor cares about explanatory vs. response.)</p>
+<p>If your variables come from a data frame, don’t forget to supply the name of the data frame, using the <code>data</code> argument!</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Description.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
