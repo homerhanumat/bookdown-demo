@@ -3,7 +3,12 @@ title: "Elementary Statistics with R"
 author: "Rebekah Robinson and Homer White"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+knit: "bookdown::render_book"
+output:
+  bookdown::gitbook:
+    lib_dir: "book_assets"
+  bookdown::pdf_book:
+    keep_tex: yes
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
