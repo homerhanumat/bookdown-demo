@@ -146,7 +146,7 @@ The simulated approximation to the P-value is 0.1148.
 
   >This study did not provide strong evidence that the gambler's die was loaded.
   
-### Facts About $\chi^2$ Goodness of Fit
+### Facts About Chi-Square Goodness of Fit
 
 
 Mathematicians have studied the $\chi^2$-statistic under conditions where sample size is "big enough", and they have discovered the following:

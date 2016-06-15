@@ -586,7 +586,7 @@ This change in unit of the response variable does not affect the way the scatter
 
 Another measure of the "explained variation" in the scatterplot is the *squared correlation*, $r^2$.  This also measures how well our regression line fits the data.  However, it tells us the *proportion* of variation in the response variable that is explained by the explanatory variable.  A change in unit (or scale) will not affect the value of $r^2$.  
 
-#### Properties of $r^2$
+#### Properties of r-Squared
 
 * $r^2$ always has a value between 0 and 1.
 * $r^2=1$ implies perfect linear association between explanatory and response variables.

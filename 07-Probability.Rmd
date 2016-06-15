@@ -404,7 +404,7 @@ pbinomGC(2,region="above",size=5,prob=0.5)
 
 So, in five tosses of a fair coin, the probability of tossing more than 2 heads is $\mbox{P}(X>2)=$ `r pbinomGC(2,region="above",size=5,prob=0.5)`.
 
-#### $\mbox{P}(X\geq 2)$
+#### P(X >= 2)
 
 Now, suppose you want to know $P(X\geq 2)$.  Since the possible values for $X$ are \{0,1,2, 3, 4, 5\}, $X\geq 2$ is the same as $X> 1$.  The following code will calculate $P(X>1)$.  Look at the graph in Figure[Binomial Greater Than or Equal].
 
@@ -414,7 +414,7 @@ pbinomGC(1, region="above",size=5,prob=0.5, graph=TRUE)
 
 Thus, the probability of tossing at least 2 heads is $\mbox{P}(X\geq 2)=$ `r pbinomGC(1,region="above",size=5,prob=0.5)`
 
-#### $\mbox{P}(X\leq 3)$
+#### P(X <= 3)
 
 Now, let's look at finding the probability that there are at most than 3 heads in five tosses of a fair coin.  See Figure[Binomial Less Than or Equal].
 
@@ -424,7 +424,7 @@ pbinomGC(3,region="below",size=5,prob=0.5,graph=TRUE)
 
 Thus, $\mbox{P}(X\leq 3)=$ `r pbinomGC(3,region="below",size=5,prob=0.5)`.
 
-#### $\mbox{P}(X< 3)$
+#### P(X < 3)
 
 Now, let's look at finding the probability that there are less than 3 heads in five tosses of a fair coin.  Note that for a binomial random variable, $X<3$ is the same as $X\leq 2$.  See Figure[Binomial Less Than or Equal].
 
@@ -434,7 +434,7 @@ pbinomGC(2,region="below",size=5,prob=0.5,graph=TRUE)
 
 Thus, $\mbox{P}(X\leq 3)=$ `r pbinomGC(3,region="below",size=5,prob=0.5)`.
 
-#### $\mbox{P}(2\leq X\leq 4)$
+#### P(X >= 2 and X <= 4)
 
 Say we are interested in finding the probability of tossing at least 2 but not more than 4 heads in five tosses of a fair coin, $\mbox{P}(2\leq X\leq 4)$.  Put another way, this is the probability of tossing 2, 3, or 4 heads in five tosses of a fair coin.  See Figure [Binomial Between].
 
@@ -444,7 +444,7 @@ pbinomGC(c(2,4),region="between", size=5,prob=0.5,graph=TRUE)
 
 Thus, $\mbox{P}(1\leq X\leq 4)=$ `r pbinomGC(c(2,4),region="between",size=5,prob=0.5)`.
 
-#### $\mbox{P}(X=2)$
+#### P(X = 2)
 
 Finally, suppose we want to find the probability of tossing exactly 2 heads in five tosses of a fair coin.  See Figure[Binomial Equal].
 

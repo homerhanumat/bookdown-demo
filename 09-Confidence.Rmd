@@ -107,7 +107,7 @@ The next two chapters will follow the same format.  We will go through each of t
 As you work through the confidence interval construction for each of the Basic Five parameters, put most of your focus on the *conceptual understanding*, i.e, seeing how what the confidence interval can be used to shed light on the Research Question that you originally had in mind.
 
 
-## One Population Mean $\mu$
+## One Population Mean
 
 Let's start looking at the confidence interval for the example from `imagpop` we looked at above.  We will go through the Four Steps for this first example, using the an R-function to compute the interval for us.  Then, we will go through the construction of the confidence interval step by step in detail.
 
@@ -558,7 +558,7 @@ invisible(ptGC(c(-t.99,t.99),region="between",df=70,graph=TRUE))
 A larger area underneath the $t$-curve correspond to a higher probability that the confidence interval formula will produce intervals that contain the parameter, which in turn leads to a higher level of confidence that any one interval does, in fact, contain the population parameter.  At the same time, though, the larger multiplier makes for a larger margin of error.  Thus when the sample size is held constant, higher confidence levels are associated with wider confidence intervals.
 
 
-## Difference of Two Population Means, $\mu_1-\mu_2$
+## Difference of Two Population Means
 
 
   >**Research Question**:  Do GC males sleep more at night, on average, than GC females?
@@ -744,7 +744,7 @@ Since all of the numbers in this interval are negative, we can say with 95% conf
 We are reasonably sure that the average head circumference for males in this population is larger than the average head circumference for females.  The difference between the average head circumferences for females and males is likely to be a number in the range (`r CI.head$interval[1]`, `r CI.head$interval[2]`) centimeters.
 
 
-## Mean of Differences, $\mu_d$
+## Mean of Differences
 
 
   >**Research Question**: Does the ideal height of GC students differ, on average, than their actual height?
@@ -865,7 +865,7 @@ The 95%-confidence interval for $\mu_d$ consists of all the numbers between `r f
 
 
 
-## One Population Proportion, $p$
+## One Population Proportion
 
   >**Research Question**:   What is the proportion of GC students that believe in love at first sight?
   
@@ -1009,7 +1009,7 @@ We are 95% confident that if the true proportion of American adults who believe 
 We are reasonably sure that the percentage of American adults who believe the world is going to end is in the range ( `r 0.558788*100`%,  `r 0.62068*100`%).
 
 
-## Difference of Two Population Proportions, $p_1-p_2$
+## Difference of Two Population Proportions
 
 
   >**Research Question**: In the GC population, are females more likely than males to believe in extra-terrestrial life?

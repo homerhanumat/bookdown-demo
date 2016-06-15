@@ -35,7 +35,7 @@ After each parameter has been covered, we will discuss some general issues in hy
 
 Finally, we will undertake a "Grand Review", in which we practice moving from a Research Question to the proper inferential procedures to address that question.
 
-## One Population Mean $\mu$
+## One Population Mean
 
 ### Introductory Research Question
 
@@ -342,7 +342,7 @@ Since P > 0.05, we do not reject the Null Hypothesis.
 
 The data did not provide strong evidence that the mean length of all Great Whites is less than 15 feet.
 
-## Difference of Two Population Means, $\mu_1-\mu_2$
+## Difference of Two Population Means
 
 ### The Difference of Two Means
 
@@ -630,7 +630,7 @@ Since P > 0.05, we do not reject the Null Hypothesis.
 
 This study did not provide strong evidence that the students in the survey were affected by race when they recommended a sentence.
 
-## Mean of Differences $\mu_d$
+## Mean of Differences
 
 In this case we usually have paired data.
 
@@ -882,7 +882,7 @@ This data provided strong evidence that GC females are more affected by labels t
 
 We might wonder what this all means.  Do GC females pay more attention to their surroundings---in particular, to labels on products??  Who knows!
 
-## One Population Proportion $p$
+## One Population Proportion
 
 Recall the distribution of the variable **sex** in the `m111survey` data:
 
@@ -1058,7 +1058,7 @@ There is an important moral to this story:
   >*A significance test only tells you whether or not it is reasonable to believe that the results could be obtained by chance if the Null is true.  It does NOT tell you how the Alternative Hypothesis should be interpreted.  When the study has a flawed design, the results of the test will not mean what you expect them to mean!*
 
 
-## Difference of Two Proportions $p_1-p_2$
+## Difference of Two Proportions
 
 Recall that in the `mat111survey`, participants were asked their sex, and were also asked whether they believed in love at first sight.  The results were as follows:
 
