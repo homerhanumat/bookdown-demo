@@ -25,7 +25,7 @@
 
 <meta name="author" content="Rebekah Robinson and Homer White">
 
-<meta name="date" content="2016-05-18">
+<meta name="date" content="2016-06-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -440,7 +440,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Elementary Statistics with R</h1>
 <h4 class="author"><em>Rebekah Robinson and Homer White</em></h4>
-<h4 class="date"><em>2016-05-18</em></h4>
+<h4 class="date"><em>2016-06-14</em></h4>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -620,12 +620,12 @@ mycards</code></pre></div>
 ## [49] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;</code></pre>
 <p>Let’s again start by shuffling the deck.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shuffle</span>(mycards)</code></pre></div>
-<pre><code>##  [1] &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;  
-##  [9] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;
-## [17] &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot;
-## [25] &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot;
-## [33] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;  
-## [41] &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot;
+<pre><code>##  [1] &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot;
+##  [9] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;  
+## [17] &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;  
+## [25] &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;  
+## [33] &quot;Black&quot; &quot;Black&quot; &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot;
+## [41] &quot;Black&quot; &quot;Red&quot;   &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;   &quot;Black&quot;
 ## [49] &quot;Black&quot; &quot;Red&quot;   &quot;Red&quot;   &quot;Red&quot;</code></pre>
 <p>We will randomly deal 10 cards from this new deck using the <code>sample</code> function. The <code>sample</code> function takes three arguments. You need to tell is where to sample from, how many to sample, and whether or not to sample with replacement.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(mycards, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
