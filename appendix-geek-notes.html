@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Elementary Statistics with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision.">
+  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Elementary Statistics with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  <meta name="github-repo" content="homerhanumat/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Elementary Statistics with R" />
+  
+  <meta name="twitter:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  
+
+<meta name="author" content="Rebekah Robinson and Homer White">
+
+<meta name="date" content="2016-06-15">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="goodness-of-fit.html">
+
+
+<script src="book_assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Elementary Statistics With R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-are-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> What are R and RStudio?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#panels-and-tabs"><i class="fa fa-check"></i><b>1.1.1</b> Panels and Tabs</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#differences-between-rscript-and-rmarkdown-files"><i class="fa fa-check"></i><b>1.1.2</b> Differences Between RScript and RMarkdown Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#basic-r"><i class="fa fa-check"></i><b>1.1.3</b> Basic R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#lets-play-cards"><i class="fa fa-check"></i><b>1.2</b> Let’s play cards!</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#the-game"><i class="fa fa-check"></i><b>1.2.1</b> The Game</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#the-results"><i class="fa fa-check"></i><b>1.2.2</b> The Results</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#the-conclusion"><i class="fa fa-check"></i><b>1.2.3</b> The Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>1.3</b> Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#thoughts-on-r"><i class="fa fa-check"></i><b>1.4</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html"><i class="fa fa-check"></i><b>2</b> Describing Patterns in Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#data-basics"><i class="fa fa-check"></i><b>2.1</b> Data Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#getting-data-in-r"><i class="fa fa-check"></i><b>2.1.1</b> Getting Data in R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#variable-types"><i class="fa fa-check"></i><b>2.1.2</b> Variable Types</a></li>
+<li class="chapter" data-level="2.1.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.1.3</b> Descriptive Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#outline"><i class="fa fa-check"></i><b>2.2</b> Outline</a></li>
+<li class="chapter" data-level="2.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-factor-variable"><i class="fa fa-check"></i><b>2.3</b> One Factor Variable</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#tables"><i class="fa fa-check"></i><b>2.3.1</b> Tables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts."><i class="fa fa-check"></i><b>2.3.2</b> Barcharts.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-factor-variables"><i class="fa fa-check"></i><b>2.4</b> Two Factor Variables</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-way-tables"><i class="fa fa-check"></i><b>2.4.1</b> Two-Way Tables</a></li>
+<li class="chapter" data-level="2.4.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts-again"><i class="fa fa-check"></i><b>2.4.2</b> Barcharts Again</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-numerical-variable"><i class="fa fa-check"></i><b>2.5</b> One Numerical Variable</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-measures"><i class="fa fa-check"></i><b>2.5.1</b> Numerical Measures</a></li>
+<li class="chapter" data-level="2.5.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools"><i class="fa fa-check"></i><b>2.5.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#factor-and-numerical-variable"><i class="fa fa-check"></i><b>2.6</b> Factor and Numerical Variable</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-tools"><i class="fa fa-check"></i><b>2.6.1</b> Numerical Tools</a></li>
+<li class="chapter" data-level="2.6.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools-1"><i class="fa fa-check"></i><b>2.6.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#choice-of-measures"><i class="fa fa-check"></i><b>2.7</b> Choice of Measures</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-skewness"><i class="fa fa-check"></i><b>2.7.1</b> Mean, Median and Skewness</a></li>
+<li class="chapter" data-level="2.7.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-outliers"><i class="fa fa-check"></i><b>2.7.2</b> Mean, Median and Outliers</a></li>
+<li class="chapter" data-level="2.7.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#meansd-vs.medianiqr"><i class="fa fa-check"></i><b>2.7.3</b> Mean/SD vs. Median/IQR</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#bell-shaped-distributions"><i class="fa fa-check"></i><b>2.8</b> Bell-Shaped Distributions</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#the-68-95-rule"><i class="fa fa-check"></i><b>2.8.1</b> The 68-95 Rule</a></li>
+<li class="chapter" data-level="2.8.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#z-scores"><i class="fa fa-check"></i><b>2.8.2</b> <span class="math inline">\(z\)</span>-scores</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#reading-in-statistics"><i class="fa fa-check"></i><b>2.9</b> Reading in Statistics</a></li>
+<li class="chapter" data-level="2.10" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#thoughts-on-r-1"><i class="fa fa-check"></i><b>2.10</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#new-r-functions"><i class="fa fa-check"></i><b>2.10.1</b> New R Functions</a></li>
+<li class="chapter" data-level="2.10.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#those-pesky-formulas"><i class="fa fa-check"></i><b>2.10.2</b> Those Pesky Formulas!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html"><i class="fa fa-check"></i><b>3</b> Relationships Between Two Factor Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#the-descriptive-aspect"><i class="fa fa-check"></i><b>3.2</b> The Descriptive Aspect</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#terminology-for-two-way-tables"><i class="fa fa-check"></i><b>3.2.1</b> Terminology for Two-Way Tables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#detecting-and-describing-relationships"><i class="fa fa-check"></i><b>3.2.2</b> Detecting and Describing Relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#the-idea-of-inference"><i class="fa fa-check"></i><b>3.3</b> The Idea of Inference</a></li>
+<li class="chapter" data-level="3.4" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#tests-of-significance"><i class="fa fa-check"></i><b>3.4</b> Tests of Significance</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#five-step-procedure"><i class="fa fa-check"></i><b>3.4.1</b> Five Step Procedure</a></li>
+<li class="chapter" data-level="3.4.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#more-on-the-chi-square-statistic"><i class="fa fa-check"></i><b>3.4.2</b> More on the Chi-Square Statistic</a></li>
+<li class="chapter" data-level="3.4.3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#chisqtestgc"><i class="fa fa-check"></i><b>3.4.3</b> <code>chisqtestGC()</code></a></li>
+<li class="chapter" data-level="3.4.4" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#working-with-summary-data"><i class="fa fa-check"></i><b>3.4.4</b> Working With Summary Data</a></li>
+<li class="chapter" data-level="3.4.5" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#simulating-p-values"><i class="fa fa-check"></i><b>3.4.5</b> Simulating P-Values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#simpsons-paradox"><i class="fa fa-check"></i><b>3.5</b> Simpson’s Paradox</a></li>
+<li class="chapter" data-level="3.6" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#thoughts-on-r-2"><i class="fa fa-check"></i><b>3.6</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html"><i class="fa fa-check"></i><b>4</b> Relationships Between Two Numerical Variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#outline-1"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
+<li class="chapter" data-level="4.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#statistical-relationships"><i class="fa fa-check"></i><b>4.2</b> Statistical Relationships</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#scatterplots"><i class="fa fa-check"></i><b>4.2.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="4.2.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#correlation"><i class="fa fa-check"></i><b>4.2.2</b> Correlation</a></li>
+<li class="chapter" data-level="4.2.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#regression-equation"><i class="fa fa-check"></i><b>4.2.3</b> Regression Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#cautions"><i class="fa fa-check"></i><b>4.3</b> Cautions</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#extrapolation"><i class="fa fa-check"></i><b>4.3.1</b> Extrapolation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#influential-observations"><i class="fa fa-check"></i><b>4.3.2</b> Influential Observations</a></li>
+<li class="chapter" data-level="4.3.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#association-versus-causation"><i class="fa fa-check"></i><b>4.3.3</b> Association versus Causation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#simpsons-paradox-1"><i class="fa fa-check"></i><b>4.3.4</b> Simpson’s Paradox</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#curvilinear-fits"><i class="fa fa-check"></i><b>4.4</b> Curvilinear Fits</a></li>
+<li class="chapter" data-level="4.5" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#thoughts-on-r-3"><i class="fa fa-check"></i><b>4.5</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#new-r-functions-1"><i class="fa fa-check"></i><b>4.5.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html"><i class="fa fa-check"></i><b>5</b> Sampling and Surveys</a><ul>
+<li class="chapter" data-level="5.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#population-versus-sample"><i class="fa fa-check"></i><b>5.2</b> Population versus Sample</a></li>
+<li class="chapter" data-level="5.3" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#types-of-samples"><i class="fa fa-check"></i><b>5.3</b> Types of Samples</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#random-sampling"><i class="fa fa-check"></i><b>5.3.1</b> Random Sampling</a></li>
+<li class="chapter" data-level="5.3.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#comparison-of-sampling-methods"><i class="fa fa-check"></i><b>5.3.2</b> Comparison of Sampling Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#bias-in-surveys"><i class="fa fa-check"></i><b>5.4</b> Bias in Surveys</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#selection-bias"><i class="fa fa-check"></i><b>5.4.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#nonresopnse-bias"><i class="fa fa-check"></i><b>5.4.2</b> Nonresopnse Bias</a></li>
+<li class="chapter" data-level="5.4.3" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#response-bias"><i class="fa fa-check"></i><b>5.4.3</b> Response Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#thoughts-on-r-4"><i class="fa fa-check"></i><b>5.5</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="design-of-studies.html"><a href="design-of-studies.html"><i class="fa fa-check"></i><b>6</b> Design of Studies</a><ul>
+<li class="chapter" data-level="6.1" data-path="design-of-studies.html"><a href="design-of-studies.html#observational-studies-and-experiments"><i class="fa fa-check"></i><b>6.1</b> Observational Studies and Experiments</a></li>
+<li class="chapter" data-level="6.2" data-path="design-of-studies.html"><a href="design-of-studies.html#why-perform-experiments"><i class="fa fa-check"></i><b>6.2</b> Why Perform Experiments?</a></li>
+<li class="chapter" data-level="6.3" data-path="design-of-studies.html"><a href="design-of-studies.html#experimental-designs"><i class="fa fa-check"></i><b>6.3</b> Experimental Designs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="design-of-studies.html"><a href="design-of-studies.html#completely-randomized-designs"><i class="fa fa-check"></i><b>6.3.1</b> Completely Randomized Designs</a></li>
+<li class="chapter" data-level="6.3.2" data-path="design-of-studies.html"><a href="design-of-studies.html#randomized-block-designs"><i class="fa fa-check"></i><b>6.3.2</b> Randomized Block Designs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="design-of-studies.html"><a href="design-of-studies.html#matched-pair-designs"><i class="fa fa-check"></i><b>6.3.3</b> Matched Pair Designs</a></li>
+<li class="chapter" data-level="6.3.4" data-path="design-of-studies.html"><a href="design-of-studies.html#repeated-measure-designs"><i class="fa fa-check"></i><b>6.3.4</b> Repeated-Measure Designs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="design-of-studies.html"><a href="design-of-studies.html#considerations-about-experiments"><i class="fa fa-check"></i><b>6.4</b> Considerations About Experiments</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="design-of-studies.html"><a href="design-of-studies.html#reproducibility"><i class="fa fa-check"></i><b>6.4.1</b> Reproducibility</a></li>
+<li class="chapter" data-level="6.4.2" data-path="design-of-studies.html"><a href="design-of-studies.html#subjects-and-the-population"><i class="fa fa-check"></i><b>6.4.2</b> Subjects and the Population</a></li>
+<li class="chapter" data-level="6.4.3" data-path="design-of-studies.html"><a href="design-of-studies.html#statistical-significance"><i class="fa fa-check"></i><b>6.4.3</b> Statistical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="design-of-studies.html"><a href="design-of-studies.html#terminology-for-experiments"><i class="fa fa-check"></i><b>6.5</b> Terminology for Experiments</a></li>
+<li class="chapter" data-level="6.6" data-path="design-of-studies.html"><a href="design-of-studies.html#thoughts-on-r-5"><i class="fa fa-check"></i><b>6.6</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="design-of-studies.html"><a href="design-of-studies.html#new-r-functions-2"><i class="fa fa-check"></i><b>6.6.1</b> New R-functions</a></li>
+<li class="chapter" data-level="6.6.2" data-path="design-of-studies.html"><a href="design-of-studies.html#book-chapter-notation"><i class="fa fa-check"></i><b>6.6.2</b> “Book-Chapter” Notation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="basic-probability.html"><a href="basic-probability.html"><i class="fa fa-check"></i><b>7</b> Basic Probability</a><ul>
+<li class="chapter" data-level="7.1" data-path="basic-probability.html"><a href="basic-probability.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="basic-probability.html"><a href="basic-probability.html#probability"><i class="fa fa-check"></i><b>7.2</b> Probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="basic-probability.html"><a href="basic-probability.html#subjective-probability"><i class="fa fa-check"></i><b>7.2.1</b> Subjective Probability</a></li>
+<li class="chapter" data-level="7.2.2" data-path="basic-probability.html"><a href="basic-probability.html#theoretical-probability"><i class="fa fa-check"></i><b>7.2.2</b> Theoretical Probability</a></li>
+<li class="chapter" data-level="7.2.3" data-path="basic-probability.html"><a href="basic-probability.html#long-run-frequency-probability"><i class="fa fa-check"></i><b>7.2.3</b> Long-run Frequency Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="basic-probability.html"><a href="basic-probability.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>7.3</b> What is a Random Variable?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="basic-probability.html"><a href="basic-probability.html#notation"><i class="fa fa-check"></i><b>7.3.1</b> Notation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="basic-probability.html"><a href="basic-probability.html#discrete-random-variables"><i class="fa fa-check"></i><b>7.4</b> Discrete Random Variables</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="basic-probability.html"><a href="basic-probability.html#probability-distribution-functions-for-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.1</b> Probability Distribution Functions for Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.2" data-path="basic-probability.html"><a href="basic-probability.html#expectation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.2</b> Expectation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.3" data-path="basic-probability.html"><a href="basic-probability.html#standard-deviation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.3</b> Standard Deviation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.4" data-path="basic-probability.html"><a href="basic-probability.html#using-ev-and-sd-to-evaluate-a-game"><i class="fa fa-check"></i><b>7.4.4</b> Using EV and SD to Evaluate a Game</a></li>
+<li class="chapter" data-level="7.4.5" data-path="basic-probability.html"><a href="basic-probability.html#independence"><i class="fa fa-check"></i><b>7.4.5</b> Independence</a></li>
+<li class="chapter" data-level="7.4.6" data-path="basic-probability.html"><a href="basic-probability.html#a-special-discrete-random-variable-binomial-random-variable"><i class="fa fa-check"></i><b>7.4.6</b> A Special Discrete Random Variable: Binomial Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="basic-probability.html"><a href="basic-probability.html#continuous-random-variables"><i class="fa fa-check"></i><b>7.5</b> Continuous Random Variables</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="basic-probability.html"><a href="basic-probability.html#probability-density-functions-for-continuous-random-variables"><i class="fa fa-check"></i><b>7.5.1</b> Probability Density Functions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="7.5.2" data-path="basic-probability.html"><a href="basic-probability.html#a-special-continuous-random-variable-normal-random-variable"><i class="fa fa-check"></i><b>7.5.2</b> A Special Continuous Random Variable: Normal Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="basic-probability.html"><a href="basic-probability.html#approximating-binomial-probabilities"><i class="fa fa-check"></i><b>7.6</b> Approximating Binomial Probabilities</a></li>
+<li class="chapter" data-level="7.7" data-path="basic-probability.html"><a href="basic-probability.html#thoughts-on-r-6"><i class="fa fa-check"></i><b>7.7</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="basic-probability.html"><a href="basic-probability.html#new-r-functions-3"><i class="fa fa-check"></i><b>7.7.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html"><i class="fa fa-check"></i><b>8</b> Probability in Sampling</a><ul>
+<li class="chapter" data-level="8.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-population-and-the-sample"><i class="fa fa-check"></i><b>8.1</b> The Population and the Sample</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#parameters"><i class="fa fa-check"></i><b>8.1.1</b> Parameters</a></li>
+<li class="chapter" data-level="8.1.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#statistics-1"><i class="fa fa-check"></i><b>8.1.2</b> Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#from-questions-to-parameters"><i class="fa fa-check"></i><b>8.2</b> From Questions to Parameters</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#one-mean"><i class="fa fa-check"></i><b>8.2.1</b> One Mean</a></li>
+<li class="chapter" data-level="8.2.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#one-proportion"><i class="fa fa-check"></i><b>8.2.2</b> One Proportion</a></li>
+<li class="chapter" data-level="8.2.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#difference-of-two-means"><i class="fa fa-check"></i><b>8.2.3</b> Difference of Two Means</a></li>
+<li class="chapter" data-level="8.2.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#difference-of-two-proportions"><i class="fa fa-check"></i><b>8.2.4</b> Difference of Two Proportions</a></li>
+<li class="chapter" data-level="8.2.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#mean-of-differences"><i class="fa fa-check"></i><b>8.2.5</b> Mean of Differences</a></li>
+<li class="chapter" data-level="8.2.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-basic-five-parameters"><i class="fa fa-check"></i><b>8.2.6</b> The “Basic Five” Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#parameters-in-experiments"><i class="fa fa-check"></i><b>8.3</b> Parameters in Experiments</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#anchoring-in-m111survey"><i class="fa fa-check"></i><b>8.3.1</b> Anchoring in m111survey</a></li>
+<li class="chapter" data-level="8.3.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#knife-or-gun-again"><i class="fa fa-check"></i><b>8.3.2</b> Knife or Gun (Again)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#more-anchoring"><i class="fa fa-check"></i><b>8.3.3</b> More Anchoring</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#ev-and-sd-of-estimators"><i class="fa fa-check"></i><b>8.4</b> EV and SD of Estimators</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-one-mean"><i class="fa fa-check"></i><b>8.4.1</b> Estimating One Mean</a></li>
+<li class="chapter" data-level="8.4.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-difference-of-two-means"><i class="fa fa-check"></i><b>8.4.2</b> Estimating the Difference of Two Means</a></li>
+<li class="chapter" data-level="8.4.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-one-proportion"><i class="fa fa-check"></i><b>8.4.3</b> Estimating One Proportion</a></li>
+<li class="chapter" data-level="8.4.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-difference-of-two-proportions"><i class="fa fa-check"></i><b>8.4.4</b> Estimating the Difference of Two Proportions</a></li>
+<li class="chapter" data-level="8.4.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-mean-of-differences"><i class="fa fa-check"></i><b>8.4.5</b> Estimating the Mean of Differences</a></li>
+<li class="chapter" data-level="8.4.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#properties-of-ev-and-sd-of-estimators"><i class="fa fa-check"></i><b>8.4.6</b> Properties of EV and SD of Estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimators-shape-of-the-distribution"><i class="fa fa-check"></i><b>8.5</b> Estimators: Shape of the Distribution</a></li>
+<li class="chapter" data-level="8.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#probability-for-estimators"><i class="fa fa-check"></i><b>8.6</b> Probability for Estimators</a></li>
+<li class="chapter" data-level="8.7" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#inference-with-estimators"><i class="fa fa-check"></i><b>8.7</b> Inference With Estimators</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#we-are-not-deities"><i class="fa fa-check"></i><b>8.7.1</b> We Are Not Deities</a></li>
+<li class="chapter" data-level="8.7.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#practice-with-estimator-and-se"><i class="fa fa-check"></i><b>8.7.2</b> Practice With Estimator and SE</a></li>
+<li class="chapter" data-level="8.7.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-68-95-rule-for-estimation"><i class="fa fa-check"></i><b>8.7.3</b> The 68-95 Rule for Estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#summary-of-formulas"><i class="fa fa-check"></i><b>8.8</b> Summary of Formulas</a></li>
+<li class="chapter" data-level="8.9" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#thoughts-on-r-7"><i class="fa fa-check"></i><b>8.9</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>9</b> Confidence Intervals</a><ul>
+<li class="chapter" data-level="9.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#introduction-4"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#chapter-outline"><i class="fa fa-check"></i><b>9.2</b> Chapter Outline</a></li>
+<li class="chapter" data-level="9.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#one-population-mean"><i class="fa fa-check"></i><b>9.3</b> One Population Mean</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps"><i class="fa fa-check"></i><b>9.3.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.3.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood"><i class="fa fa-check"></i><b>9.3.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.3.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-and-further-ideas"><i class="fa fa-check"></i><b>9.3.3</b> Additional Example, and Further Ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#difference-of-two-population-means"><i class="fa fa-check"></i><b>9.4</b> Difference of Two Population Means</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-1"><i class="fa fa-check"></i><b>9.4.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-1"><i class="fa fa-check"></i><b>9.4.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.4.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example"><i class="fa fa-check"></i><b>9.4.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#mean-of-differences-1"><i class="fa fa-check"></i><b>9.5</b> Mean of Differences</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-2"><i class="fa fa-check"></i><b>9.5.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.5.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-2"><i class="fa fa-check"></i><b>9.5.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.5.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-1"><i class="fa fa-check"></i><b>9.5.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="confidence-intervals.html"><a href="confidence-intervals.html#one-population-proportion"><i class="fa fa-check"></i><b>9.6</b> One Population Proportion</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-3"><i class="fa fa-check"></i><b>9.6.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.6.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-3"><i class="fa fa-check"></i><b>9.6.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.6.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-2"><i class="fa fa-check"></i><b>9.6.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="confidence-intervals.html"><a href="confidence-intervals.html#difference-of-two-population-proportions"><i class="fa fa-check"></i><b>9.7</b> Difference of Two Population Proportions</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-4"><i class="fa fa-check"></i><b>9.7.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.7.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-4"><i class="fa fa-check"></i><b>9.7.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.7.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-3"><i class="fa fa-check"></i><b>9.7.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="confidence-intervals.html"><a href="confidence-intervals.html#thoughts-on-r-8"><i class="fa fa-check"></i><b>9.8</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#new-r-functions-4"><i class="fa fa-check"></i><b>9.8.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html"><i class="fa fa-check"></i><b>10</b> Tests of Significance</a><ul>
+<li class="chapter" data-level="10.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introduction-5"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#one-population-mean-1"><i class="fa fa-check"></i><b>10.2</b> One Population Mean</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introductory-research-question"><i class="fa fa-check"></i><b>10.2.1</b> Introductory Research Question</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps"><i class="fa fa-check"></i><b>10.2.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-and-further-ideas"><i class="fa fa-check"></i><b>10.2.3</b> Under the Hood, and Further Ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#difference-of-two-population-means-1"><i class="fa fa-check"></i><b>10.3</b> Difference of Two Population Means</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-difference-of-two-means"><i class="fa fa-check"></i><b>10.3.1</b> The Difference of Two Means</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-1"><i class="fa fa-check"></i><b>10.3.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-5"><i class="fa fa-check"></i><b>10.3.3</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples"><i class="fa fa-check"></i><b>10.3.4</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#mean-of-differences-2"><i class="fa fa-check"></i><b>10.4</b> Mean of Differences</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introductory-research-question-1"><i class="fa fa-check"></i><b>10.4.1</b> Introductory Research Question</a></li>
+<li class="chapter" data-level="10.4.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-2"><i class="fa fa-check"></i><b>10.4.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.4.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-6"><i class="fa fa-check"></i><b>10.4.3</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.4.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples-1"><i class="fa fa-check"></i><b>10.4.4</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#one-population-proportion-1"><i class="fa fa-check"></i><b>10.5</b> One Population Proportion</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-3"><i class="fa fa-check"></i><b>10.5.1</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.5.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-7"><i class="fa fa-check"></i><b>10.5.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.5.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples-2"><i class="fa fa-check"></i><b>10.5.3</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#difference-of-two-proportions-1"><i class="fa fa-check"></i><b>10.6</b> Difference of Two Proportions</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-4"><i class="fa fa-check"></i><b>10.6.1</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.6.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#working-with-summary-data-1"><i class="fa fa-check"></i><b>10.6.2</b> Working With Summary Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#further-considerations-about-significance-tests"><i class="fa fa-check"></i><b>10.7</b> Further Considerations About Significance Tests</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#types-of-error"><i class="fa fa-check"></i><b>10.7.1</b> Types of Error</a></li>
+<li class="chapter" data-level="10.7.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-dangers-of-limited-reporting"><i class="fa fa-check"></i><b>10.7.2</b> The Dangers of Limited Reporting</a></li>
+<li class="chapter" data-level="10.7.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-dangers-of-data-snooping"><i class="fa fa-check"></i><b>10.7.3</b> The Dangers of Data-Snooping</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#thoughts-about-r"><i class="fa fa-check"></i><b>10.8</b> Thoughts About R</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#new-code-to-learn"><i class="fa fa-check"></i><b>10.8.1</b> New Code to Learn?</a></li>
+<li class="chapter" data-level="10.8.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#old-descriptive-friends"><i class="fa fa-check"></i><b>10.8.2</b> Old Descriptive Friends</a></li>
+<li class="chapter" data-level="10.8.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#adding-a-variable-to-a-data-frame"><i class="fa fa-check"></i><b>10.8.3</b> Adding a Variable to a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> Goodness of Fit</a><ul>
+<li class="chapter" data-level="11.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#the-gamblers-die"><i class="fa fa-check"></i><b>11.1</b> The Gambler’s Die</a></li>
+<li class="chapter" data-level="11.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#chisqtestgc-for-goodness-of-fit"><i class="fa fa-check"></i><b>11.2</b> chisqtestGC() for Goodness of Fit</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#the-gamblers-die-as-a-test-of-significance"><i class="fa fa-check"></i><b>11.2.1</b> The Gambler’s Die as a Test of Significance</a></li>
+<li class="chapter" data-level="11.2.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#facts-about-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>11.2.2</b> Facts About Chi-Square Goodness of Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-seating-preference"><i class="fa fa-check"></i><b>11.3</b> Further Example: Seating Preference</a></li>
+<li class="chapter" data-level="11.4" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-nexus-attendance"><i class="fa fa-check"></i><b>11.4</b> Further Example: Nexus Attendance</a></li>
+<li class="chapter" data-level="11.5" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-too-good-to-be-true"><i class="fa fa-check"></i><b>11.5</b> Further Example: Too Good to be True?</a></li>
+<li class="chapter" data-level="11.6" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#thoughts-about-r-1"><i class="fa fa-check"></i><b>11.6</b> Thoughts About R</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#names-for-elements-in-a-list"><i class="fa fa-check"></i><b>11.6.1</b> Names for Elements in a List</a></li>
+<li class="chapter" data-level="11.6.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#quick-null-probabilities"><i class="fa fa-check"></i><b>11.6.2</b> Quick Null Probabilities</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html"><i class="fa fa-check"></i><b>12</b> Appendix: Geek Notes</a><ul>
+<li class="chapter" data-level="12.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-2"><i class="fa fa-check"></i><b>12.1</b> Chapter 2</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-structure"><i class="fa fa-check"></i><b>12.1.1</b> More on Structure</a></li>
+<li class="chapter" data-level="12.1.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#fancier-histograms"><i class="fa fa-check"></i><b>12.1.2</b> Fancier Histograms</a></li>
+<li class="chapter" data-level="12.1.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#combined-plots"><i class="fa fa-check"></i><b>12.1.3</b> Combined Plots</a></li>
+<li class="chapter" data-level="12.1.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#adding-rugs"><i class="fa fa-check"></i><b>12.1.4</b> Adding Rugs</a></li>
+<li class="chapter" data-level="12.1.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#tuning-density-plots"><i class="fa fa-check"></i><b>12.1.5</b> Tuning Density Plots</a></li>
+<li class="chapter" data-level="12.1.6" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-standard-deviation"><i class="fa fa-check"></i><b>12.1.6</b> More on Standard Deviation</a></li>
+<li class="chapter" data-level="12.1.7" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#cleveland-dotplots"><i class="fa fa-check"></i><b>12.1.7</b> Cleveland Dotplots</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-3"><i class="fa fa-check"></i><b>12.2</b> Chapter 3</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#fixed-and-random-effects-in-simulation"><i class="fa fa-check"></i><b>12.2.1</b> Fixed and Random effects in Simulation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-4"><i class="fa fa-check"></i><b>12.3</b> Chapter 4</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#point-shapes-in-scatterplots-using-pch"><i class="fa fa-check"></i><b>12.3.1</b> Point Shapes in Scatterplots using <code>pch</code></a></li>
+<li class="chapter" data-level="12.3.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#scatterplot-matrix"><i class="fa fa-check"></i><b>12.3.2</b> Scatterplot Matrix</a></li>
+<li class="chapter" data-level="12.3.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-rationale-for-values-of-the-correlation-coefficient-r"><i class="fa fa-check"></i><b>12.3.3</b> The Rationale for Values of the Correlation Coefficient, <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="12.3.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#computation-of-the-coefficients-in-the-regression-equation"><i class="fa fa-check"></i><b>12.3.4</b> Computation of the Coefficients in the Regression Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-5"><i class="fa fa-check"></i><b>12.4</b> Chapter 5</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-rbind-function"><i class="fa fa-check"></i><b>12.4.1</b> The <code>rbind()</code> Function</a></li>
+<li class="chapter" data-level="12.4.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-cbind-function"><i class="fa fa-check"></i><b>12.4.2</b> The <code>cbind()</code> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-6"><i class="fa fa-check"></i><b>12.5</b> Chapter 6</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-role-of-limits-in-density-plots"><i class="fa fa-check"></i><b>12.5.1</b> The Role of Limits in Density Plots</a></li>
+<li class="chapter" data-level="12.5.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-about-legends"><i class="fa fa-check"></i><b>12.5.2</b> More about Legends</a></li>
+<li class="chapter" data-level="12.5.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-strip-plots"><i class="fa fa-check"></i><b>12.5.3</b> More on Strip-plots</a></li>
+<li class="chapter" data-level="12.5.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>12.5.4</b> Assessing Statistical Significance</a></li>
+<li class="chapter" data-level="12.5.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#interaction"><i class="fa fa-check"></i><b>12.5.5</b> Interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-8"><i class="fa fa-check"></i><b>12.6</b> Chapter 8</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#we-lied-about-the-sd-formulas"><i class="fa fa-check"></i><b>12.6.1</b> We Lied About the SD Formulas!</a></li>
+<li class="chapter" data-level="12.6.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#are-we-only-ever-interested-in-population-parameters"><i class="fa fa-check"></i><b>12.6.2</b> Are We Only Ever Interested in Population Parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-9"><i class="fa fa-check"></i><b>12.7</b> Chapter 9</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#distinction-between-t-and-z-in-confidence-intervals-for-means"><i class="fa fa-check"></i><b>12.7.1</b> Distinction Between <span class="math inline">\(t\)</span> and <span class="math inline">\(z\)</span> in Confidence Intervals for Means</a></li>
+<li class="chapter" data-level="12.7.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#how-does-r-find-df"><i class="fa fa-check"></i><b>12.7.2</b> How Does R Find <span class="math inline">\(df\)</span>?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Elementary Statistics with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix-geek-notes" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Appendix: Geek Notes</h1>
+<div id="chapter-2" class="section level2">
+<h2><span class="header-section-number">12.1</span> Chapter 2</h2>
+<div id="more-on-structure" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> More on Structure</h3>
+<p>Everything in R is an object. Every object has a structure. In FDN 111 , we learn that the structure of an object consists of its parts and the way that the parts relate together. R can show us the structure of an object using the <strong>str</strong> function. We have already seen this for data frames:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(m111survey)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    71 obs. of  12 variables:
+##  $ height         : num  76 74 64 62 72 70.8 70 79 59 67 ...
+##  $ ideal_ht       : num  78 76 NA 65 72 NA 72 76 61 67 ...
+##  $ sleep          : num  9.5 7 9 7 8 10 4 6 7 7 ...
+##  $ fastest        : int  119 110 85 100 95 100 85 160 90 90 ...
+##  $ weight_feel    : Factor w/ 3 levels &quot;1_underweight&quot;,..: 1 2 2 1 1 3 2 2 2 3 ...
+##  $ love_first     : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ extra_life     : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 2 1 1 2 1 2 2 2 1 ...
+##  $ seat           : Factor w/ 3 levels &quot;1_front&quot;,&quot;2_middle&quot;,..: 1 2 2 1 3 1 1 3 3 2 ...
+##  $ GPA            : num  3.56 2.5 3.8 3.5 3.2 3.1 3.68 2.7 2.8 NA ...
+##  $ enough_Sleep   : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 1 1 1 2 1 2 1 2 ...
+##  $ sex            : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 1 1 2 2 2 2 1 1 ...
+##  $ diff.ideal.act.: num  2 2 NA 3 0 NA 2 -3 2 0 ...</code></pre>
+<p>The parts of a data frame are the variables. The way they relate together to make an actual data frame is that all have the same length (71 in this case). This allows R to combine the variable in columns, and to interpret the rows as individuals.</p>
+<p>You can think of a data frame as being like a book. The “chapters” of the book are the variables.</p>
+<p>If a data frame is like a book, then a package, such as tigerstats, is a like collection of books. The authors of R must take this analogy pretty seriously, because one way to load is package is as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tigerstats)</code></pre></div>
+<p>The <code>library()</code> function takes all of the books in <code>tigerstats</code> out of storage and puts them on the shelves of R’s library.</p>
+<p>Just like you, R is a reader, so R reads for structure, too. Look at the following code (and see Figure [A Simple Histogram] for the results):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~fastest, <span class="dt">data=</span>m111survey)</code></pre></div>
+<div class="figure"><span id="fig:geekhistfastest"></span>
+<img src="bookdown-demo_files/figure-html/geekhistfastest-1.png" alt="A Simple Histogram." width="672" />
+<p class="caption">
+Figure 12.1: A Simple Histogram.
+</p>
+</div>
+<p>You can think of the code as saying to R: “Put on your <code>histogram()</code> glasses. Then take up the book named <code>m111survey</code>, turn to chapter <strong>fastest</strong>, and read that chapter with your <code>histogram()</code> glasses.”</p>
+<p>When R gets interprets that code, it “reads” <strong>fastest</strong> with histogram glasses. It can do so because of the structure of fastest:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(m111survey$fastest)</code></pre></div>
+<pre><code>##  int [1:71] 119 110 85 100 95 100 85 160 90 90 ...</code></pre>
+<p>R sees that is <strong>fastest</strong> is a numerical vector. It can use histogram glasses to read that vector and produce the histogram you see on the screen.</p>
+<p>Suppose you were to ask R to make a histogram of <strong>sex</strong>. The result appears in Figure [Bad Histogram].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~sex,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>## Warning in mean.default(eval(formula[[2]], data, .envir), ...): argument is
+## not numeric or logical: returning NA</code></pre>
+<pre><code>## Warning in var(if (is.vector(x) || is.factor(x)) x else as.double(x), na.rm = na.rm): Calling var(x) on a factor x is deprecated and will become an error.
+##   Use something like &#39;all(duplicated(x)[-1L])&#39; to test for a constant vector.</code></pre>
+<div class="figure"><span id="fig:geekhistsex"></span>
+<img src="bookdown-demo_files/figure-html/geekhistsex-1.png" alt="Bad Histogram.  You should not try to make a histogram from a factor variable." width="672" />
+<p class="caption">
+Figure 12.2: Bad Histogram. You should not try to make a histogram from a factor variable.
+</p>
+</div>
+<p>You don’t get a histogram; you get something that looks like a cross between a density histrogram and a barchart. R was programmed to look at the structure of the input variable. If it’s a factor rather than a numerical vector and a histogram was requested, then R looks turns the factor into a numerical variable, as best it can. In this case, “female” was turned into a 1 and “male” was turned into a 2. The rectangle over female extends from 0.5 to 1.5, and the recangle over “male” extends from 1.5 to 2.5 Very kindly, R prints the values “female” and “male”, rather than 1 and 2, so it’s doing the best it can to give you a pair of “glasses” through which you can read the data.</p>
+<p>We said that everything in R is an object, and every object has a structure. Therefore, even graphs have a structure. Try this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">FastHist &lt;-<span class="st"> </span><span class="kw">histogram</span>(~fastest,<span class="dt">data=</span>m111survey,
+                      <span class="dt">main=</span><span class="st">&quot;Fastest Speed Ever Driven&quot;</span>,
+                      <span class="dt">xlab=</span><span class="st">&quot;speed in mph&quot;</span>,
+                      <span class="dt">type=</span><span class="st">&quot;density&quot;</span>)</code></pre></div>
+<p>Where’s the graph? Well, we didn’t ask for it to go the screen; instead we asked for it to be stored as an object named <code>FastHist</code>. Let’s look at the structure of the object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(FastHist)</code></pre></div>
+<p>Run the chunk above. It’s an enormous list (of 45 items). When you look through it, you see that it appears to contains the information need to build a histogram.</p>
+<p>The “building” occurs when we `<code>print()</code> the object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(FastHist)</code></pre></div>
+<div class="figure"><span id="fig:geekfasthiststr"></span>
+<img src="bookdown-demo_files/figure-html/geekfasthiststr-1.png" alt="Now we get the histogram." width="672" />
+<p class="caption">
+Figure 12.3: Now we get the histogram.
+</p>
+</div>
+<p>The <code>print()</code> function uses the information in <code>FastHist</code> to produce the histogram you see on in Figure [Now we get the histogram]. (When you ask for a histogram directly, you are actually asking R to print the histogram object created by the <code>histogram()</code> function.)</p>
+<p>Of course when we read a histogram, we usually read the one we see on the screen, so we think of its structure differently than R does. In general, we think of the structure of a graph as:</p>
+<ul>
+<li>the axes</li>
+<li>the panel (the part that is enclosed by the axes)</li>
+<li>the annotations (title, axis labels, legend, etc.)</li>
+</ul>
+</div>
+<div id="fancier-histograms" class="section level3">
+<h3><span class="header-section-number">12.1.2</span> Fancier Histograms</h3>
+<p>In a density histogram, it can make a lot of sense to let the rectangles have different widths. For example, look at the tornado damage amounts in <code>tornado</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~damage,<span class="dt">data=</span>tornado,
+           <span class="dt">main=</span><span class="st">&quot;Average Annual Tornado</span><span class="ch">\n</span><span class="st">Damage, by State&quot;</span>,
+           <span class="dt">xlab=</span><span class="st">&quot;Damage in Millions of Dollars&quot;</span>,
+            <span class="dt">type=</span><span class="st">&quot;density&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:geektornado1"></span>
+<img src="bookdown-demo_files/figure-html/geektornado1-1.png" alt="Tornado damge, with default breaks.  All rectangles have the same width." width="672" />
+<p class="caption">
+Figure 12.4: Tornado damge, with default breaks. All rectangles have the same width.
+</p>
+</div>
+<p>The distribution (see Figure [Tornado damge, with default breaks]) is very right-skewed, but most of the states suffered very little damage. Let’s get a finer-grained picture of these states by picking our own breaks:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(tornado)
+<span class="kw">histogram</span>(~damage,<span class="dt">data=</span>tornado,
+           <span class="dt">main=</span><span class="st">&quot;Average Annual Tornado</span><span class="ch">\n</span><span class="st">Damage, by State&quot;</span>,
+           <span class="dt">xlab=</span><span class="st">&quot;Damage in Millions of Dollars&quot;</span>,
+            <span class="dt">type=</span><span class="st">&quot;density&quot;</span>,
+            <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">100</span>))</code></pre></div>
+<div class="figure"><span id="fig:geektornado2"></span>
+<img src="bookdown-demo_files/figure-html/geektornado2-1.png" alt="Tornado damage, with customized rectangles." width="672" />
+<p class="caption">
+Figure 12.5: Tornado damage, with customized rectangles.
+</p>
+</div>
+<p>Figure [Tornado damage, with customized rectangles] shows the result. You should play around with the sequence of breaks, to find one that “tells the story” of the data well.</p>
+</div>
+<div id="combined-plots" class="section level3">
+<h3><span class="header-section-number">12.1.3</span> Combined Plots</h3>
+<p>If you would like to make violin plot combined with a box-and-whisker plot, here is how to do it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bwplot</span>(GPA~seat,<span class="dt">data=</span>m111survey,
+       <span class="dt">main=</span><span class="st">&quot;Grade Point Average,</span><span class="ch">\n</span><span class="st">by Seating Preference&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;Seating Preference&quot;</span>,
+       <span class="dt">ylab=</span><span class="st">&quot;GPA&quot;</span>,
+       <span class="dt">panel =</span> function(box.ratio,...) {
+                  <span class="kw">panel.violin</span>(..., <span class="dt">col =</span> <span class="st">&quot;bisque&quot;</span>,
+                               <span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">4</span>)
+                  <span class="kw">panel.bwplot</span>(..., <span class="dt">box.ratio =</span> <span class="fl">0.1</span>)
+                })</code></pre></div>
+<div class="figure"><span id="fig:geekgpaseatviolin2"></span>
+<img src="bookdown-demo_files/figure-html/geekgpaseatviolin2-1.png" alt="Combined Plot. Box-and-Whisker plots combined with violin plots are very cool." width="672" />
+<p class="caption">
+Figure 12.6: Combined Plot. Box-and-Whisker plots combined with violin plots are very cool.
+</p>
+</div>
+<p>The result is shown in Figure [Combined Plot].</p>
+<p>In order to get more than one graph into the “panel” area of a plot, you modify something called the “panel” function. In advanced courses (or own your own) you canlearn more about how R’s graphics systems work, but for now just try copying and modifying the code you see in the Course Notes.</p>
+</div>
+<div id="adding-rugs" class="section level3">
+<h3><span class="header-section-number">12.1.4</span> Adding Rugs</h3>
+<p>Adding the argument <code>panel.rug</code> to the panel function gives a “rug” of individual data values along the x-axis.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bwplot</span>(~damage,<span class="dt">data=</span>tornado,
+           <span class="dt">main=</span><span class="st">&quot;Average Annual Tornado</span><span class="ch">\n</span><span class="st">Damage, by State&quot;</span>,
+           <span class="dt">xlab=</span><span class="st">&quot;Damage in Millions of Dollars&quot;</span>,
+           <span class="dt">panel=</span>function(x,...) {
+             <span class="kw">panel.violin</span>(x,<span class="dt">col=</span><span class="st">&quot;bisque&quot;</span>,...)
+             <span class="kw">panel.bwplot</span>(x,...)
+             <span class="kw">panel.rug</span>(x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,...)
+            }
+          )</code></pre></div>
+<div class="figure"><span id="fig:geekbwrug"></span>
+<img src="bookdown-demo_files/figure-html/geekbwrug-1.png" alt="Damage with Rug. We added a 'rug' to this plot." width="672" />
+<p class="caption">
+Figure 12.7: Damage with Rug. We added a ‘rug’ to this plot.
+</p>
+</div>
+<p>The result appears in Figure [Damage with Rug].</p>
+</div>
+<div id="tuning-density-plots" class="section level3">
+<h3><span class="header-section-number">12.1.5</span> Tuning Density Plots</h3>
+<p>Adding a list of <em>density arguments</em> fine tunes features of the density plot. For example, <code>bw</code> specifies how “wiggly” the plot will be; <code>from</code> and <code>to</code> tell R where to begin and end estimation of the density curve.</p>
+<p>Here is an example of what can be done (see Figure [Setting Bandwidth] for the results):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~damage,<span class="dt">data=</span>tornado,
+           <span class="dt">main=</span><span class="st">&quot;Average Annual Tornado</span><span class="ch">\n</span><span class="st">Damage, by State&quot;</span>,
+           <span class="dt">xlab=</span><span class="st">&quot;Damage in Millions of Dollars&quot;</span>,
+           <span class="dt">type=</span><span class="st">&quot;density&quot;</span>,
+           <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">100</span>),
+           <span class="dt">panel=</span>function(x,...) {
+             <span class="kw">panel.histogram</span>(x,...)
+             <span class="kw">panel.rug</span>(x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,...)
+             <span class="kw">panel.densityplot</span>(x,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,
+                        <span class="dt">darg=</span><span class="kw">list</span>(<span class="dt">bw=</span><span class="dv">3</span>,<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">100</span>),...)
+            }
+          )</code></pre></div>
+<div class="figure"><span id="fig:geekhisttuning"></span>
+<img src="bookdown-demo_files/figure-html/geekhisttuning-1.png" alt="Setting Bandwidth. The bandwidth of the density plot was set to 3." width="672" />
+<p class="caption">
+Figure 12.8: Setting Bandwidth. The bandwidth of the density plot was set to 3.
+</p>
+</div>
+<p>R constructs a density plot by combining lots of little bell-shaped curves (called <em>kernals</em>), one centered at each point in the data. The bandwidth <code>bw</code> tells R how spread out these kernals should be: the bigger the bandwidth, the shorter and wider the kernal, and the stiffer the density curve will be. With a small bandwidth, the kernals are skinny and tall, giving the density plot a wiggly appearance, especially near isolated data points.</p>
+<p>How do you know what the bandwidth should be? For now, you just have to try various values. The following <code>manipulate()</code> app helps you experiment with different values of the bandwidth.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">manipulate</span>(
+  <span class="dt">bandwidth=</span><span class="kw">slider</span>(<span class="fl">0.5</span>,<span class="dv">20</span>,<span class="dt">init=</span><span class="dv">5</span>,<span class="dt">label=</span><span class="st">&quot;Bandwidth (1 = wiggly, 20 = stiff)&quot;</span>),
+  <span class="kw">histogram</span>(~damage,<span class="dt">data=</span>tornado,
+           <span class="dt">main=</span><span class="st">&quot;Average Annual Tornado</span><span class="ch">\n</span><span class="st">Damage, by State&quot;</span>,
+           <span class="dt">xlab=</span><span class="st">&quot;Damage in Millions of Dollars&quot;</span>,
+           <span class="dt">type=</span><span class="st">&quot;density&quot;</span>,
+           <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">100</span>),
+           <span class="dt">panel=</span>function(x,...) {
+             <span class="kw">panel.histogram</span>(x,...)
+             <span class="kw">panel.rug</span>(x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,...)
+             <span class="kw">panel.densityplot</span>(x,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,
+                        <span class="dt">darg=</span><span class="kw">list</span>(<span class="dt">bw=</span>bandwidth,<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">100</span>),...)
+            }
+          )
+)</code></pre></div>
+<p>When the bandwidth is set too low, the wiggles in the density plot are too sensitive to chance clusters of data points – clusters that probably would not appear in the same place in a repeated study. When the bandwidth is set too high, the density plot is not able to capture the overall shape of the distribution.</p>
+</div>
+<div id="more-on-standard-deviation" class="section level3">
+<h3><span class="header-section-number">12.1.6</span> More on Standard Deviation</h3>
+<p>Recall that when we compute the sample standard deviation, we don’t quite average the squared deviations. Instead, we divide by one less than the number of data values:</p>
+<p><span class="math display">\[s = \sqrt{(\sum{(x_i - \bar{x})^2})/(n-1)}.\]</span></p>
+<p>What if we have the entire population? Then the SD is called <span class="math inline">\(\sigma\)</span>, and it is computed like this:</p>
+<p><span class="math display">\[\sigma = \sqrt{(\sum{(x_i - \mu)^2})/N},\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the mean of the population and <span class="math inline">\(N\)</span> is the number of individuals in the population. So you might well ask: “Why do we divide by one less than the number of items when we have a sample, but not when we have the entire population?”</p>
+<p>To answer this, we first have to back up to the idea of variance. The sample variance is:</p>
+<p><span class="math display">\[s^2 = \frac{\sum{(x_i - \bar{x})^2}} {n-1},\]</span></p>
+<p>and the population variance is</p>
+<p><span class="math display">\[\sigma^2 = \frac{\sum{(x_i - \mu)^2}} {N}.\]</span></p>
+<p>The formula for the population variance makes perfect sense. Although the <span class="math inline">\(n-1\)</span> in the formula for sample variance does not appear to make good sense, it has been cleverly designed so that the sample variance will be a good estimate of the population variance.</p>
+<p>What do we mean by “good estimate”? Let’s suppose that a statistician wants to estimate the variance of the heights of <code>imagpop</code>, but she only has time to take a sample of size, say, <span class="math inline">\(n=4\)</span>. Unknown to her the population variance is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sigmasq &lt;-<span class="st"> </span><span class="kw">var</span>(imagpop$height)*(<span class="dv">9999</span>/<span class="dv">10000</span>)
+sigmasq</code></pre></div>
+<pre><code>## [1] 15.26323</code></pre>
+<p>Her sample might, on the other hand, might look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HerSamp &lt;-<span class="st"> </span><span class="kw">popsamp</span>(<span class="dt">n=</span><span class="dv">4</span>,<span class="dt">pop=</span>imagpop)
+HerSamp</code></pre></div>
+<pre><code>##         sex math income cappun height idealheight diff kkardashtemp
+## 8248 female   no  71800 oppose   69.9          71  1.1           11
+## 3223   male   no  18700 oppose   73.4          76  2.6           99
+## 8173 female   no   2500 oppose   66.2          67  0.8           18
+## 9448   male   no  76700 oppose   73.4          76  2.6           94</code></pre>
+<p>Then her estimate of the variance would be</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(HerSamp$height)</code></pre></div>
+<pre><code>## [1] 11.8225</code></pre>
+<p>Her estimate might be high or low: it depends on the luck of the draw. But suppose that many, many statisticians (10,000 of them, let’s say) were to each take a random sample of size 4 and compute the sample variance. Then the results would be like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SimVars &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">10000</span>)*<span class="kw">var</span>(<span class="kw">popsamp</span>(<span class="dt">n=</span><span class="dv">4</span>,<span class="dt">pop=</span>imagpop)$height)</code></pre></div>
+<p>Individually, their estimates would be all over the place (see Figure[Variance Estimates] for the plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(SimVars,<span class="dt">n=</span><span class="dv">10</span>)</code></pre></div>
+<pre><code>##          var
+## 1  31.735833
+## 2  19.649167
+## 3  11.610000
+## 4  13.396667
+## 5   5.556667
+## 6   2.082500
+## 7  20.349167
+## 8  32.630000
+## 9  19.780000
+## 10  6.842500</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(~SimVars$var)</code></pre></div>
+<div class="figure"><span id="fig:geekhistsimvars"></span>
+<img src="bookdown-demo_files/figure-html/geekhistsimvars-1.png" alt="Variance Estimates." width="384" />
+<p class="caption">
+Figure 12.9: Variance Estimates.
+</p>
+</div>
+<p>But on average, they would get:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(SimVars$var)</code></pre></div>
+<pre><code>## [1] 15.28448</code></pre>
+<p>Notice that this about the same as the population variance <span class="math inline">\(\sigma^2 = 15.2632308\)</span>.</p>
+<p>On average, over many, many samples, the sample variance equals the population variance. We say that the sample variance is an <em>unbiased</em> estimator of the population variance. On the other hand, if the statisticians were to compute the sample variance by dividing by <span class="math inline">\(n=4\)</span> instead of dividing by <span class="math inline">\(n-1=3\)</span>, then they would get results that are, on average, <em>too small</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BadVars &lt;-<span class="st"> </span>SimVars$result*<span class="dv">3</span>/<span class="dv">4</span>  <span class="co">#so that there is now a 4 on the bottom</span>
+<span class="kw">mean</span>(BadVars)</code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Sure enough, the results, on average are only about 3/4th the size of the true <span class="math inline">\(\sigma^2\)</span>. Dividing by <span class="math inline">\(n\)</span> in the sample variance would give you a biased estimator of population variance!</p>
+</div>
+<div id="cleveland-dotplots" class="section level3">
+<h3><span class="header-section-number">12.1.7</span> Cleveland Dotplots</h3>
+<p>Barcharts are very popular for investigating categorical variables, but modern statisticians believe that the <em>Cleveland dot plot</em> is more useful in most situations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexSeatrp &lt;-<span class="dv">100</span>*<span class="kw">prop.table</span>(<span class="kw">xtabs</span>(~seat+sex,<span class="dt">data=</span>m111survey),<span class="dt">margin=</span><span class="dv">1</span>)
+<span class="kw">dotplot</span>(SexSeatrp,<span class="dt">groups=</span><span class="ot">FALSE</span>,<span class="dt">horizontal=</span><span class="ot">FALSE</span>,<span class="dt">type=</span><span class="kw">c</span>(<span class="st">&quot;p&quot;</span>,<span class="st">&quot;h&quot;</span>),
+        <span class="dt">ylab=</span><span class="st">&quot;Percent&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Feeling About Weight&quot;</span>,
+        <span class="dt">main=</span><span class="st">&quot;Feeling About Weight, by Sex&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:geekcleveland1"></span>
+<img src="bookdown-demo_files/figure-html/geekcleveland1-1.png" alt="Cleveland Plot." width="672" />
+<p class="caption">
+Figure 12.10: Cleveland Plot.
+</p>
+</div>
+<p>The resulting plot appears as Figure [Cleveland Plot]. The first line of code above constructs a twoway table and computes row percentages for it, using the <code>prop.table()</code> function to prevent having to deal with the extraneous column of total percentages. Note that in the twoway table the explanatory variable comes second. Reverse the order to see the effect on the layout of the plot.</p>
+<p>The second line constructs the dot plot itself. Whereas barcharts indicate percentages by the tops of rectangles, the Cleveland dot plot uses points. Setting the <code>type</code> argument to <code>c(&quot;p&quot;,&quot;h&quot;)</code> indicates that we want points, but also lines extending to the points. The lines are helpful, as the human eye is good at comparing relative lengths of side-by-side segments. The <code>groups</code> argument is FALSE by default; we include it here to emphasize how the plot will change when it is set to TRUE, as in the next example. The results appears in Figure [Cleveland Plot 2].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dotplot</span>(SexSeatrp,<span class="dt">groups=</span><span class="ot">TRUE</span>,<span class="dt">horizontal=</span><span class="ot">FALSE</span>,<span class="dt">type=</span><span class="kw">c</span>(<span class="st">&quot;p&quot;</span>,<span class="st">&quot;o&quot;</span>),
+        <span class="dt">ylab=</span><span class="st">&quot;Proportion&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Feeling About Weight&quot;</span>,
+        <span class="dt">auto.key=</span><span class="kw">list</span>(<span class="dt">space=</span><span class="st">&quot;right&quot;</span>,<span class="dt">title=</span><span class="st">&quot;Sex&quot;</span>,<span class="dt">lines=</span><span class="ot">TRUE</span>),
+        <span class="dt">main=</span><span class="st">&quot;Feeling About Weight, by Sex&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:geekcleveland2"></span>
+<img src="bookdown-demo_files/figure-html/geekcleveland2-1.png" alt="Cleveland Plot 2. We added lines extending to the dots." width="432" />
+<p class="caption">
+Figure 12.11: Cleveland Plot 2. We added lines extending to the dots.
+</p>
+</div>
+<p>Setting <code>groups</code> to TRUE puts both sexes in the same panel. Setting <code>type=c(&quot;p&quot;,&quot;o&quot;)</code> produces the points, with points in the same group connected by line segments. The <code>lines</code> argument in <code>auto.key</code> calls for lines as well as points to appear in the legend.</p>
+</div>
+</div>
+<div id="chapter-3" class="section level2">
+<h2><span class="header-section-number">12.2</span> Chapter 3</h2>
+<div id="fixed-and-random-effects-in-simulation" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> Fixed and Random effects in Simulation</h3>
+<p>When we used the ChisqSimSlow apps during the ledgejump study, we set the <code>effects</code> argument to “fixed.” Later on, in the <strong>sex</strong> and <strong>seat</strong> study, we set <code>effects</code> to “random”. What was all that about?</p>
+<p>Try the ChisqSimSlow app in the ledgejump study again, and this time pay careful attention to each twoway table as it appears.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">ChisqSimSlow</span>(~weather+crowd.behavior,<span class="dt">data=</span>ledgejump, <span class="dt">effects=</span><span class="st">&quot;fixed&quot;</span>)</code></pre></div>
+<p>Now try it again, but this time with <code>effects</code> set to “random”:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">ChisqSimSlow</span>(~weather+crowd.behavior,<span class="dt">data=</span>ledgejump, <span class="dt">effects=</span><span class="st">&quot;random&quot;</span>)</code></pre></div>
+<p>You might notice that when effects are fixed, the number of cool-weather days is always 9, and the number of warm-weather days is always 12, just as in the original data. On the other hand, when effects are random, although the total number of incidents stays constant at 21, the division of them into cool and warm days varies from one resample to another.</p>
+<p>In the ledgejump study, the 21 incidents could not reasonably be regarded as a random sample from some larger “population” of incidents. Most likely, the researcher included in his study all of the incidents for which he could determine the relevant information about weather and crowd behavior. This isn’t a <em>random</em> sample from among all incidents. Therefore, there is no randomness involved in how many warm-weather and how many cool-weather incidents were involved: if we could go back in time and watch these incidents play out again, 9 of them would still have been in warm weather, and 12 would have been in cool weather.</p>
+<p>But chance <em>is</em> still involved: in the determination of the value of the response variable. In each incident, factors not associated with the random variable are at play. Such factors – the personalities of the people in the crowd, the length of time the would-be jumper stood on the ledge, etc. – are modeled as “chance” and these chance factors help determine whether the crowd is baiting or polite. Recall that if weather and crowd behavior were unrelated, then our best guess was that for each incident there was a 52.4% chance that the crowd would be polite and a 47.6% chance that it would be baiting. In the resampling with fixed effects, there are 9 cool-weather incidents and 12 warm-weather ones, and each incident is given a 52.4% chance to have a polite crowd.</p>
+<p>On the other hand, if our twoway table is based on a random sample from a larger population, as the <strong>sex</strong> and <strong>seat</strong> study was, then we say that the effects are <em>random</em>. In the original sex-seat sample, there were 71 individuals: 40 females and 31 males. If we were to repeat the sample again, we would not be guaranteed to have 40 females and 31 males in it. Our best guess, though, based on our sample, is that <span class="math inline">\(\frac{40}{71} \times 100 = 56.3\)</span>% of the population is female, so in the resampling with random effects, we give each individual a 56.3% chance to be female. Since the resampling is done under the hypothesis that sex and seat are related, the chances for each resample-individual to prefer front, back and middle are the same, regardless of whether the individual is female or male.</p>
+<p>Just as the two methods of resampling differ mathematically, so they also differ in the nature and scope of our conclusion in Step Five. In the ledgejump study, fixed effects resampling models the assumption that the 21 incidents themselves would have been the same from sample to sample: the only thing that varies with chance is how the crowd behaves in each incident. Hence your conclusion in Step Five – that the sample data don’t quite provide strong evidence for a relationship between weather and crowd behavior – applies only to those 21 incidents. In the <strong>sex</strong> and <strong>seat</strong> study, on the other hand, the random-effects resampling method models the assumption that the the 71 GC students were a random sample from the larger population of all GC students. The conclusions we draw from this data apply to this larger population.</p>
+<p>When we set <em>simulate.p.value</em> to TRUE in <code>chisq.testGC</code>, R does resampling. However, it takes a third approach: the the row sums (tallies of the various values of the X variable) are fixed, as in our fixed effects, but the column sums are also fixed to be the same as the column sums of the original data. In our terminology, you could say the resampling is “double-fixed.” R has its own reasons for the double-fixed approach that we will not cover here.</p>
+<p>If you want to fixed effects simulations, just use set the <code>simulate.p.value</code> argument in <code>chisq.testGC()</code> to “fixed”. For random effects, set the argument to “random”.</p>
+<p>Be assured that, as sample size increases, all three methods — fixed, random and double-fixed — yield approximations that agree more and more nearly with each other. At small sample sizes, though, they can differ by a few percentage points.</p>
+<p><strong>Note to Instructors</strong>: Our use of the terms “fixed effects” and “random effects” is not quite standard, but is analogous to the use of these terms in mixed-effects linear modeling.</p>
+</div>
+</div>
+<div id="chapter-4" class="section level2">
+<h2><span class="header-section-number">12.3</span> Chapter 4</h2>
+<div id="point-shapes-in-scatterplots-using-pch" class="section level3">
+<h3><span class="header-section-number">12.3.1</span> Point Shapes in Scatterplots using <code>pch</code></h3>
+<p>The plot character, <code>pch</code>, is an integer between 1 and 25 that controls how the points on your scatterplot appear. A summary can be seen in Figure[Plot Characters].</p>
+<div class="figure"><span id="fig:geekpch"></span>
+<img src="bookdown-demo_files/figure-html/geekpch-1.png" alt="Plot Characters." width="672" />
+<p class="caption">
+Figure 12.12: Plot Characters.
+</p>
+</div>
+</div>
+<div id="scatterplot-matrix" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> Scatterplot Matrix</h3>
+<p>Given several numerical variables, R can produce a group of scatterplots, one for each pair of variables – all in one graph. Such a graph is called a <em>scatterplot matrix</em>. We can create a matrix of scatterplots using the following <code>pairs</code> function in R. You only need to enter in the variables that you want plotted and the dataset that contains them. R will create a square matrix of plots for every combination of variables. See Figure<a href="appendix-geek-notes.html#scatterplot-matrix">Scatterplot Matrix</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(~height+sleep+GPA+fastest,<span class="dt">data=</span>m111survey)  </code></pre></div>
+<div class="figure"><span id="fig:geekxymatrix"></span>
+<img src="bookdown-demo_files/figure-html/geekxymatrix-1.png" alt="Scatterplot Matrix." width="672" />
+<p class="caption">
+Figure 12.13: Scatterplot Matrix.
+</p>
+</div>
+<p>Of course, you can always make this look nicer by changing the colors and plot characters. Notice that the scatterplots are arranged in a somewhat symmetric way across the main diagonal (the boxes with the variable names). A scatterplots mirror image uses the same variables, but the explanatory and response variables are reversed.</p>
+<p>You can also plot only the upper (or lower) panels. See Figure[Upper Panel] and Figure[LowerPanel].</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(~height+sleep+GPA+fastest,<span class="dt">data=</span>m111survey,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lower.panel=</span><span class="ot">NULL</span>)</code></pre></div>
+<div class="figure"><span id="fig:geekxymatrixupper"></span>
+<img src="bookdown-demo_files/figure-html/geekxymatrixupper-1.png" alt="Upper Panel. Scatterplot matrix showing only the upper panel of scatterplots." width="672" />
+<p class="caption">
+Figure 12.14: Upper Panel. Scatterplot matrix showing only the upper panel of scatterplots.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(~height+sleep+GPA+fastest,<span class="dt">data=</span>m111survey,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">upper.panel=</span><span class="ot">NULL</span>)</code></pre></div>
+<div class="figure"><span id="fig:geekxymatrixlower"></span>
+<img src="bookdown-demo_files/figure-html/geekxymatrixlower-1.png" alt="Lower Panel. Scatterplot matrix showing only the lower panel of scatterplots." width="672" />
+<p class="caption">
+Figure 12.15: Lower Panel. Scatterplot matrix showing only the lower panel of scatterplots.
+</p>
+</div>
+</div>
+<div id="the-rationale-for-values-of-the-correlation-coefficient-r" class="section level3">
+<h3><span class="header-section-number">12.3.3</span> The Rationale for Values of the Correlation Coefficient, <span class="math inline">\(r\)</span></h3>
+<p>Let’s consider why variables with a positive linear association also have a positive correlation coefficient, <span class="math inline">\(r\)</span>. Consider what value of <span class="math inline">\(r\)</span> you might <em>expect</em> for <strong>positively correlated</strong> variables. Let’s recall how we plotted the two “mean” lines to break a scatterplot into four “boxes”. See Figure[Four Boxes].</p>
+<div class="figure"><span id="fig:geekfourboxesxyhandheight"></span>
+<img src="bookdown-demo_files/figure-html/geekfourboxesxyhandheight-1.png" alt="Four Boxes.  Scatterplot of Right Handspan (cm) versus Height (in).  The lines marking the mean of the handspans and the mean of the heights have been plotted to break the scatterplot into four boxes." width="672" />
+<p class="caption">
+Figure 12.16: Four Boxes. Scatterplot of Right Handspan (cm) versus Height (in). The lines marking the mean of the handspans and the mean of the heights have been plotted to break the scatterplot into four boxes.
+</p>
+</div>
+<p>We’ve looked at this scatterplot before, and determined that it indicates a positive association between <strong>RtSpan</strong> and <strong>Height</strong>. Now, let’s think carefully about how the points in the scatterplot contribute to the value of <span class="math inline">\(r\)</span>. Check out the formula again:</p>
+<p><span class="math display">\[ r=\frac{1}{n-1}\sum{\bigg(\frac{x_i-\bar{x}}{s_x}\bigg)\bigg(\frac{y_i-\bar{y}}{s_y}\bigg)}  \]</span></p>
+<ul>
+<li><p>When an <span class="math inline">\(x\)</span>-value lies <em>above</em> the mean of the <span class="math inline">\(x\)</span>’s, it’s <span class="math inline">\(z\)</span>-score is <strong>positive</strong>. Likewise, a <span class="math inline">\(y\)</span>-value that lies <em>above</em> the mean of the <span class="math inline">\(y\)</span>’s has a <strong>positive</strong> <span class="math inline">\(z\)</span>-score. Every ordered pair in the upper right box has an <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>-coordinate with <strong>positive</strong> <span class="math inline">\(z\)</span>-scores. Multiplying 2 positive <span class="math inline">\(z\)</span>-scores together gives us a <strong>positive</strong> number. So, every point in the upper right box contributes a positive number to the sum in the formula for <span class="math inline">\(r\)</span>.</p></li>
+<li><p>When an <span class="math inline">\(x\)</span>-value lies <em>below</em> the mean of the <span class="math inline">\(x\)</span>’s, it’s <span class="math inline">\(z\)</span>-score is <strong>negative</strong>. Likewise for <span class="math inline">\(y\)</span>. Every ordered pair in the lower right box has an <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>-coordinate with <strong>negative</strong> <span class="math inline">\(z\)</span>-scores. Multiplying 2 negative <span class="math inline">\(z\)</span>-scores together gives us a <strong>positive</strong> number. So, every point in the lower left box has a positive contribution to the value of <span class="math inline">\(r\)</span>.</p></li>
+</ul>
+<p>Following the same rationale, the points in the upper left box and lower right box will contribute negative numbers to the sum of <span class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p>When an <span class="math inline">\(x\)</span>-value lies <em>above</em> the mean of the <span class="math inline">\(x\)</span>’s, it’s <span class="math inline">\(z\)</span>-score is <strong>positive</strong>. A <span class="math inline">\(y\)</span>-value that lies <em>below</em> the mean of the <span class="math inline">\(y\)</span>’s has a <strong>negative</strong> <span class="math inline">\(z\)</span>-score. Every ordered pair in the lower right box has an <span class="math inline">\(x\)</span>-coordinate with a <strong>positive</strong> <span class="math inline">\(z\)</span>-score and a <span class="math inline">\(y\)</span>-coordinate with a <strong>negative</strong> <span class="math inline">\(z\)</span>-score. Multiplying a positive and a negative <span class="math inline">\(z\)</span>-score together gives us a <strong>negative</strong> number. So, every point in the lower right box contributes a negative number to the sum in the formula for <span class="math inline">\(r\)</span>.</p></li>
+<li><p>When an <span class="math inline">\(x\)</span>-value lies <em>below</em> the mean of the <span class="math inline">\(x\)</span>’s, it’s <span class="math inline">\(z\)</span>-score is <strong>negative</strong>. A <span class="math inline">\(y\)</span>-value that lies <em>above</em> the mean of the <span class="math inline">\(y\)</span>’s has a <strong>positive</strong> <span class="math inline">\(z\)</span>-score. Every ordered pair in the upper left box has an <span class="math inline">\(x\)</span>-coordinate with a <strong>negative</strong> <span class="math inline">\(z\)</span>-score and a <span class="math inline">\(y\)</span>-coordinate with a <strong>positive</strong> <span class="math inline">\(z\)</span>-score. Multiplying a positive and a negative <span class="math inline">\(z\)</span>-score together gives us a <strong>negative</strong> number. So, every point in the upper left box contributes a negative number to the sum in the formula for <span class="math inline">\(r\)</span>.</p></li>
+</ul>
+<p>Since <strong>positively associated</strong> variables have <em>most</em> of their points in the upper right and lower left boxes, <em>most</em> of the numbers being contributed to the summation are <strong>positive</strong>. There are some negative numbers contributed from the points in the other boxes, but not nearly as many. When these values are summed, we end up with a <strong>positive</strong> number for <span class="math inline">\(r\)</span>. So we say that these variables are <strong>positively correlated</strong>!</p>
+<p>In a similar manner, we can argue that since <em>most</em> of the points in a scatterplot of <strong>negatively associated</strong> variables are located in the upper left and lower right boxes, most of the products being contributed to the sum of <span class="math inline">\(r\)</span> are negative (with a few positive ones sprinkled in). This gives us a <strong>negative</strong> number for <span class="math inline">\(r\)</span>. So we say that these variables are <strong>negatively correlated</strong>!</p>
+</div>
+<div id="computation-of-the-coefficients-in-the-regression-equation" class="section level3">
+<h3><span class="header-section-number">12.3.4</span> Computation of the Coefficients in the Regression Equation</h3>
+<p>The regression equation is <span class="math inline">\(\hat{y}=a+bx\)</span>. You might be wondering: how are <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> calculated?</p>
+<p><span class="math display">\[\mbox{slope }= b = r \cdot \frac{s_y}{s_x},\]</span> where</p>
+<ul>
+<li><span class="math inline">\(r\)</span> is the correlation coefficient,</li>
+<li><span class="math inline">\(s_y\)</span> is the SD of the <span class="math inline">\(y\)</span>’s in the scatterplot, and</li>
+<li><span class="math inline">\(s_x\)</span> is the SD of the <span class="math inline">\(x\)</span>’s in the scatterplot.</li>
+</ul>
+<p><span class="math display">\[\mbox{intercept }= a = \bar{y}-b\cdot\bar{x},\]</span> where</p>
+<ul>
+<li><span class="math inline">\(b\)</span> is the slope calculated above,</li>
+<li><span class="math inline">\(\bar{y}\)</span> is the mean of the <span class="math inline">\(y\)</span>’s in the scatterplot, and</li>
+<li><span class="math inline">\(\bar{x}\)</span> is the mean of the <span class="math inline">\(x\)</span>’s in the scatterplot.</li>
+</ul>
+<p>Before interpreting these formulas, let’s look at a little late 19th century history. Sir Francis Galton, a half-cousin of Charles Darwin, made important contributions to many scientific fields, including biology and statistics. He had a special interest in heredity and how traits are passed from parents to their offspring. He noticed that extreme characteristics in parents are not completely passed on to their children.</p>
+<p>Consider how fathers’ heights is related to sons’ heights. See Figure[Galton].</p>
+<div class="figure"><span id="fig:geekxygalton"></span>
+<img src="bookdown-demo_files/figure-html/geekxygalton-1.png" alt="Galton.  Relationship Between Father and Sons' Heights" width="672" />
+<p class="caption">
+Figure 12.17: Galton. Relationship Between Father and Sons’ Heights
+</p>
+</div>
+<p>It seems reasonable to think that an average height father would probably have an average height son. So surely our “best fit” line should pass through the <em>point of averages</em>, <span class="math inline">\((\bar{x},\bar{y})\)</span>. See Figure [Point of Averages]</p>
+<div class="figure"><span id="fig:geekxygaltonaverages"></span>
+<img src="bookdown-demo_files/figure-html/geekxygaltonaverages-1.png" alt="Point of Averages.  Galton data with the point of averages plotted." width="672" />
+<p class="caption">
+Figure 12.18: Point of Averages. Galton data with the point of averages plotted.
+</p>
+</div>
+<p>Intuitively, it might also seem that a reasonably tall father, say, 1 standard deviation taller than average would produce a reasonably tall son, also about 1 standard deviation taller than average. The line that would “best fit” this assumption would have slope equal to <span class="math inline">\(\frac{s_y}{s_x}\)</span>.</p>
+<div class="figure"><span id="fig:geekxygaltonsdline"></span>
+<img src="bookdown-demo_files/figure-html/geekxygaltonsdline-1.png" alt="SD Line.  Galton Data with SD line" width="672" />
+<p class="caption">
+Figure 12.19: SD Line. Galton Data with SD line
+</p>
+</div>
+<p>However, this is <em>not</em> the “best fit” line. It does not minimize the Sum of Squares! Check out how the <em>regression</em> line looks in comparison to this <em>standard deviation</em> line.</p>
+<div class="figure"><span id="fig:geekxygaltonregression"></span>
+<img src="bookdown-demo_files/figure-html/geekxygaltonregression-1.png" alt="Regression.  Galton data with SD line and regression line." width="672" />
+<p class="caption">
+Figure 12.20: Regression. Galton data with SD line and regression line.
+</p>
+</div>
+<p>The slope of the SD line is <span class="math inline">\(b=\frac{s_y}{s_x}\)</span>. The slope of the regression line is <span class="math inline">\(b=r\cdot\frac{s_y}{s_x}\)</span>. Since <span class="math inline">\(r\)</span> is a value between -1 and 1, you can see why this causes the regression line to be more <em>shallow</em>.</p>
+<p>This is what is known as the <em>regression effect</em> or <em>regression to the mean</em>. Extremely tall fathers do tend to have taller than average sons, but the sons don’t tend to be as extreme in height as their fathers. Likewise for short fathers.</p>
+<p>Check out the following app to explore this idea further!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">ShallowReg</span>()</code></pre></div>
+</div>
+</div>
+<div id="chapter-5" class="section level2">
+<h2><span class="header-section-number">12.4</span> Chapter 5</h2>
+<div id="the-rbind-function" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> The <code>rbind()</code> Function</h3>
+<p>The <code>rbind()</code> function combines objects in R by rows. (It is called <code>rbind</code> to stand for “rowbind”.) If you have several lists stored and you want to combine them into one object, you can use <code>rbind</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">list1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+list2=<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)
+list3=<span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>)
+rows=<span class="kw">rbind</span>(list1,list2,list3)
+rows</code></pre></div>
+<pre><code>##       [,1] [,2] [,3]
+## list1    1    2    3
+## list2    5    6    7
+## list3  100  200  300</code></pre>
+<p>Essentially, you have created a matrix. You can access objects out of <code>rows</code> similarly to how you would access a value out of a list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rows[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co">#gives the number in the 1st row and 2nd column</span></code></pre></div>
+<pre><code>## list1 
+##     2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rows[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co">#gives the number in the 2nd row and 1st column</span></code></pre></div>
+<pre><code>## list2 
+##     5</code></pre>
+</div>
+<div id="the-cbind-function" class="section level3">
+<h3><span class="header-section-number">12.4.2</span> The <code>cbind()</code> Function</h3>
+<p>The <code>cbind()</code> function is very similar to <code>rbind()</code>. It combines objects in R by columns. (It is called <code>cbind</code> to stand for “columnbind”.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">columns=<span class="kw">cbind</span>(list1,list2,list3)
+columns</code></pre></div>
+<pre><code>##      list1 list2 list3
+## [1,]     1     5   100
+## [2,]     2     6   200
+## [3,]     3     7   300</code></pre>
+<p>You can use <code>cbind</code> and <code>rbind</code> to combine objects other than numbers, such as characters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">list4=<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>)
+list5=<span class="kw">c</span>(<span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;H&quot;</span>)
+rows=<span class="kw">rbind</span>(list4,list5)
+rows</code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4]
+## list4 &quot;A&quot;  &quot;B&quot;  &quot;C&quot;  &quot;D&quot; 
+## list5 &quot;E&quot;  &quot;F&quot;  &quot;G&quot;  &quot;H&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">columns=<span class="kw">cbind</span>(list4,list5)
+columns</code></pre></div>
+<pre><code>##      list4 list5
+## [1,] &quot;A&quot;   &quot;E&quot;  
+## [2,] &quot;B&quot;   &quot;F&quot;  
+## [3,] &quot;C&quot;   &quot;G&quot;  
+## [4,] &quot;D&quot;   &quot;H&quot;</code></pre>
+</div>
+</div>
+<div id="chapter-6" class="section level2">
+<h2><span class="header-section-number">12.5</span> Chapter 6</h2>
+<div id="the-role-of-limits-in-density-plots" class="section level3">
+<h3><span class="header-section-number">12.5.1</span> The Role of Limits in Density Plots</h3>
+<p>Recall the grouped density plots, for example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityplot</span>(~sentence,<span class="dt">data=</span>attitudes,
+            <span class="dt">groups=</span>def.race, <span class="dt">plot.points=</span><span class="ot">FALSE</span>,
+            <span class="dt">main=</span><span class="st">&quot;Race and Recommended Sentence&quot;</span>,
+            <span class="dt">xlab=</span><span class="st">&quot;Recommended Sentence&quot;</span>,
+            <span class="dt">auto.key=</span><span class="kw">list</span>(<span class="dt">space=</span><span class="st">&quot;right&quot;</span>,<span class="dt">title=</span><span class="st">&quot;Suggested</span><span class="ch">\n</span><span class="st">Race&quot;</span>),
+            <span class="dt">from=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">50</span>)</code></pre></div>
+<div class="figure"><span id="fig:geekdensitysent"></span>
+<img src="bookdown-demo_files/figure-html/geekdensitysent-1.png" alt="Race and Sentence.  We set limits for the density curves." width="672" />
+<p class="caption">
+Figure 12.21: Race and Sentence. We set limits for the density curves.
+</p>
+</div>
+<p>The result is shown in Figure [Race and Sentence]. Density plots for different are especially effective when overlaid, because differences in the modes (the “humps”) of the distribution are readily apparent.</p>
+<p>In the case of this data, we know that the minimum possible sentence is 2 and the maximum possible is 50. (These limits were specified on the survey forms.) Hence we should communicate these limits to R by means of the <code>from</code> and <code>to</code> arguments. R then constructs the kernel density estimators with these limits in mind.</p>
+</div>
+<div id="more-about-legends" class="section level3">
+<h3><span class="header-section-number">12.5.2</span> More about Legends</h3>
+<p>There are many ways to modify the legend provided by the <code>auto.key</code> argument. These modifications are communicated by setting the values of certain other arguments and combining them in a list. The <code>space</code> argument is set by default to “top”, in which case the legend appears above the graph. It may also be set, to “left”, “right”, or “bottom”. A legend title may also be supplied through the argument title<code>.  Finally, settings a</code>columns` argument controls the layout of the elements in the legend (see Figure [Sentence by Defendant’s Race]:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityplot</span>(~sentence,<span class="dt">data=</span>attitudes,
+            <span class="dt">groups=</span>def.race, <span class="dt">plot.points=</span><span class="ot">FALSE</span>,
+            <span class="dt">main=</span><span class="st">&quot;Race and Recommended Sentence&quot;</span>,
+            <span class="dt">xlab=</span><span class="st">&quot;Recommended Sentence&quot;</span>,
+            <span class="dt">auto.key=</span><span class="kw">list</span>(<span class="dt">space=</span><span class="st">&quot;top&quot;</span>,<span class="dt">title=</span><span class="st">&quot;Suggested Race&quot;</span>,<span class="dt">columns=</span><span class="dv">2</span>),
+            <span class="dt">from=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">50</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/fig-1.png" width="672" /></p>
+</div>
+<div id="more-on-strip-plots" class="section level3">
+<h3><span class="header-section-number">12.5.3</span> More on Strip-plots</h3>
+<p>Strip-plots are most effective when the groups sizes are small: when groups are large, many data values may equal one another, and <em>overplotting</em> will result. There are some techniques available to alleviate the effects, of over-plotting, though, provided the dataset is not too large. The two primary techniques are <em>jittering</em> and <em>translucence.</em></p>
+<p>See Figure [Sentence by Major] for the result of the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stripplot</span>(sentence~major,<span class="dt">data=</span>attitudes,
+         <span class="dt">main=</span><span class="st">&quot;Sentence By Major&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Major&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,
+         <span class="dt">jitter.data=</span><span class="ot">TRUE</span>,<span class="dt">alpha=</span><span class="fl">0.5</span>,
+         <span class="dt">panel=</span> function(...){
+           <span class="kw">panel.violin</span>(...)
+           <span class="kw">panel.stripplot</span>(...)
+         })</code></pre></div>
+<div class="figure"><span id="fig:geekstripplotsentmaj"></span>
+<img src="bookdown-demo_files/figure-html/geekstripplotsentmaj-1.png" alt="Sentence by Major.  Strip-plot comined with violin plot." width="672" />
+<p class="caption">
+Figure 12.22: Sentence by Major. Strip-plot comined with violin plot.
+</p>
+</div>
+<p>In the code above, setting the argument <code>jitter.data</code> to <code>TRUE</code> has the effect, in a strip-plot, of moving each point randomly a bit in the direction perpendicular to the axis along which the groups are ordered, thus separating the points from one another. The <code>alpha</code> argument has a default value of 1. When set to a value between 0 and 1, it introduces a degree of translucence to the points. At value 0.5, for example, two over plotted points would appear as dark as a single point would when alpha is set at 1.</p>
+</div>
+<div id="assessing-statistical-significance" class="section level3">
+<h3><span class="header-section-number">12.5.4</span> Assessing Statistical Significance</h3>
+<p>Recall that in a randomized experiment, chance is always involved in the collection of the data, simply because it is involved in the assignment of subjects to treatment groups. Thus we can always ask the question of statistical significance. Let’s investigate that question for the Knife-or-Gun study.</p>
+<p>When the consent problem restricts us from applying the results of an experiment to a larger population, we think about the problem in terms of the set of subjects themselves. We adopt what is known as the <em>ticket model</em>.</p>
+<p>In the ticket model, we imagine that every subject has a magical ticket. Values of the response variable for that subject under the various possible treatments are written on fixed areas of the ticket. In the Knife or Gun study, we imagine that on the left-hand side of the ticket is written the volume of the dying screams he or she would emit, should he or she be killed with a knife. In the right-hand side of the ticket is written the volume of screams he/she would emit if being killed by a gun.</p>
+<p>In the ticket model, the question of whether or not the explanatory variable makes a difference in the response variable boils down to what is on these tickets. For a subject with a ticket like</p>
+<blockquote>
+<p>(Knife 65, Gun 65),</p>
+</blockquote>
+<p>the means of slaying makes no difference: she would yell at volume 65 regardless of whether she was killed by knife or by gun. For a subject with a ticket reading</p>
+<blockquote>
+<p>(Knife 70, Gun 67),</p>
+</blockquote>
+<p>the means of slaying makes a difference: being killed by a knife would make her yell louder.</p>
+<p>The tickets are truly magical, because researchers are allowed to read at most one part of any person’s ticket. That’s because each subject is assigned to just one treatment group. Competing hypotheses about the effect of the means of slaying on the volume of yells can be stated in terms of the ticket model as follows:</p>
+<blockquote>
+<p><span class="math inline">\(H_0\)</span> [Means of slaying makes no difference, on average, for the subjects]: The mean of the Knife-side of the tickets of all subjects equals the mean of the Gun-side of the tickets.</p>
+</blockquote>
+<blockquote>
+<p><span class="math inline">\(H_a\)</span> [On average, dying by gun makes the subjects yell louder]: The mean of the Knife-side of the tickets of all subjects is greater than the mean of the Gun-side of the tickets.</p>
+</blockquote>
+<p>We have stated our hypotheses. That was Step One of a test of significance.</p>
+<p>Now for Step Two: computing a test statistic. A reasonable test statistic would be the difference of sample means:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compareMean</span>(volume~means,
+            <span class="dt">data=</span>knifeorgunblock)</code></pre></div>
+<pre><code>## Warning: &#39;compareMean&#39; is deprecated.
+## Use &#39;diffmean&#39; instead.
+## See help(&quot;Deprecated&quot;)</code></pre>
+<pre><code>## [1] 20.13</code></pre>
+<p>The difference of means is 20.13, indicating that on average the Knife subjects yelled 20.13 decibels louder than the Gun subjects did.</p>
+<p>Next, Step Three: computing the P-value. We would like to know the probability of getting a difference in sample means at least as big as the one we actually got, if <span class="math inline">\(H_0\)</span> is actually true.</p>
+<p>To find this probability we imagine—temporarily and for the sake of argument only—that the NUll is really true. In fact, we’ll make the extra-strong assumption that the Null is super-duper true: that means of slaying makes no difference for ANY subject. In that case, for every the number on the Knife-side equals the number on the Gun-side. If that’s true, then we actually know all of the numbers on all of the tickets. (Reading one side—that, is, killing the subject—tells us what the other side says.)</p>
+<p>This neat fact puts us in the happy position of being able to simulate what would happen if we were to repeat the experiment many, many times. We would have the same 20 subjects each time: only the group assignments would differ. But no matter the group assignment, we can tell what each person’s dying screams will be.</p>
+<p>For convenience, we’ll write a function that pretends to run the who experiment all over again, with blocking, computing the difference in the mean volumes of yells for each group, each time, and recording the difference:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">12345</span>)
+KnifeGunSim &lt;-<span class="st"> </span><span class="kw">do</span>(<span class="dv">500</span>)*<span class="kw">diffmean</span>(volume~treat.grp,
+                    <span class="dt">data=</span><span class="kw">RandomExp</span>(knifeorgunblock,
+                      <span class="dt">sizes=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>),<span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;k&quot;</span>,<span class="st">&quot;g&quot;</span>),
+                      <span class="dt">block=</span><span class="st">&quot;hoghollerer&quot;</span>))</code></pre></div>
+<p>Let’s look at the first few simulations::</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(KnifeGunSim,<span class="dt">n=</span><span class="dv">5</span>)</code></pre></div>
+<pre><code>##   diffmean
+## 1     3.99
+## 2     5.45
+## 3    -1.29
+## 4    -1.55
+## 5    -4.43</code></pre>
+<p>Remember: these differences are all based on the assumption that means of slaying has no effect at all on the volume of dying screams. So, about how big are the differences, when the Null is right? Let’s see:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~diffmean,<span class="dt">data=</span>KnifeGunSim)</code></pre></div>
+<pre><code>##     min    Q1 median   Q3   max    mean       sd   n missing
+##  -12.71 -3.63    0.1 3.76 15.79 0.16864 5.209671 500       0</code></pre>
+<p>As you might expect, the typical difference is quite small: about 0, give or take 5.5 or so. The difference we saw in the study (20.13) was about four SDs above what the Null would expect.</p>
+<p>In fact, the maximum of the simulated differences was only 12.73: not once in our 500 simulations did the test statistic exceed the value of the test statistic that we got in the actual study.</p>
+<p>This gives us Step Four in a test of significance: the P-value is very small, probably less than one in 500, so we reject <span class="math inline">\(H_0\)</span>.</p>
+<p>This study provided very strong evidence that, <em>for these 20 subjects</em>, slaying with a knife evokes louder yells than slaying with a gun does.</p>
+</div>
+<div id="interaction" class="section level3">
+<h3><span class="header-section-number">12.5.5</span> Interaction</h3>
+<p>There is one other important concept that often applies in experiments, that wee think bears a leisurely discussion: it is the concept of <em>interaction</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(ToothGrowth)
+<span class="kw">View</span>(ToothGrowth)
+<span class="kw">help</span>(ToothGrowth)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bwplot</span>(len~<span class="kw">as.factor</span>(dose)|supp,<span class="dt">data=</span>ToothGrowth)</code></pre></div>
+<div class="figure"><span id="fig:geekbwlendose"></span>
+<img src="bookdown-demo_files/figure-html/geekbwlendose-1.png" alt="Tooth growth." width="672" />
+<p class="caption">
+Figure 12.23: Tooth growth.
+</p>
+</div>
+<p>Figure [Tooth growth] shows boxplots of the data. In both panels, the boxes rise as you read to the right. Hence, for both values of the explanatory variable <strong>supp</strong>, the length of tooth increases as dosage (also an explanatory variable) increases. However, the increase in length as dosage of Vitamin c increases from 1 to 2 is greater when the dosage method is by ascorbic acid (VC) than when the Vitamin C is administered in the form of orange juice (OJ). Hence, the effect of *dose<strong> on </strong>len<strong> differs with differing values of the other explanatory variable </strong>supp<strong>. Because of this difference, the variables </strong>dose<strong> and </strong>supp** are said to be <em>interact</em>. The formal definition follows:</p>
+<dl>
+<dt>Interaction</dt>
+<dd><p>Two explanatory variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are said to <em>interact</em> when the relationship between <span class="math inline">\(X_1\)</span> and the response variable <span class="math inline">\(Y\)</span> differs as the values of the other variable <span class="math inline">\(X_2\)</span> differ.</p>
+</dd>
+</dl>
+<blockquote>
+<p><strong>Practice</strong>: In each of the situations below, say whether there is a confounding variable present, or whether there is interaction. In the confounding case, identify the confounding variable and explain why it is a confounder. In the interaction case, identify the two explanatory variables that interact.</p>
+</blockquote>
+<blockquote>
+<p>(1). In a study of the effect of sports participation and sex on academic performance, it is found that the mean GPA of male athletes is 0.7 points less than the mean GPA of female athletes, but the mean GPA of male non-athletes is only 0.2 points lower than the mean GPA of female non=athletes.</p>
+</blockquote>
+<blockquote>
+<p>(2). In a study of the effect of alcohol on the risk of cancer, it is found that heavy drinkers get cancer at a higher rate than moderate drinkers do. However, it is known that smokers also tend to drink more than non-smokers, and that smoking causes various forms of cancer.</p>
+</blockquote>
+<p>As another example, consider the <code>pushups</code> data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(pushups)
+<span class="kw">View</span>(pushups)
+<span class="kw">help</span>(pushups)</code></pre></div>
+<p>Play with the data using the a Dynamic Trellis app:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">DtrellScat</span>(pushups~weight|position,<span class="dt">data=</span>pushups)</code></pre></div>
+<p>The relationship between weight and push-ups varies depending on position: for Skill players the relationship is somewhat positive (the scatterplot rises as you read to the right), but for Skill players the relationship is somewhat negative (scatterplot falls as you move to the right). Thus, variables <strong>weight</strong> and <strong>position</strong> appear to interact. One might wonder, though, whether the observed interaction is statistically significant: ater all, there weren’t many Line players in the study to begin with.</p>
+</div>
+</div>
+<div id="chapter-8" class="section level2">
+<h2><span class="header-section-number">12.6</span> Chapter 8</h2>
+<div id="we-lied-about-the-sd-formulas" class="section level3">
+<h3><span class="header-section-number">12.6.1</span> We Lied About the SD Formulas!</h3>
+<p>Recall the SimpleRandom app: let’s play with it one more time:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">SimpleRandom</span>()</code></pre></div>
+<p>This time, pick one of the variables and move the slider up to the sample size 10,000. Click on the slider several times, keeping it set at 10,000. Watch the output to the console.</p>
+<p>You probably noticed that the sample statistics did not change from sample to sample, and that they were equal to the population parameters every time. This makes sense, because when the sample size is the same as the size of the population, then simple random sampling produces a sample that HAS to be the population, each and every time!</p>
+<p>But wait a minute: if the sample statistic is ALWAYS equal to the population parameter, then the likely amount by which the statistic differs from the parameter is ZERO. Hence the SD of the estimator should be zero. Fro example, if we are estimating the mean height of <code>imagpop</code>, then the SD of <span class="math inline">\(\bar{x}\)</span> should be zero. But the formula we gave for the SD is:</p>
+<p><span class="math display">\[\frac{\sigma}{\sqrt{n}}=\frac{\sigma}{\sqrt{10000}}=\frac{\sigma}{100},\]</span></p>
+<p>which has to be BIGGER than zero. Therefore the formula is wrong.</p>
+<p>Well, it is wrong for simple random sampling. It is correct for random sampling <em>with replacement</em> form the population. The correct formula for the SD of <span class="math inline">\(\bar{x}\)</span>, when we are taking a simple random sample – sampling without replacement – is:</p>
+<p><span class="math display">\[Sd(\bar{x})=\frac{\sigma}{\sqrt{n}} \times \sqrt{\frac{N-n}{N-1}},\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(N\)</span> is the size of the population. The quantity</p>
+<p><span class="math display">\[\sqrt{\frac{N-n}{N-1}}\]</span></p>
+<p>is called the <em>correction factor</em>.</p>
+<p>As you can see, at sample size <span class="math inline">\(n = 10000\)</span> and population size <span class="math inline">\(N=10000\)</span> the quantity <span class="math inline">\(N-n\)</span> will be zero, forcing the correction factor to be zero, and thus forcing the SD of <span class="math inline">\(\bar{x}\)</span> to be zero as well.</p>
+<p>Usually we don’t bother with the correction factor in practice, because usually <span class="math inline">\(n\)</span> is small in comparison to <span class="math inline">\(N\)</span>. For example, when we take a SRS of size <span class="math inline">\(n=2500\)</span> from the population of the United States (<span class="math inline">\(N \approx 312000000\)</span>), then the correction factor is equal to:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">N &lt;-<span class="st"> </span><span class="dv">312000000</span>
+n &lt;-<span class="st"> </span><span class="dv">2500</span>
+CorrFac &lt;-<span class="st"> </span><span class="kw">sqrt</span>((N-n)/(N<span class="dv">-1</span>))
+CorrFac</code></pre></div>
+<pre><code>## [1] 0.999996</code></pre>
+<p>The correction factor is approximately 0.999996,which so close to 1 that it is rounded to one in the Knitted version of this document. We know that multiplying a number by 1, won’t change the original number, so multiplying the “Wrong” SD formula by the correction factor barely changes the number at all.</p>
+<p>If you happen to know the population size, however, there is no harm in using the correct SD formula, with the correction factor.</p>
+<p>The same correction factor shows up in the correct SD formulas for <span class="math inline">\(\hat{p}\)</span> and for <span class="math inline">\(\bar{d}\)</span>, and there are correction factors for the SDs of the other two Basic Five parameters, too.</p>
+</div>
+<div id="are-we-only-ever-interested-in-population-parameters" class="section level3">
+<h3><span class="header-section-number">12.6.2</span> Are We Only Ever Interested in Population Parameters?</h3>
+<p>We have spent the whole chapter on population parameters and the statistics that we use to estimate them. But are we only ever interested in population parameters? Are statistics never used to estimate anything else?</p>
+<p>The quick answer is No, there are times when the number we want to estimate is not a parameter for a population. For example, sometimes we want to estimate a probability:</p>
+<ul>
+<li>If we would like to know the probability <span class="math inline">\(p\)</span> for a coin to land Heads, then we might toss the coin many times, compute the proportion <span class="math inline">\(\hat{p}\)</span> of times that the coin landed Heads, and use this to estimate <span class="math inline">\(p\)</span>. We weren’t actually taking a sample, because there isn’t really a “population” of coin tosses to sample from.</li>
+<li>Another example: we often estimate a P-value by simulation. Again the P-value is a number – the probability of getting data as extreme as the data we actually got, if the Null is true – and we estimate it by simulating the study on the computer many times with a set-up in which the Null is true. Here again, we are simulation many times, but not sampling from some “population” of all possible simulations.</li>
+</ul>
+<p>When we estimate a probability by simulation, we still call the probability a “parameter”. It’s just not a <em>population</em> parameter.</p>
+<p>On the other hand, some problems that do not appear to be about population parameters really are problems about populations parameters, in disguise. A good example would be a question about the relationship between two categorical variables, for example:</p>
+<p><strong>Research Question:</strong> At Georgetown College, is sex related to seating preference?</p>
+<p>We could frame the question about relationship as a question about some populations proportions. Let:</p>
+<ul>
+<li><span class="math inline">\(p_{male,front}\)</span> = the proportion of all GC males who prefer to sit in front;</li>
+<li><span class="math inline">\(p_{female,front}\)</span> = the proportion of all GC females who prefer to sit in front;</li>
+<li><span class="math inline">\(p_{male,middle}\)</span> = the proportion of all GC males who prefer to sit in the middle;</li>
+<li><span class="math inline">\(p_{female,middle}\)</span> = the proportion of all GC females who prefer to sit in the middle;</li>
+<li><span class="math inline">\(p_{male,back}\)</span> = the proportion of all GC males who prefer to sit in back;</li>
+<li><span class="math inline">\(p_{female,back}\)</span> = the proportion of all GC females who prefer to sit in back;</li>
+</ul>
+<p>Then someone who believes that sex and seat are unrelated at GC believes three things</p>
+<ul>
+<li><span class="math inline">\(p_{male,front} = p_{female,front}\)</span></li>
+<li><span class="math inline">\(p_{male,middle} = p_{female,middle}\)</span></li>
+<li><span class="math inline">\(p_{male,back} = p_{female,back}\)</span></li>
+</ul>
+<p>Someone who thinks that the two variables are related believes that at least one of the three equalities above is incorrect.</p>
+</div>
+</div>
+<div id="chapter-9" class="section level2">
+<h2><span class="header-section-number">12.7</span> Chapter 9</h2>
+<div id="distinction-between-t-and-z-in-confidence-intervals-for-means" class="section level3">
+<h3><span class="header-section-number">12.7.1</span> Distinction Between <span class="math inline">\(t\)</span> and <span class="math inline">\(z\)</span> in Confidence Intervals for Means</h3>
+<p>In order to more fully understand the distinction between using the <span class="math inline">\(t\)</span>-multiplier (from the <span class="math inline">\(t\)</span>-distribution) and using the <span class="math inline">\(z\)</span>-multiplier (from the normal distribution) in the construction of confidence intervals for <strong>means</strong>, let’s first remind ourselves of the statement of the Central Limit Theorem.</p>
+<p><strong>Central Limit Theorem</strong>: For any population with a finite mean <span class="math inline">\(\mu\)</span> and finite standard deviation <span class="math inline">\(\sigma\)</span>, the distribution of the sample mean <span class="math inline">\(\bar{x}\)</span> gets closer and closer to</p>
+<p><span class="math display">\[norm(\mu,\frac{\sigma}{\sqrt{n}})\]</span></p>
+<p>as the sample size <span class="math inline">\(n\)</span> gets larger and larger.</p>
+<p>Now, let’s consider four cases:</p>
+<p><strong>Case 1:</strong> The population standard deviation, <span class="math inline">\(\sigma\)</span>, is <strong>known</strong> and the population is normally distributed.</p>
+<p>When we know <span class="math inline">\(\sigma\)</span>, we do not have to approximate the SD with the SE in the formula for the confidence interval. In addition, we can find our <span class="math inline">\(z\)</span>-score = <span class="math inline">\(\dfrac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}\)</span> exactly.</p>
+<p>Furthermore, if the population from which we are drawing our sample is normal, then our sample estimate, <span class="math inline">\(\bar{x}\)</span>, is also going to exactly follow a normal distribution, <em>regardless of the sample size</em>. This means that the <span class="math inline">\(z\)</span>-score comes from the normal curve.</p>
+<p>So, <span class="math inline">\(\dfrac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}\)</span> exactly follows a standard normal distribution, regardless of the sample size.</p>
+<p>In this situation, the <span class="math inline">\(z\)</span>-multiplier is actually the correct multiplier to use. However, this situation rarely crops up. It is very unlikely that we would know the distribution of our population and know the population standard deviation.</p>
+<p><strong>Case 2:</strong> The population standard deviation, <span class="math inline">\(\sigma\)</span>, is <strong>known</strong> and the population is not normally distributed.</p>
+<p>The difference here is that we either don’t know if the population is normally distributed or we know that it is not. For this reason, we would be unable to say that the estimator, <span class="math inline">\(\bar{x}\)</span>, follows a normal distribution. However, the Central Limit Theorem ensures that for large enough sample sizes, <span class="math inline">\(\bar{x}\)</span> is <em>approximately</em> normally distributed. So, in this case, even though we are not making an approximation to the SD(<span class="math inline">\(\bar{x}\)</span>) (since we know <span class="math inline">\(\sigma\)</span>), we are making an approximation when we use a <span class="math inline">\(z\)</span>-multplier (since we don’t know that <span class="math inline">\(\bar{x}\)</span> follows a normal distribution exactly).</p>
+<p>So, <span class="math inline">\(\dfrac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}\)</span> approximately follows a standard normal distribution for large sample sizes. The Central Limit Theorem guarantees nothing about small sample sizes.</p>
+<p>For this situation, it is still acceptable to use the <span class="math inline">\(z\)</span>-multiplier as long as your sample is not too small.</p>
+<p><strong>Case 3:</strong> The population standard deviation, <span class="math inline">\(\sigma\)</span>, is <strong>unknown</strong> and the population is normally distributed.</p>
+<p>For this case, <span class="math inline">\(\bar{x}\)</span> is normally distributed regardless of the sample size. However, since we do not know <span class="math inline">\(\sigma\)</span>, we must use the <span class="math inline">\(t\)</span>-multiplier, <span class="math inline">\(\dfrac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}\)</span>, with <span class="math inline">\(n-1\)</span> degrees of freedom. The numerator of this ratio is normally distributed, but the denominator is not. Since <span class="math inline">\(s\)</span> is a random variable, the denominator is a random variable. Thus, we have a ratio of two random variables and this has a <span class="math inline">\(t\)</span> distribution.</p>
+<p>So, <span class="math inline">\(\dfrac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}\)</span> exactly follows a <span class="math inline">\(t\)</span>- distribution with <span class="math inline">\(n-1\)</span> degrees of freedom, regardless of the sample size.</p>
+<p>For this situation, you should always use the <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n-1\)</span> degrees of freedom.</p>
+<p><strong>Case 4:</strong> The population standard deviation, <span class="math inline">\(\sigma\)</span>, is <strong>unknown</strong> and population is not normally distributed.</p>
+<p>Here again, we must rely on the Central Limit Theorem. For large sample sizes, <span class="math inline">\(\dfrac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}\)</span> will approach a standard normal distribution.</p>
+<p>The decision on which multiplier to use for this situation is somewhat ambiguous. For small sample sizes, you can’t do anything without <em>assuming</em> that the population is normally distributed. Even if this assumption is not really correct, the <span class="math inline">\(t\)</span>-distribution is likely to be approximately right. For large sample sizes, you have the Central Limit Theorem to ensure your assuption of normality. Regardless of whether you decide to use the <span class="math inline">\(t\)</span> or <span class="math inline">\(z\)</span>-multiplier, you are still using an approximation. If you use the <span class="math inline">\(z\)</span>-mutliplier, you are assuming that the sample size is big enough that <span class="math inline">\(\dfrac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}\)</span> is well approximated by the standard normal distribution, i.e., that the Central Limit Theorem holds. If you use the <span class="math inline">\(t\)</span>-mutliplier, you are assuming that the population can be well approximated by the normal distribution.</p>
+<p>The likelihood of us knowing the real value of <span class="math inline">\(\sigma\)</span> are slim to none, being that <span class="math inline">\(\sigma\)</span> is a population parameter. Chances are, we will be dealing with Case 4. We are relying on an assumption for this case, regardless of the multiplier we choose to use. So which one should we choose?</p>
+<p>Since the <span class="math inline">\(t\)</span>-distribution carries more weight in it’s tails than the normal distritbution, the <span class="math inline">\(t\)</span>-multipliers are always a little bigger than the <span class="math inline">\(z\)</span>-mutlipliers (for the same confidence level). For this reason, the confidence interval that is calculated using a <span class="math inline">\(t\)</span>-multiplier will be slightly wider than the confidence interval calculated using the <span class="math inline">\(z\)</span>-mutliplier. Using the <span class="math inline">\(t\)</span>-mutliplier makes our confidence interval estimate more conservative. This is one reason why we choose to always stick to using the <span class="math inline">\(t\)</span>-distribution in the calculation of confidence intervals for means.</p>
+</div>
+<div id="how-does-r-find-df" class="section level3">
+<h3><span class="header-section-number">12.7.2</span> How Does R Find <span class="math inline">\(df\)</span>?</h3>
+<p>When you are dealing with a situation where you have sampled from two independent populations, degrees of freedom is more difficult to calculate. We can’t just take <span class="math inline">\(n-1\)</span> because we have two sample sizes, <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span>. There are different methods for calculating <span class="math inline">\(df\)</span>. One method is to use one less than the smaller of the two sample sizes for the degrees of freedom. In other words, <span class="math display">\[df=min(n_1-1,n_2-1).\]</span></p>
+<p>If the standard deviations of the two samples are equal, another method is to use two less than the sum of the two sample sizes for the degrees of freedom. In other words, <span class="math display">\[df=n_1+n_2-2.\]</span> In fact, by setting <code>var.equal=TRUE</code> in the <code>ttestGC</code> function, R will use this formula for <span class="math inline">\(df\)</span>.</p>
+<p>By default, the function <code>ttestGC</code> in R uses the Welch-Satterthwaite equation to calculate degrees of freedom for the 2 sample test of means.</p>
+<p><span class="math display">\[df =\dfrac{\bigg(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\bigg)^2}{\dfrac{s_1^4}{n_1^2(n_1-1)}+\dfrac{s_2^2}{n_2^2(n_2-1)}}\]</span></p>
+<blockquote>
+<p><em>Research Question:</em> Do GC males sleep more at night, on average, than GC females?</p>
+</blockquote>
+<p>The <code>ttestGC</code> function gives us the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ttestGC</span>(sleep~sex,<span class="dt">data=</span>m111survey)</code></pre></div>
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Means mu1-mu2:
+##  (Welch&#39;s Approximation Used for Degrees of Freedom)
+##   sleep grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##   group  mean    sd  n
+##  female 6.325 1.619 40
+##    male 6.484 1.557 31
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu1-mu2:  -0.1589 
+## SE(x1.bar - x2.bar):  0.3792 
+## 
+## 95% Confidence Interval for mu1-mu2:
+## 
+##           lower.bound         upper.bound          
+##           -0.915971           0.598229</code></pre>
+<p>The <span class="math inline">\(df=\)</span> 65.81. Let’s use the Welch-Satterthwaite equation to verify this.</p>
+<pre><code>##      sex min Q1 median    Q3 max     mean       sd  n missing
+## 1 female   2  5   6.75 7.125   9 6.325000 1.619394 40       0
+## 2   male   4  5   7.00 7.000  10 6.483871 1.557155 31       0</code></pre>
+<p>The following statistics will be used in our calculation of <span class="math inline">\(df\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(s_1=\)</span> standard deviation of the females amount of sleep = 6.325.</p></li>
+<li><p><span class="math inline">\(s_2=\)</span> standard deviation of the males amount of sleep = 6.483871.</p></li>
+<li><p><span class="math inline">\(n_1=\)</span> sample size of females = 1.6193937.</p></li>
+<li><p><span class="math inline">\(n_1=\)</span> sample size of females = 1.5571548.</p></li>
+</ul>
+<p>So, <span class="math inline">\(df=\dfrac{\bigg(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\bigg)^2}{\dfrac{s_1^4}{n_1^2(n_1-1)}+\dfrac{s_2^2}{n_2^2(n_2-1)}} = \dfrac{\bigg(\dfrac{6.325^2}{1.6193937}+\dfrac{6.483871^2}{1.5571548}\bigg)^2}{\dfrac{6.325^4}{1.6193937^2(1.6193937-1)}+\dfrac{6.483871^4}{1.5571548^2(1.5571548-1)}} =\)</span> 1.1654895 .</p>
+
+<div id="refs" class="references">
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="goodness-of-fit.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="book_assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-GeekNotes.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
