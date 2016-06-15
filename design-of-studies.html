@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Elementary Statistics with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision.">
+  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Elementary Statistics with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  <meta name="github-repo" content="homerhanumat/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Elementary Statistics with R" />
+  
+  <meta name="twitter:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  
+
+<meta name="author" content="Rebekah Robinson and Homer White">
+
+<meta name="date" content="2016-06-14">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sampling-and-surveys.html">
+<link rel="next" href="basic-probability.html">
+
+<script src="book_assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Elementary Statistics With R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-are-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> What are R and RStudio?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#panels-and-tabs"><i class="fa fa-check"></i><b>1.1.1</b> Panels and Tabs</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#differences-between-rscript-and-rmarkdown-files"><i class="fa fa-check"></i><b>1.1.2</b> Differences Between RScript and RMarkdown Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#basic-r"><i class="fa fa-check"></i><b>1.1.3</b> Basic R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#lets-play-cards"><i class="fa fa-check"></i><b>1.2</b> Let’s play cards!</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#the-game"><i class="fa fa-check"></i><b>1.2.1</b> The Game</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#the-results"><i class="fa fa-check"></i><b>1.2.2</b> The Results</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#the-conclusion"><i class="fa fa-check"></i><b>1.2.3</b> The Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>1.3</b> Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#thoughts-on-r"><i class="fa fa-check"></i><b>1.4</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html"><i class="fa fa-check"></i><b>2</b> Describing Patterns in Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#data-basics"><i class="fa fa-check"></i><b>2.1</b> Data Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#getting-data-in-r"><i class="fa fa-check"></i><b>2.1.1</b> Getting Data in R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#variable-types"><i class="fa fa-check"></i><b>2.1.2</b> Variable Types</a></li>
+<li class="chapter" data-level="2.1.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.1.3</b> Descriptive Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#outline"><i class="fa fa-check"></i><b>2.2</b> Outline</a></li>
+<li class="chapter" data-level="2.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-factor-variable"><i class="fa fa-check"></i><b>2.3</b> One Factor Variable</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#tables"><i class="fa fa-check"></i><b>2.3.1</b> Tables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts."><i class="fa fa-check"></i><b>2.3.2</b> Barcharts.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-factor-variables"><i class="fa fa-check"></i><b>2.4</b> Two Factor Variables</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-way-tables"><i class="fa fa-check"></i><b>2.4.1</b> Two-Way Tables</a></li>
+<li class="chapter" data-level="2.4.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts-again"><i class="fa fa-check"></i><b>2.4.2</b> Barcharts Again</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-numerical-variable"><i class="fa fa-check"></i><b>2.5</b> One Numerical Variable</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-measures"><i class="fa fa-check"></i><b>2.5.1</b> Numerical Measures</a></li>
+<li class="chapter" data-level="2.5.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools"><i class="fa fa-check"></i><b>2.5.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#factor-and-numerical-variable"><i class="fa fa-check"></i><b>2.6</b> Factor and Numerical Variable</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-tools"><i class="fa fa-check"></i><b>2.6.1</b> Numerical Tools</a></li>
+<li class="chapter" data-level="2.6.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools-1"><i class="fa fa-check"></i><b>2.6.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#choice-of-measures"><i class="fa fa-check"></i><b>2.7</b> Choice of Measures</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-skewness"><i class="fa fa-check"></i><b>2.7.1</b> Mean, Median and Skewness</a></li>
+<li class="chapter" data-level="2.7.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-outliers"><i class="fa fa-check"></i><b>2.7.2</b> Mean, Median and Outliers</a></li>
+<li class="chapter" data-level="2.7.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#meansd-vs.medianiqr"><i class="fa fa-check"></i><b>2.7.3</b> Mean/SD vs. Median/IQR</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#bell-shaped-distributions"><i class="fa fa-check"></i><b>2.8</b> Bell-Shaped Distributions</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#the-68-95-rule"><i class="fa fa-check"></i><b>2.8.1</b> The 68-95 Rule</a></li>
+<li class="chapter" data-level="2.8.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#z-scores"><i class="fa fa-check"></i><b>2.8.2</b> <span class="math inline">\(z\)</span>-scores</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#reading-in-statistics"><i class="fa fa-check"></i><b>2.9</b> Reading in Statistics</a></li>
+<li class="chapter" data-level="2.10" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#thoughts-on-r-1"><i class="fa fa-check"></i><b>2.10</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#new-r-functions"><i class="fa fa-check"></i><b>2.10.1</b> New R Functions</a></li>
+<li class="chapter" data-level="2.10.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#those-pesky-formulas"><i class="fa fa-check"></i><b>2.10.2</b> Those Pesky Formulas!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html"><i class="fa fa-check"></i><b>3</b> Relationships Between Two Factor Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#the-descriptive-aspect"><i class="fa fa-check"></i><b>3.2</b> The Descriptive Aspect</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#terminology-for-two-way-tables"><i class="fa fa-check"></i><b>3.2.1</b> Terminology for Two-Way Tables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#detecting-and-describing-relationships"><i class="fa fa-check"></i><b>3.2.2</b> Detecting and Describing Relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#the-idea-of-inference"><i class="fa fa-check"></i><b>3.3</b> The Idea of Inference</a></li>
+<li class="chapter" data-level="3.4" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#tests-of-significance"><i class="fa fa-check"></i><b>3.4</b> Tests of Significance</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#five-step-procedure"><i class="fa fa-check"></i><b>3.4.1</b> Five Step Procedure</a></li>
+<li class="chapter" data-level="3.4.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#more-on-the-chi-square-statistic"><i class="fa fa-check"></i><b>3.4.2</b> More on the Chi-Square Statistic</a></li>
+<li class="chapter" data-level="3.4.3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#chisqtestgc"><i class="fa fa-check"></i><b>3.4.3</b> <code>chisqtestGC()</code></a></li>
+<li class="chapter" data-level="3.4.4" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#working-with-summary-data"><i class="fa fa-check"></i><b>3.4.4</b> Working With Summary Data</a></li>
+<li class="chapter" data-level="3.4.5" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#simulating-p-values"><i class="fa fa-check"></i><b>3.4.5</b> Simulating P-Values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#simpsons-paradox"><i class="fa fa-check"></i><b>3.5</b> Simpson’s Paradox</a></li>
+<li class="chapter" data-level="3.6" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#thoughts-on-r-2"><i class="fa fa-check"></i><b>3.6</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html"><i class="fa fa-check"></i><b>4</b> Relationships Between Two Numerical Variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#outline-1"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
+<li class="chapter" data-level="4.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#statistical-relationships"><i class="fa fa-check"></i><b>4.2</b> Statistical Relationships</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#scatterplots"><i class="fa fa-check"></i><b>4.2.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="4.2.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#correlation"><i class="fa fa-check"></i><b>4.2.2</b> Correlation</a></li>
+<li class="chapter" data-level="4.2.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#regression-equation"><i class="fa fa-check"></i><b>4.2.3</b> Regression Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#cautions"><i class="fa fa-check"></i><b>4.3</b> Cautions</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#extrapolation"><i class="fa fa-check"></i><b>4.3.1</b> Extrapolation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#influential-observations"><i class="fa fa-check"></i><b>4.3.2</b> Influential Observations</a></li>
+<li class="chapter" data-level="4.3.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#association-versus-causation"><i class="fa fa-check"></i><b>4.3.3</b> Association versus Causation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#simpsons-paradox-1"><i class="fa fa-check"></i><b>4.3.4</b> Simpson’s Paradox</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#curvilinear-fits"><i class="fa fa-check"></i><b>4.4</b> Curvilinear Fits</a></li>
+<li class="chapter" data-level="4.5" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#thoughts-on-r-3"><i class="fa fa-check"></i><b>4.5</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#new-r-functions-1"><i class="fa fa-check"></i><b>4.5.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html"><i class="fa fa-check"></i><b>5</b> Sampling and Surveys</a><ul>
+<li class="chapter" data-level="5.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#population-versus-sample"><i class="fa fa-check"></i><b>5.2</b> Population versus Sample</a></li>
+<li class="chapter" data-level="5.3" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#types-of-samples"><i class="fa fa-check"></i><b>5.3</b> Types of Samples</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#random-sampling"><i class="fa fa-check"></i><b>5.3.1</b> Random Sampling</a></li>
+<li class="chapter" data-level="5.3.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#comparison-of-sampling-methods"><i class="fa fa-check"></i><b>5.3.2</b> Comparison of Sampling Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#bias-in-surveys"><i class="fa fa-check"></i><b>5.4</b> Bias in Surveys</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#selection-bias"><i class="fa fa-check"></i><b>5.4.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#nonresopnse-bias"><i class="fa fa-check"></i><b>5.4.2</b> Nonresopnse Bias</a></li>
+<li class="chapter" data-level="5.4.3" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#response-bias"><i class="fa fa-check"></i><b>5.4.3</b> Response Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#thoughts-on-r-4"><i class="fa fa-check"></i><b>5.5</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="design-of-studies.html"><a href="design-of-studies.html"><i class="fa fa-check"></i><b>6</b> Design of Studies</a><ul>
+<li class="chapter" data-level="6.1" data-path="design-of-studies.html"><a href="design-of-studies.html#observational-studies-and-experiments"><i class="fa fa-check"></i><b>6.1</b> Observational Studies and Experiments</a></li>
+<li class="chapter" data-level="6.2" data-path="design-of-studies.html"><a href="design-of-studies.html#why-perform-experiments"><i class="fa fa-check"></i><b>6.2</b> Why Perform Experiments?</a></li>
+<li class="chapter" data-level="6.3" data-path="design-of-studies.html"><a href="design-of-studies.html#experimental-designs"><i class="fa fa-check"></i><b>6.3</b> Experimental Designs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="design-of-studies.html"><a href="design-of-studies.html#completely-randomized-designs"><i class="fa fa-check"></i><b>6.3.1</b> Completely Randomized Designs</a></li>
+<li class="chapter" data-level="6.3.2" data-path="design-of-studies.html"><a href="design-of-studies.html#randomized-block-designs"><i class="fa fa-check"></i><b>6.3.2</b> Randomized Block Designs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="design-of-studies.html"><a href="design-of-studies.html#matched-pair-designs"><i class="fa fa-check"></i><b>6.3.3</b> Matched Pair Designs</a></li>
+<li class="chapter" data-level="6.3.4" data-path="design-of-studies.html"><a href="design-of-studies.html#repeated-measure-designs"><i class="fa fa-check"></i><b>6.3.4</b> Repeated-Measure Designs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="design-of-studies.html"><a href="design-of-studies.html#considerations-about-experiments"><i class="fa fa-check"></i><b>6.4</b> Considerations About Experiments</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="design-of-studies.html"><a href="design-of-studies.html#reproducibility"><i class="fa fa-check"></i><b>6.4.1</b> Reproducibility</a></li>
+<li class="chapter" data-level="6.4.2" data-path="design-of-studies.html"><a href="design-of-studies.html#subjects-and-the-population"><i class="fa fa-check"></i><b>6.4.2</b> Subjects and the Population</a></li>
+<li class="chapter" data-level="6.4.3" data-path="design-of-studies.html"><a href="design-of-studies.html#statistical-significance"><i class="fa fa-check"></i><b>6.4.3</b> Statistical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="design-of-studies.html"><a href="design-of-studies.html#terminology-for-experiments"><i class="fa fa-check"></i><b>6.5</b> Terminology for Experiments</a></li>
+<li class="chapter" data-level="6.6" data-path="design-of-studies.html"><a href="design-of-studies.html#thoughts-on-r-5"><i class="fa fa-check"></i><b>6.6</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="design-of-studies.html"><a href="design-of-studies.html#new-r-functions-2"><i class="fa fa-check"></i><b>6.6.1</b> New R-functions</a></li>
+<li class="chapter" data-level="6.6.2" data-path="design-of-studies.html"><a href="design-of-studies.html#book-chapter-notation"><i class="fa fa-check"></i><b>6.6.2</b> “Book-Chapter” Notation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="basic-probability.html"><a href="basic-probability.html"><i class="fa fa-check"></i><b>7</b> Basic Probability</a><ul>
+<li class="chapter" data-level="7.1" data-path="basic-probability.html"><a href="basic-probability.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="basic-probability.html"><a href="basic-probability.html#probability"><i class="fa fa-check"></i><b>7.2</b> Probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="basic-probability.html"><a href="basic-probability.html#subjective-probability"><i class="fa fa-check"></i><b>7.2.1</b> Subjective Probability</a></li>
+<li class="chapter" data-level="7.2.2" data-path="basic-probability.html"><a href="basic-probability.html#theoretical-probability"><i class="fa fa-check"></i><b>7.2.2</b> Theoretical Probability</a></li>
+<li class="chapter" data-level="7.2.3" data-path="basic-probability.html"><a href="basic-probability.html#long-run-frequency-probability"><i class="fa fa-check"></i><b>7.2.3</b> Long-run Frequency Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="basic-probability.html"><a href="basic-probability.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>7.3</b> What is a Random Variable?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="basic-probability.html"><a href="basic-probability.html#notation"><i class="fa fa-check"></i><b>7.3.1</b> Notation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="basic-probability.html"><a href="basic-probability.html#discrete-random-variables"><i class="fa fa-check"></i><b>7.4</b> Discrete Random Variables</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="basic-probability.html"><a href="basic-probability.html#probability-distribution-functions-for-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.1</b> Probability Distribution Functions for Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.2" data-path="basic-probability.html"><a href="basic-probability.html#expectation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.2</b> Expectation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.3" data-path="basic-probability.html"><a href="basic-probability.html#standard-deviation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.3</b> Standard Deviation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.4" data-path="basic-probability.html"><a href="basic-probability.html#using-ev-and-sd-to-evaluate-a-game"><i class="fa fa-check"></i><b>7.4.4</b> Using EV and SD to Evaluate a Game</a></li>
+<li class="chapter" data-level="7.4.5" data-path="basic-probability.html"><a href="basic-probability.html#independence"><i class="fa fa-check"></i><b>7.4.5</b> Independence</a></li>
+<li class="chapter" data-level="7.4.6" data-path="basic-probability.html"><a href="basic-probability.html#a-special-discrete-random-variable-binomial-random-variable"><i class="fa fa-check"></i><b>7.4.6</b> A Special Discrete Random Variable: Binomial Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="basic-probability.html"><a href="basic-probability.html#continuous-random-variables"><i class="fa fa-check"></i><b>7.5</b> Continuous Random Variables</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="basic-probability.html"><a href="basic-probability.html#probability-density-functions-for-continuous-random-variables"><i class="fa fa-check"></i><b>7.5.1</b> Probability Density Functions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="7.5.2" data-path="basic-probability.html"><a href="basic-probability.html#a-special-continuous-random-variable-normal-random-variable"><i class="fa fa-check"></i><b>7.5.2</b> A Special Continuous Random Variable: Normal Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="basic-probability.html"><a href="basic-probability.html#approximating-binomial-probabilities"><i class="fa fa-check"></i><b>7.6</b> Approximating Binomial Probabilities</a></li>
+<li class="chapter" data-level="7.7" data-path="basic-probability.html"><a href="basic-probability.html#thoughts-on-r-6"><i class="fa fa-check"></i><b>7.7</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="basic-probability.html"><a href="basic-probability.html#new-r-functions-3"><i class="fa fa-check"></i><b>7.7.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html"><i class="fa fa-check"></i><b>8</b> Probability in Sampling</a><ul>
+<li class="chapter" data-level="8.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-population-and-the-sample"><i class="fa fa-check"></i><b>8.1</b> The Population and the Sample</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#parameters"><i class="fa fa-check"></i><b>8.1.1</b> Parameters</a></li>
+<li class="chapter" data-level="8.1.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#statistics-1"><i class="fa fa-check"></i><b>8.1.2</b> Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#from-questions-to-parameters"><i class="fa fa-check"></i><b>8.2</b> From Questions to Parameters</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#one-mean"><i class="fa fa-check"></i><b>8.2.1</b> One Mean</a></li>
+<li class="chapter" data-level="8.2.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#one-proportion"><i class="fa fa-check"></i><b>8.2.2</b> One Proportion</a></li>
+<li class="chapter" data-level="8.2.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#difference-of-two-means"><i class="fa fa-check"></i><b>8.2.3</b> Difference of Two Means</a></li>
+<li class="chapter" data-level="8.2.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#difference-of-two-proportions"><i class="fa fa-check"></i><b>8.2.4</b> Difference of Two Proportions</a></li>
+<li class="chapter" data-level="8.2.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#mean-of-differences"><i class="fa fa-check"></i><b>8.2.5</b> Mean of Differences</a></li>
+<li class="chapter" data-level="8.2.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-basic-five-parameters"><i class="fa fa-check"></i><b>8.2.6</b> The “Basic Five” Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#parameters-in-experiments"><i class="fa fa-check"></i><b>8.3</b> Parameters in Experiments</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#anchoring-in-m111survey"><i class="fa fa-check"></i><b>8.3.1</b> Anchoring in m111survey</a></li>
+<li class="chapter" data-level="8.3.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#knife-or-gun-again"><i class="fa fa-check"></i><b>8.3.2</b> Knife or Gun (Again)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#more-anchoring"><i class="fa fa-check"></i><b>8.3.3</b> More Anchoring</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#ev-and-sd-of-estimators"><i class="fa fa-check"></i><b>8.4</b> EV and SD of Estimators</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-one-mean"><i class="fa fa-check"></i><b>8.4.1</b> Estimating One Mean</a></li>
+<li class="chapter" data-level="8.4.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-difference-of-two-means"><i class="fa fa-check"></i><b>8.4.2</b> Estimating the Difference of Two Means</a></li>
+<li class="chapter" data-level="8.4.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-one-proportion"><i class="fa fa-check"></i><b>8.4.3</b> Estimating One Proportion</a></li>
+<li class="chapter" data-level="8.4.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-difference-of-two-proportions"><i class="fa fa-check"></i><b>8.4.4</b> Estimating the Difference of Two Proportions</a></li>
+<li class="chapter" data-level="8.4.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-mean-of-differences"><i class="fa fa-check"></i><b>8.4.5</b> Estimating the Mean of Differences</a></li>
+<li class="chapter" data-level="8.4.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#properties-of-ev-and-sd-of-estimators"><i class="fa fa-check"></i><b>8.4.6</b> Properties of EV and SD of Estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimators-shape-of-the-distribution"><i class="fa fa-check"></i><b>8.5</b> Estimators: Shape of the Distribution</a></li>
+<li class="chapter" data-level="8.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#probability-for-estimators"><i class="fa fa-check"></i><b>8.6</b> Probability for Estimators</a></li>
+<li class="chapter" data-level="8.7" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#inference-with-estimators"><i class="fa fa-check"></i><b>8.7</b> Inference With Estimators</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#we-are-not-deities"><i class="fa fa-check"></i><b>8.7.1</b> We Are Not Deities</a></li>
+<li class="chapter" data-level="8.7.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#practice-with-estimator-and-se"><i class="fa fa-check"></i><b>8.7.2</b> Practice With Estimator and SE</a></li>
+<li class="chapter" data-level="8.7.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-68-95-rule-for-estimation"><i class="fa fa-check"></i><b>8.7.3</b> The 68-95 Rule for Estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#summary-of-formulas"><i class="fa fa-check"></i><b>8.8</b> Summary of Formulas</a></li>
+<li class="chapter" data-level="8.9" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#thoughts-on-r-7"><i class="fa fa-check"></i><b>8.9</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>9</b> Confidence Intervals</a><ul>
+<li class="chapter" data-level="9.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#introduction-4"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#chapter-outline"><i class="fa fa-check"></i><b>9.2</b> Chapter Outline</a></li>
+<li class="chapter" data-level="9.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#one-population-mean-mu"><i class="fa fa-check"></i><b>9.3</b> One Population Mean <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps"><i class="fa fa-check"></i><b>9.3.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.3.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood"><i class="fa fa-check"></i><b>9.3.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.3.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-and-further-ideas"><i class="fa fa-check"></i><b>9.3.3</b> Additional Example, and Further Ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#difference-of-two-population-means-mu_1-mu_2"><i class="fa fa-check"></i><b>9.4</b> Difference of Two Population Means, <span class="math inline">\(\mu_1-\mu_2\)</span></a><ul>
+<li class="chapter" data-level="9.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-1"><i class="fa fa-check"></i><b>9.4.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-1"><i class="fa fa-check"></i><b>9.4.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.4.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example"><i class="fa fa-check"></i><b>9.4.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#mean-of-differences-mu_d"><i class="fa fa-check"></i><b>9.5</b> Mean of Differences, <span class="math inline">\(\mu_d\)</span></a><ul>
+<li class="chapter" data-level="9.5.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-2"><i class="fa fa-check"></i><b>9.5.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.5.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-2"><i class="fa fa-check"></i><b>9.5.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.5.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-1"><i class="fa fa-check"></i><b>9.5.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="confidence-intervals.html"><a href="confidence-intervals.html#one-population-proportion-p"><i class="fa fa-check"></i><b>9.6</b> One Population Proportion, <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="9.6.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-3"><i class="fa fa-check"></i><b>9.6.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.6.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-3"><i class="fa fa-check"></i><b>9.6.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.6.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-2"><i class="fa fa-check"></i><b>9.6.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="confidence-intervals.html"><a href="confidence-intervals.html#difference-of-two-population-proportions-p_1-p_2"><i class="fa fa-check"></i><b>9.7</b> Difference of Two Population Proportions, <span class="math inline">\(p_1-p_2\)</span></a><ul>
+<li class="chapter" data-level="9.7.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-4"><i class="fa fa-check"></i><b>9.7.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.7.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-4"><i class="fa fa-check"></i><b>9.7.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.7.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-3"><i class="fa fa-check"></i><b>9.7.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="confidence-intervals.html"><a href="confidence-intervals.html#thoughts-on-r-8"><i class="fa fa-check"></i><b>9.8</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#new-r-functions-4"><i class="fa fa-check"></i><b>9.8.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html"><i class="fa fa-check"></i><b>10</b> Tests of Significance</a><ul>
+<li class="chapter" data-level="10.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introduction-5"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#one-population-mean-mu-1"><i class="fa fa-check"></i><b>10.2</b> One Population Mean <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introductory-research-question"><i class="fa fa-check"></i><b>10.2.1</b> Introductory Research Question</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps"><i class="fa fa-check"></i><b>10.2.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-and-further-ideas"><i class="fa fa-check"></i><b>10.2.3</b> Under the Hood, and Further Ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#difference-of-two-population-means-mu_1-mu_2-1"><i class="fa fa-check"></i><b>10.3</b> Difference of Two Population Means, <span class="math inline">\(\mu_1-\mu_2\)</span></a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-difference-of-two-means"><i class="fa fa-check"></i><b>10.3.1</b> The Difference of Two Means</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-1"><i class="fa fa-check"></i><b>10.3.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-5"><i class="fa fa-check"></i><b>10.3.3</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples"><i class="fa fa-check"></i><b>10.3.4</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#mean-of-differences-mu_d-1"><i class="fa fa-check"></i><b>10.4</b> Mean of Differences <span class="math inline">\(\mu_d\)</span></a><ul>
+<li class="chapter" data-level="10.4.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introductory-research-question-1"><i class="fa fa-check"></i><b>10.4.1</b> Introductory Research Question</a></li>
+<li class="chapter" data-level="10.4.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-2"><i class="fa fa-check"></i><b>10.4.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.4.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-6"><i class="fa fa-check"></i><b>10.4.3</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.4.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples-1"><i class="fa fa-check"></i><b>10.4.4</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#one-population-proportion-p-1"><i class="fa fa-check"></i><b>10.5</b> One Population Proportion <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-3"><i class="fa fa-check"></i><b>10.5.1</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.5.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-7"><i class="fa fa-check"></i><b>10.5.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.5.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples-2"><i class="fa fa-check"></i><b>10.5.3</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#difference-of-two-proportions-p_1-p_2"><i class="fa fa-check"></i><b>10.6</b> Difference of Two Proportions <span class="math inline">\(p_1-p_2\)</span></a><ul>
+<li class="chapter" data-level="10.6.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-4"><i class="fa fa-check"></i><b>10.6.1</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.6.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#working-with-summary-data-1"><i class="fa fa-check"></i><b>10.6.2</b> Working With Summary Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#further-considerations-about-significance-tests"><i class="fa fa-check"></i><b>10.7</b> Further Considerations About Significance Tests</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#types-of-error"><i class="fa fa-check"></i><b>10.7.1</b> Types of Error</a></li>
+<li class="chapter" data-level="10.7.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-dangers-of-limited-reporting"><i class="fa fa-check"></i><b>10.7.2</b> The Dangers of Limited Reporting</a></li>
+<li class="chapter" data-level="10.7.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-dangers-of-data-snooping"><i class="fa fa-check"></i><b>10.7.3</b> The Dangers of Data-Snooping</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#thoughts-about-r"><i class="fa fa-check"></i><b>10.8</b> Thoughts About R</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#new-code-to-learn"><i class="fa fa-check"></i><b>10.8.1</b> New Code to Learn?</a></li>
+<li class="chapter" data-level="10.8.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#old-descriptive-friends"><i class="fa fa-check"></i><b>10.8.2</b> Old Descriptive Friends</a></li>
+<li class="chapter" data-level="10.8.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#adding-a-variable-to-a-data-frame"><i class="fa fa-check"></i><b>10.8.3</b> Adding a Variable to a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> Goodness of Fit</a><ul>
+<li class="chapter" data-level="11.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#the-gamblers-die"><i class="fa fa-check"></i><b>11.1</b> The Gambler’s Die</a></li>
+<li class="chapter" data-level="11.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#chisqtestgc-for-goodness-of-fit"><i class="fa fa-check"></i><b>11.2</b> chisqtestGC() for Goodness of Fit</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#the-gamblers-die-as-a-test-of-significance"><i class="fa fa-check"></i><b>11.2.1</b> The Gambler’s Die as a Test of Significance</a></li>
+<li class="chapter" data-level="11.2.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#facts-about-chi2-goodness-of-fit"><i class="fa fa-check"></i><b>11.2.2</b> Facts About <span class="math inline">\(\chi^2\)</span> Goodness of Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-seating-preference"><i class="fa fa-check"></i><b>11.3</b> Further Example: Seating Preference</a></li>
+<li class="chapter" data-level="11.4" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-nexus-attendance"><i class="fa fa-check"></i><b>11.4</b> Further Example: Nexus Attendance</a></li>
+<li class="chapter" data-level="11.5" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-too-good-to-be-true"><i class="fa fa-check"></i><b>11.5</b> Further Example: Too Good to be True?</a></li>
+<li class="chapter" data-level="11.6" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#thoughts-about-r-1"><i class="fa fa-check"></i><b>11.6</b> Thoughts About R</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#names-for-elements-in-a-list"><i class="fa fa-check"></i><b>11.6.1</b> Names for Elements in a List</a></li>
+<li class="chapter" data-level="11.6.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#quick-null-probabilities"><i class="fa fa-check"></i><b>11.6.2</b> Quick Null Probabilities</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html"><i class="fa fa-check"></i><b>12</b> Appendix: Geek Notes</a><ul>
+<li class="chapter" data-level="12.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-2"><i class="fa fa-check"></i><b>12.1</b> Chapter 2</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-structure"><i class="fa fa-check"></i><b>12.1.1</b> More on Structure</a></li>
+<li class="chapter" data-level="12.1.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#fancier-histograms"><i class="fa fa-check"></i><b>12.1.2</b> Fancier Histograms</a></li>
+<li class="chapter" data-level="12.1.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#combined-plots"><i class="fa fa-check"></i><b>12.1.3</b> Combined Plots</a></li>
+<li class="chapter" data-level="12.1.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#adding-rugs"><i class="fa fa-check"></i><b>12.1.4</b> Adding Rugs</a></li>
+<li class="chapter" data-level="12.1.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#tuning-density-plots"><i class="fa fa-check"></i><b>12.1.5</b> Tuning Density Plots</a></li>
+<li class="chapter" data-level="12.1.6" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-standard-deviation"><i class="fa fa-check"></i><b>12.1.6</b> More on Standard Deviation</a></li>
+<li class="chapter" data-level="12.1.7" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#cleveland-dotplots"><i class="fa fa-check"></i><b>12.1.7</b> Cleveland Dotplots</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-3"><i class="fa fa-check"></i><b>12.2</b> Chapter 3</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#fixed-and-random-effects-in-simulation"><i class="fa fa-check"></i><b>12.2.1</b> Fixed and Random effects in Simulation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-4"><i class="fa fa-check"></i><b>12.3</b> Chapter 4</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#point-shapes-in-scatterplots-using-pch"><i class="fa fa-check"></i><b>12.3.1</b> Point Shapes in Scatterplots using <code>pch</code></a></li>
+<li class="chapter" data-level="12.3.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#scatterplot-matrix"><i class="fa fa-check"></i><b>12.3.2</b> Scatterplot Matrix</a></li>
+<li class="chapter" data-level="12.3.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-rationale-for-values-of-the-correlation-coefficient-r"><i class="fa fa-check"></i><b>12.3.3</b> The Rationale for Values of the Correlation Coefficient, <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="12.3.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#computation-of-the-coefficients-in-the-regression-equation"><i class="fa fa-check"></i><b>12.3.4</b> Computation of the Coefficients in the Regression Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-5"><i class="fa fa-check"></i><b>12.4</b> Chapter 5</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-rbind-function"><i class="fa fa-check"></i><b>12.4.1</b> The <code>rbind()</code> Function</a></li>
+<li class="chapter" data-level="12.4.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-cbind-function"><i class="fa fa-check"></i><b>12.4.2</b> The <code>cbind()</code> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-6"><i class="fa fa-check"></i><b>12.5</b> Chapter 6</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-role-of-limits-in-density-plots"><i class="fa fa-check"></i><b>12.5.1</b> The Role of Limits in Density Plots</a></li>
+<li class="chapter" data-level="12.5.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-about-legends"><i class="fa fa-check"></i><b>12.5.2</b> More about Legends</a></li>
+<li class="chapter" data-level="12.5.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-strip-plots"><i class="fa fa-check"></i><b>12.5.3</b> More on Strip-plots</a></li>
+<li class="chapter" data-level="12.5.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>12.5.4</b> Assessing Statistical Significance</a></li>
+<li class="chapter" data-level="12.5.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#interaction"><i class="fa fa-check"></i><b>12.5.5</b> Interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-8"><i class="fa fa-check"></i><b>12.6</b> Chapter 8</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#we-lied-about-the-sd-formulas"><i class="fa fa-check"></i><b>12.6.1</b> We Lied About the SD Formulas!</a></li>
+<li class="chapter" data-level="12.6.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#are-we-only-ever-interested-in-population-parameters"><i class="fa fa-check"></i><b>12.6.2</b> Are We Only Ever Interested in Population Parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-9"><i class="fa fa-check"></i><b>12.7</b> Chapter 9</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#distinction-between-t-and-z-in-confidence-intervals-for-means"><i class="fa fa-check"></i><b>12.7.1</b> Distinction Between <span class="math inline">\(t\)</span> and <span class="math inline">\(z\)</span> in Confidence Intervals for Means</a></li>
+<li class="chapter" data-level="12.7.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#how-does-r-find-df"><i class="fa fa-check"></i><b>12.7.2</b> How Does R Find <span class="math inline">\(df\)</span>?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Elementary Statistics with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="design-of-studies" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Design of Studies</h1>
+<div id="observational-studies-and-experiments" class="section level2">
+<h2><span class="header-section-number">6.1</span> Observational Studies and Experiments</h2>
+<p>The <code>attitudes</code> data frame contains the results of a large-scale survey conducted at Georgetown College in the fall semester of 2001:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(attitudes)
+<span class="kw">View</span>(attitudes)
+<span class="kw">help</span>(attitudes)</code></pre></div>
+<p>This dataset prompts many research questions concerning the relationship between two variables. For example, the numerical variable <strong>sentence</strong> gives the sentence recommended for a hypothetical defendant who has been convicted for involuntary manslaughter in a drunk-driving incident. Another variable—the factor <strong>major</strong>—records the type of major that the survey participant intends to pursue. A Research Question on the relationship between these two variables might take the form:</p>
+<blockquote>
+<p><em>Which type of major tends to be hardest on crime?</em></p>
+</blockquote>
+<p>Let’s quickly explore this question. We can take a numerical approach:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(sentence~major,<span class="dt">data=</span>attitudes)</code></pre></div>
+<pre><code>##        major min    Q1 median    Q3 max     mean       sd   n missing
+## 1 humanities   5 11.25     20 38.75  50 25.26316 15.96565  38       0
+## 2   math.sci   5 20.00     30 50.00  50 30.49351 15.64964  77       0
+## 3   pre.prof   3 14.00     25 32.50  50 25.02336 15.05342 107       1
+## 4 social.sci   4 15.00     25 40.00  50 25.48889 14.66694  45       0</code></pre>
+<p>Comparing the means of the four major groups, it seems that math and science majors recommend sentences that are, on average, about five years longer than sentences recommended by the other three major groups.</p>
+<p>We can also take a graphical approach. Figure [Sentence by Major] also indicates that math and science majors are harder on crime. (Note, for instance, that their median is about five years above the medians for the other three groups.)</p>
+<div class="figure"><span id="fig:majorsent"></span>
+<img src="bookdown-demo_files/figure-html/majorsent-1.png" alt="Sentence by Major.  The survey respondents are broken into four groups, accordng to the type of majors they intend to pursue." width="672" />
+<p class="caption">
+Figure 6.1: Sentence by Major. The survey respondents are broken into four groups, accordng to the type of majors they intend to pursue.
+</p>
+</div>
+<p>The data for this research question – the variables <strong>major</strong> and <strong>sentence</strong> – were gathered by means of an <em>observational study</em>:</p>
+<dl>
+<dt>Observational Study</dt>
+<dd><p>In an <em>observational study</em> researchers simply observe or question the subjects. In particular, they measure the values of the explanatory variable <span class="math inline">\(X\)</span> and measure the values of the response variable <span class="math inline">\(Y\)</span>, for each subject.</p>
+</dd>
+</dl>
+<p>For each student in the survey, we measured the value of the variable <strong>major</strong> for each student by recording his/her choice, and observed the value of <strong>sentence</strong> by recording the sentence he/she recommended. Thus, the Research Question at hand was addressed by means of an observational study.</p>
+<p>But not all of the variables in the <code>attitudes</code> data were simply observed. From the Help file on <code>attitudes</code>, we learn that not all subjects received the same survey form. In particular, in the question for the drunk-driving incident, some of the subjects got a form where the question was stated as follows:</p>
+<blockquote>
+<p>You are on a jury for a manslaughter case in Lewistown, PA. The defendant has been found guilty, and in Pennsylvania it is part of the job of the jury to recommend a sentence to the judge. The facts of the case are as follows. The defendant, Tyrone Marcus Watson, a 35-year old native of Lewistown, was driving under the influence of alcohol on the evening of Tuesday July 17, 2001. At approximately 11:00 PM Watson drove through a red light, striking a pedestrian, Betsy Brockenheimer, a 20-year old resident of Lewistown. Brockenheimer was taken unconscious to the hospital and died of her injuries about one hour later. Watson did not flee the scene, nor did he resist arrest.</p>
+</blockquote>
+<blockquote>
+<p>The prior police record for Mr. Watson is as follows: two minor traffic violations, and one previous arrest, five years ago, for DUI. No one was hurt in that incident.</p>
+</blockquote>
+<blockquote>
+<p>Watson has now been convicted of DUI and manslaughter. The minimum jail term for this combination of offenses is two years; the maximum term is fifty years. In the blank below, write a number from 2 to 50 as your recommended length of sentence for Tyrone Marcus Watson.</p>
+</blockquote>
+<p>Other subjects received a survey form in which the details of the incident were exactly the same as in the question above, except that the defendant’s name was given as “William Shane Winchester.” In other forms, the name of the victim varied: “Latisha Dawes”&quot; instead of “Betsy Brockenheimer.” All told, there were four variants of the drunk-driving question:</p>
+<table>
+<caption>Form-Variation in the Drunk-Driving Question</caption>
+<thead>
+<tr class="header">
+<th><strong>Defendant’s Suggested Race</strong></th>
+<th align="left"><strong>Victim’s Suggested Race</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Black</td>
+<td align="left">Black</td>
+</tr>
+<tr class="even">
+<td>Black</td>
+<td align="left">White</td>
+</tr>
+<tr class="odd">
+<td>White</td>
+<td align="left">Black</td>
+</tr>
+<tr class="even">
+<td>White</td>
+<td align="left">White</td>
+</tr>
+</tbody>
+</table>
+<p>The purpose of varying the names—and with the names, the suggested race of the person—was to investigate Research Questions like the following:</p>
+<blockquote>
+<p><strong>Research Question 1</strong>: <em>Does the suggested race of the defendant have an effect on the length of sentence a subject would recommend?</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Research Question 2</strong>: <em>Does the suggested race of the victim have an effect on the length of sentence a subject would recommend for the defendant?</em></p>
+</blockquote>
+<p>The data we collected for these Research Questions does <strong>not</strong> constitute an observational study: the subjects did not choose which type of form to fill out; instead the researchers (randomly) assigned forms to subjects. This makes the study an <em>experiment.</em></p>
+<dl>
+<dt>Experiment</dt>
+<dd><p>In an <em>experiment</em>, researchers manipulate something and observe the effects of the manipulation on a response variable.</p>
+</dd>
+<dd><p>Most commonly, the manipulation consists in assigning the values of an explanatory variable <span class="math inline">\(X\)</span> to the subjects.</p>
+</dd>
+</dl>
+<p>In Research Question 1 above, the explanatory variable is <strong>defrace</strong>, the race of the defendant that is suggested by the name given to him in the form. (The response variable is <strong>sentence</strong>.) Since researchers assigned the values of <strong>defrace</strong> to each subject, Research Question 1 is being addressed through an experiment.</p>
+<p>In Research Question 2 above, the explanatory variable is <strong>vicrace</strong>, the race of the victim that is suggested by the name given to her in the form. (The response variable is <strong>sentence</strong>.) Since researchers assigned the values of <strong>vicrace</strong> to each subject, Research Question 2 also is being addressed through an experiment.</p>
+<p>For further practice in distinguishing between experiments and observational studies, study the following examples:</p>
+<blockquote>
+<p><strong>Example</strong>: Researchers test whether zinc lozenges help people with colds recover more quickly than if they took no lozenges at all. They gather 40 people who are suffering from a cold, and randomly choose 20 of them to take zinc lozenges. The remaining 20 also take a lozenge, but it the lozenge is made of an inert substance that is known to have no effect on the body.</p>
+</blockquote>
+<p>In this situation, the explanatory variable is whether or not one takes a zinc lozenge, and the response variable is the time it takes to recover from the cold. Since researchers randomly picked who would get a zinc lozenge, the values of the explanatory variable were assigned by the researchers. This makes the study as experiment.</p>
+<blockquote>
+<p><strong>Example</strong>: Researchers gather a number of people. They find that, of those who wear bifocals, 5% have colon cancer. Of those who do not wear bifocals, only 1% have colon cancer.</p>
+</blockquote>
+<p>In the second situation, the Research Question of interest appears to concern the relationship between whether or not one wears bifocals and whether or not one gets colon cancer. It’s not clear which variable—if either–is supposed to be the explanatory, but since neither variable had its values assigned to subjects (researchers did not make anyone wear bifocals, or give colon cancer to anyone!) the study is clearly just an observational study.</p>
+</div>
+<div id="why-perform-experiments" class="section level2">
+<h2><span class="header-section-number">6.2</span> Why Perform Experiments?</h2>
+<p>Because in an experiment researchers assign values of the explanatory variable <span class="math inline">\(X\)</span> to subjects, experiments can be difficult to perform. For example, in the lozenge example above, most people would prefer to choose for themselves what medicine to take for a cold. In an experiment, someone else assigns the treatment to you. It’s difficult to recruit subjects for such a study!</p>
+<p>Why, then, do researchers go to the trouble to do experiments? Why not just perform observational studies all of the time?</p>
+<p>The answer has to do with the distinction, introduced in Chapter Four, between association and causation. We know already that two variables can be associated without there being a <em>causal</em> relationship between them. But there are many situations in which we really do want to know if an observed association is due to a causal relationship. Here are some examples:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>We may find that smokers tend to develop lung cancer at a higher rate than non-smokers; we would like to know whether smoking actually <em>causes</em> lung cancer.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>We may find that men drive faster than women, but we wonder whether a person’s sex is a causal factor in how fast he or she drives.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Bifocal wearers have colon cancer at a higher rate than do those who do not wear bifocals, but does this mean that wearing bifocals increases your risk of colon cancer?</li>
+</ol>
+</blockquote>
+<p>Consider the last example above: we don’t think that wearing bifocals causes lung cancer, because we know that folks who wear bifocals tend to be older than those who don’t, and we know that the risk of colon cancer increases with age. Age is considered a <em>confounding variable</em> that explains the association between bifocal-wearing and colon cancer.</p>
+<dl>
+<dt>Confounding Variable</dt>
+<dd><p>In a study with an explanatory variable <span class="math inline">\(X\)</span> and a response variable <span class="math inline">\(Y\)</span>, the variable <span class="math inline">\(Z\)</span> is called a <em>confounding</em> variable if it meets the following three conditions:</p>
+</dd>
+</dl>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>It is a third variable (different from X and different from Y);</li>
+<li>It is associated with X, but not caused by X.</li>
+<li>It is a causal factor in Y (is at least part of the cause of Y)</li>
+</ol>
+</blockquote>
+<p>Thus, <strong>age</strong> (Z) is indeed a confounding variable in a study of the relationship between <strong>whether or not one wears bifiocals</strong> (X) and <strong>whether or not one has colon cancer</strong> (Y). We know this because:</p>
+<ul>
+<li><strong>Age</strong> is a third variable;</li>
+<li><strong>Age</strong> causes bifocal wearing–older people have worse eysesight, and so choose to wear corrective lenses, including bifocals—and so <strong>age</strong> is associated with bifocal wearing.</li>
+<li><strong>Age</strong> helps to cause colon cancer.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: In Condition 2 in the definition of confounding variables we included the requirement that Z must not be caused by X. The reason for doing this is that if Z were caused by X, then, since Z helps to cause Y, X would help to cause Y indirectly after all. (We consider indirect causes to be legitimate causes; in fact, pretty much anything that we think of as a “cause” does its causal work indirectly.)</p>
+</blockquote>
+<p>A difficulty with observational studies is that because subjects come to you with the value of their X variable already in place, observational studies are pervasively subject to the possibility of confounding variables. In the bifocal and colon cancer study, people choose whether or not to wear bifocals, and that choice is caused somewhat by their age. Hence the two groups being compared in the study—the bifocal-wearers and the non-bifocal wearers—differ with respect to age. Therefore we cannot attribute an observed difference in their colon cancer rates to the wearing of bifocals: the difference is probably due to age (or to other variables associated with age).</p>
+<p>For another example, think back to the <strong>sat</strong> data, with which we attempted to study the relationship between teacher salary (X) and SAT score (Y) for states. Although we observed an association (states that paid their teachers more tended to have lower SAT scores), we could not conclude that paying teachers more <em>causes</em> their students to perform worse: the variable <strong>frac</strong> was a confounder. After all,</p>
+<ul>
+<li><strong>frac</strong> is a third variable (different from <strong>salary</strong> and from <strong>sat</strong>);</li>
+<li>states where <strong>frac</strong> is high are states that tend to place value on education, so they are liable to pay their teachers well, so <strong>frac</strong> and <strong>salary</strong> are related;</li>
+<li>It is likely that states with a high percentage of students taking the SAT have lower scores due to the presence in the testing pool of non-elite students, so <strong>frac</strong> helps to cause <strong>sat</strong>.</li>
+</ul>
+<p>Observational studies are not rendered worthless by the mere possibility of confounding variables, but they do make things more difficult for researchers, in at least two respects:</p>
+<ul>
+<li>You have to identify possible confounders BEFORE you collect your data, so you can record the value of the possible confounder for each subject in the study.</li>
+<li>You have to figure out how to <em>correct</em> for the confounders.</li>
+</ul>
+<p>The second requirement can be pretty tough to satisfy. One possible way to proceed is to break your data up into little groups, such that the values of the confounders are the same, or nearly the same, for the subjects in each group. That’s what we did with the <strong>sat</strong> data: recall the app:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(manipulate)
+<span class="kw">DtrellScat</span>(sat~salary|frac,<span class="dt">data=</span>sat)</code></pre></div>
+<p>The problem with breaking up the data into small subsets and studying them separately is that any relationship you see between X and Y within a subset is based on a very small sample—too small by itself to provide much evidence for a relationship in the population. Even if most of the subsets indicate the same relationship between X and Y, the fact that they were studied separately prevents us from synthesizing the results to infer a relationship between X and Y in the population at large.</p>
+<p>Hence we would prefer to have no confounding variables in our study at all. In other words:</p>
+<blockquote>
+<p><strong>An Ideal</strong>: In an ideal world the different groups in the study would be exactly alike with respect to every variable that might help to cause the response variable Y, with the sole exception that the groups differ in their X-values.</p>
+</blockquote>
+<p>For example, in the bifocal study, you would prefer to compare two groups of people that are the same with respect to:</p>
+<ul>
+<li>age,</li>
+<li>diet,</li>
+<li>exercise patterns,</li>
+<li>genetic history,</li>
+<li>and anything else that might affect the risk of colon cancer!</li>
+</ul>
+<p>The only way the groups would differ is that one group wears bifocals, and the other group—sometimes called the <em>control</em> group—does not. If two such groups were to exhibit a statistically significant difference in their colon cancer rates, then that difference could be ascribed to the bifocals, and not to anything else: there would be no confounding factors to worry about.</p>
+</div>
+<div id="experimental-designs" class="section level2">
+<h2><span class="header-section-number">6.3</span> Experimental Designs</h2>
+<p>The ideal laid out in the preceding section cannot be attained in practice, but it can be approximated fairly well, provided that you <em>design</em> your experiment well.</p>
+<p>It may surprise you to learn that good experimental designs make use of brute chance, at some point, in order to assign subjects to treatment groups. We will discuss some of these ways in this Section.</p>
+<div id="completely-randomized-designs" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Completely Randomized Designs</h3>
+<p>In a <em>completely randomized</em> experiment, subjects are assigned to their treatment groups by randomization alone.</p>
+<p>What is randomization, exactly, and why is it so effective in making groups similar? To see learn more about this consider again the following imaginary population:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(imagpop)
+<span class="kw">View</span>(imagpop)
+<span class="kw">help</span>(imagpop)</code></pre></div>
+<p>Let’s say that the first 200 people in this population agree to be part of an experiment to see whether taking aspirin reduces the risk of heart disease.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AspHeartSubs &lt;-<span class="st"> </span>imagpop[<span class="dv">1</span>:<span class="dv">200</span>,]</code></pre></div>
+<p>The experimenters plan to choose 100 of the subjects at random, and assign them to take an aspirin each morning for ten years. The remaining 100 subjects—the control group—are given a pill each morning that looks and tastes like aspirin, but has no effect on the body. (Such a substance is called a <em>placebo</em>, and is used to keep the subjects unaware of which group they are in. If subjects knew their group, this knowledge might determine lifestyle choices that in turn affect the risk of heart disease. When subjects in an experiment don’t know their group, the experiment is said to be <em>single-blind.</em>)</p>
+<p>Together, the two groups are called the <em>treatment groups</em>, because they are treated differently: one groups gets aspirin, the other does not.</p>
+<p>The X variable is whether or not the subject takes aspirin, and the Y variable is some measure of the heart-health of the subject. The values of the X variable were assigned randomly to the subjects, so this experiment has what we call a <em>completely randomized</em> design.</p>
+<p>The R-function <code>RandomExp()</code> carries out the randomization:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Assignment &lt;-<span class="st"> </span><span class="kw">RandomExp</span>(AspHeartSubs,
+                  <span class="dt">sizes=</span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>),
+                  <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;placebo&quot;</span>,<span class="st">&quot;aspirin&quot;</span>))</code></pre></div>
+<p>You should take a look at the result:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(Assignment)</code></pre></div>
+<p>As you can see, 100 of the subjects are assigned to the Placebo group, and the other 100 are assigned to the Aspirin group. The assignment is done at random: each subject was equally likely to be assigned to either group.</p>
+<p>Recall that we would like the treatment groups to be similar in every way, except that one group takes aspirin and the other does not. In order to verify that they are reasonably similar, we can check to see whether the variable <strong>treat.grp</strong> is related to any of the other variables in the <code>Assignment</code> data frame.</p>
+<p>Do the treatment groups differ much with respect to <strong>sex</strong> (i.e., is <strong>treat.grp</strong> related to <strong>sex</strong>)? Let’s see:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexGrp &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~treat.grp+sex,<span class="dt">data=</span>Assignment)
+<span class="kw">rowPerc</span>(SexGrp)</code></pre></div>
+<pre><code>##          sex
+## treat.grp female male Total
+##   placebo     51   49   100
+##   aspirin     56   44   100</code></pre>
+<p>The distribution of <strong>sex</strong> in the two treatment groups appears to be quite similar.</p>
+<p>Do the groups differ much with respect to income? (Is <strong>treat.grp</strong> related to <strong>income</strong>?) Let’s see:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(income~treat.grp,<span class="dt">data=</span>Assignment)</code></pre></div>
+<pre><code>##   treat.grp  min    Q1 median    Q3    max  mean       sd   n missing
+## 1   placebo 1200 18325  33600 50000 154700 39215 26995.24 100       0
+## 2   aspirin 1500 16675  33550 55650 165700 39486 29352.24 100       0</code></pre>
+<p>The means and medians of the two groups appear to be quite similar.</p>
+<p>For further practice, pick another variable in the <code>Assignment</code> data frame, and see if the treatment groups differ much with respect to that variable.</p>
+<p>The randomization procedure is not perfect: if you repeat the procedure many times:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Assignment &lt;-<span class="st"> </span><span class="kw">RandomExp</span>(AspHeartSubs,
+                <span class="dt">sizes=</span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>),
+                <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;placebo&quot;</span>,<span class="st">&quot;aspirin&quot;</span>))</code></pre></div>
+<p>From time to time you will discover that for one or two of the variables the treatment groups are somewhat different. But on the whole it appears likely that for the most part the treatment groups will be pretty similar.</p>
+<p>When R was doing the randomization to create the <strong>treat.grp</strong> variable, it worked “blindly”: it did not take into account the sex, income, etc. of any of the subjects. This means that when researchers adopt a completely randomized design, they don’t have to keep track of <em>any</em> characteristics of their subjects – not even those characteristics that might be confounding factors. Blind chance by itself is likely to produce similar treatment groups.</p>
+<p>Statistical theory tells us that, the larger the number of subjects, the more likely it is that the treatment groups will be similar, and the more similar they are likely to be! That’s one reason why researchers like to get as many subjects as possible into each treatment group. This principle is called <em>replication</em>:</p>
+<dl>
+<dt>Replication</dt>
+<dd><p>An experiment is said to involve <em>replication</em> if each the treatment group contains more than one subject. (The more subjects there are in each group, the more replication the experiment has.)</p>
+</dd>
+</dl>
+</div>
+<div id="randomized-block-designs" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Randomized Block Designs</h3>
+<div id="dealing-with-a-small-number-of-subjects" class="section level4">
+<h4><span class="header-section-number">6.3.2.1</span> Dealing with a Small Number of Subjects</h4>
+<p>So far we have looked at experiments with a completely randomized design. This design works very well when you have a lot of subjects, because then you can get a lot of subjects into each treatment group. Blind chance then guarantees—more or less—that the treatment groups will be similar. When you don’t have a lot of subjects, however, things might not go so well.</p>
+<p>Suppose, for example, that you want to do an experiment to compare two weight-lifting programs (Program A and Program B), to see which one is more effective. You have 16 subjects in your group:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(SmallExp)
+<span class="kw">View</span>(SmallExp)
+<span class="kw">help</span>(SmallExp)</code></pre></div>
+<p>Note that the sex and athletic status (athlete or not) of each subject has been recorded.</p>
+<p>Your plan is to break the subjects into two groups of size 8 each. Group A will train with Program A for ten weeks, and Group B will train with Program B. At the end of the ten-week period, you will measure the increase in strength for each subject.</p>
+<p>Let’s say you decide on a completely randomized design:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RandomExp</span>(SmallExp,<span class="dt">sizes=</span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>),
+          <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;Program.A&quot;</span>,<span class="st">&quot;Program.B&quot;</span>))</code></pre></div>
+<p>Perform the randomization several times by re-running the above code. Are you <em>always</em> happy with the results, or do the treatment groups often look rather different with respect to sex and/or with respect to athletic status?</p>
+<p>When the number of subjects is small, randomization can easily produce dis-similar treatment groups. If the treatment groups are dis-similar with respect to possible confounders (such as <strong>Sex</strong> and <strong>athlete</strong> in this study) then we have a problem.</p>
+</div>
+<div id="blocking" class="section level4">
+<h4><span class="header-section-number">6.3.2.2</span> Blocking</h4>
+<p>Accordingly, when an experiment is expected to have only a small number of subjects, researchers will often adopt a <em>randomized block design</em>. This means that they carry out the following procedure:</p>
+<ol style="list-style-type: decimal">
+<li>For each subject, record the values of variables that you consider to be potential confounders. In the current study, <strong>sex</strong> and <strong>athlete</strong> have been recorded.</li>
+<li>Break the subjects into <em>blocks</em> based on combinations of values of the potential confounders. In this study the blocks would be:
+<ul>
+<li>the four females who are athletes</li>
+<li>the four females who are not athletes</li>
+<li>the four males who are athletes</li>
+<li>the four males who are not athletes</li>
+</ul></li>
+<li>Within each block randomly assign subjects to treatment groups. In this study, for example, you would randomly pick two of the female athletes to be in Group A, with the other two going to Group B, and do the same for the other three blocks.</li>
+</ol>
+<p>Randomized blocking is accomplished with <code>RandomExp()</code> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RandomExp</span>(SmallExp,<span class="dt">sizes=</span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>),
+          <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;Program.A&quot;</span>,<span class="st">&quot;Program.B&quot;</span>),
+          <span class="dt">block=</span><span class="kw">c</span>(<span class="st">&quot;sex&quot;</span>,<span class="st">&quot;athlete&quot;</span>))</code></pre></div>
+<p>Re-run the randomization several times, and observe that:</p>
+<ul>
+<li>In terms of the individuals, the treatment groups differ from one run to another.</li>
+<li>But they are the same every time, as far as the values of <strong>sex</strong> and <strong>athlete</strong> are concerned.</li>
+</ul>
+<p>The basic idea of blocking is to ensure that—at least with respect to a few variables whose values you can record in advance—the two groups will be similar. Naturally, the variables for which you would choose to block should be variables that are strongly associated with the response variable. If you block for them, then the treatment groups are the same with respect to these variables and you will have reduced the number of confounding variables you need to worry about.</p>
+<p>As an example of a randomized block design, consider the <code>saltmarsh</code> data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(saltmarsh)
+<span class="kw">View</span>(saltmarsh)
+<span class="kw">help</span>(saltmarsh)</code></pre></div>
+<p>The data frame contains the results of an experiment to study the effects of salinity levels in soil on the growth of plants. Researchers had access to four different fields of equal size at an agricultural research station. They divided each field into six plots of equal size and treated each plot with one of six concentrations of salt, ranging from 10 to 35 parts per million. They allowed plants to grow on the fields for a period of time, and then measured the total biomass of each plot.</p>
+<p>In this experiment the subjects are the plots—24 of them, all told, six in each field. The explanatory variable is the salinity level <strong>salt</strong>, and the response variable is <strong>biomass</strong>. Since the four fields probably contained different types of soil and were subject to differing environmental conditions, the field to which a plot belongs could have a considerable effect on plant growth: hence it was considered important to block for “field”, and so each field was subdivided into six equal plots. Within each field, the six levels of salinity were assigned randomly to the six plots in that field. In the data frame, the field-variable is recorded as <strong>block</strong>.</p>
+<p>You can check directly that blocking was indeed performed:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xtabs</span>(~salt+block,<span class="dt">data=</span>saltmarsh)</code></pre></div>
+<pre><code>##     block
+## salt Field1 Field2 Field3 Field4
+##   10      1      1      1      1
+##   15      1      1      1      1
+##   20      1      1      1      1
+##   25      1      1      1      1
+##   30      1      1      1      1
+##   35      1      1      1      1</code></pre>
+<p>Sure enough: the six treatments groups (the salt levels) are distributed identically with respect to <strong>block</strong>.</p>
+<p>In order to address the Research Question, we note that the explanatory and response variables are both numerical, so a scatterplot could be an appropriate graphical tool. Figure [Biomass and Salinity] shows the scatterplot, and indeed it does appear that there is a negative relationship between salinity-level and biomass.</p>
+<div class="figure"><span id="fig:saltmarshplot"></span>
+<img src="bookdown-demo_files/figure-html/saltmarshplot-1.png" alt="Biomass and Salinity.  The higher the concentration of salt, the lower the biomass in the plot." width="672" />
+<p class="caption">
+Figure 6.2: Biomass and Salinity. The higher the concentration of salt, the lower the biomass in the plot.
+</p>
+</div>
+</div>
+</div>
+<div id="matched-pair-designs" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Matched Pair Designs</h3>
+<p>A <em>matched pair</em> design is really an extreme form of blocking.</p>
+<p>Suppose that you want to form two treatment groups: Group A and Group B. You pair up your subjects so that the members of each pair are as similar as possible to one another. Each pair is a considered to be a “block.” Then for each pair, one member is assigned randomly to Group A, and the other is assigned to Group B.</p>
+<p>Here is a well-known example of a matched pair design. Suppose you want to see which type of shoe sole, type A or type B, wears out more quickly, and say that you have 20 people who agree to participate in your experiment. Each person has a pair of feet, and these forty feet constitute the “subjects” in the experiment. The two members of any given pair of feet are pretty similar with respect how much wear they will put on a shoe—after all, both members of the pair belong to the same person, and hence are engaged in pretty nearly the same set of daily activities—so you randomly assign 10 of the subjects to wear a type-A sole on their left foot and a type-B sole on their right foot. The other ten will do the reverse. In this way, the members of each pair of feet has been assigned randomly to one of the treatment groups! (Randomization is especially important here, because most people tend to favor one foot over the other.)</p>
+</div>
+<div id="repeated-measure-designs" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Repeated-Measure Designs</h3>
+<p>For the purposes of this course, an experiment is said to employ a <em>repeated-measure</em> design if the researchers make two or more similar measurements on each individual in the study, with a view to studying the differences between these measures.</p>
+<p>As an example, consider the data frame <code>labels</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(labels)
+<span class="kw">View</span>(labels)
+<span class="kw">help</span>(labels)</code></pre></div>
+<p>The <code>labels</code> data frame contains the results of an experiment conducted at Georgetown College by two students. The students wanted to investigate whether one’s belief about the price of a brand item would, in and of itself, affect one’s perception of its quality. Thirty fellow students served as subjects. One at a time, each subject was brought into a room where two jars of peanut butter were placed on a table. One jar had the well-known “Jiff” label, and the other had the Great Value label. (Great Value is the Wal-Mart brand, and is considered “cheaper.”) The subject tasted each peanut butter and rated it on a scale of 1 to 10. Unknown to the subjects, both jars contained the exactly the same peanut butter: the Great Value brand.</p>
+<p>In this experiment, the two similar measurements are the rating given to the jar of peanut butter that is labeled Jiff, and the rating given to the jar labeled Great Value. What makes this repeated-measures study an experiment is not that researchers assigned the values of some explanatory variable to subjects, but rather that they manipulated the situation so the subjects believed that the experiment was a taste test to compare two different types of peanut butter, when it fact it was designed to compare their reactions to different labels on the SAME peanut butter.</p>
+<p>(<strong>Note</strong>: Some people like to say that every experiment involves assigning the values of the X variable to subjects. Such persons would maintain that in this experiment, the X variable is the kind of label (Jiff or Great Value), and that the experimenters were able to assign BOTH values of X to each subject. When you think about it this way, the two treatment groups are quite similar indeed, because they are composed of exactly the same set of subjects!)</p>
+<p>When measures are repeated, there is always the possibility that the second measurement might depend in some way on the first. In this case, the rating given to the peanut butter in the second jar tasted might be affected by the fact that the subject has recently tasted some peanut butter (from the first jar). In order to wipe out the effects of any such dependence, it is good practice to randomly vary the order in which the measurements are made. In this experiment, for example, you might determine in advance for each subject—by coin toss perhaps—whether he or she is to taste from the Jiff-labeled jar first or from the Great Value-labeled jar first. (It is also good practice to record the order of tasting, though unfortunately the researchers did not do this.)</p>
+<p>We would like to see whether subjects tended to rate the jar labeled with the more expensive brand as more highly, on the whole, so we are interested in the difference of the repeated measures</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diff &lt;-<span class="st"> </span>labels$jiffrating -<span class="st"> </span>labels$greatvaluerating</code></pre></div>
+<p>We can look at the difference in a variety of ways. Numerically:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(~diff)</code></pre></div>
+<pre><code>##  min Q1 median Q3 max     mean       sd  n missing
+##   -5  1    2.5  4   8 2.366667 2.809876 30       0</code></pre>
+<p>We see that the subjects rated the Jiff-labeled peanut butter an average of 2.37 points higher than they rated the peanut butter from the Great-Value-labeled jar. A graphical approach is shown in Figure [Ratings Difference].</p>
+<div class="figure"><span id="fig:jiffgvhist"></span>
+<img src="bookdown-demo_files/figure-html/jiffgvhist-1.png" alt="Ratings Difference.  Most of the differences are positive, indicating that subjects usually rated the Jiff-labeled peanut butter more highly." width="672" />
+<p class="caption">
+Figure 6.3: Ratings Difference. Most of the differences are positive, indicating that subjects usually rated the Jiff-labeled peanut butter more highly.
+</p>
+</div>
+<p>A repeated-measures design appears to be the gold-standard among experiments, since your treatment groups are – in some sense – the same group. But is it always feasible to perform a repeated-measures experiment?</p>
+<p>Consider, for example, the following (thankfully hypothetical) Knife-or-Gun study:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(knifeorgunblock)
+<span class="kw">View</span>(knifeorgunblock)
+<span class="kw">help</span>(knifeorgunblock)<span class="er">)</span></code></pre></div>
+<p>The Research Question was:</p>
+<blockquote>
+<p><em>What will make you yell louder: being killed with a knife or being killed with a gun?</em></p>
+</blockquote>
+<p>Would it have been feasible to perform this experiment with a repeated measures design? Probably not: once a subject is slain by one method, be it Knife or Gun, he/she probably will make no noise at all whilst being subjected to the subsequent method of slaying! As a result, we would have only one useful measurement on each subject.</p>
+<p>On a more serious note:</p>
+<blockquote>
+<p>Consider the <code>attitudes</code> study, in which a completely randomized design was employed. Suppose we had tried to run the study as a repeated measures experiment, giving each subject all of the different kinds of form, perhaps in some random order determined by a coin toss: what would have happened? Would the repeated-measures design have been any improvement over a completely randomized design?</p>
+</blockquote>
+</div>
+</div>
+<div id="considerations-about-experiments" class="section level2">
+<h2><span class="header-section-number">6.4</span> Considerations About Experiments</h2>
+<div id="reproducibility" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Reproducibility</h3>
+<p>When you do any sort of scientific work, you want your results to be <em>reproducible</em> as much as possible, so that others may see exactly how you obtained these results, and thereby check them. Accordingly, when you are actually doing an experiment, even your randomization needs to be done in such a way that another person could reproduce it entirely. In R this is accomplished by the <code>set.seed()</code> function.</p>
+<p>Consider the following small block of code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">314159</span>)
+<span class="kw">RandomExp</span>(SmallExp,<span class="dt">sizes=</span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>),
+          <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;Program.A&quot;</span>,<span class="st">&quot;Program.B&quot;</span>),
+          <span class="dt">blocks=</span><span class="kw">c</span>(<span class="st">&quot;sex&quot;</span>,<span class="st">&quot;athlete&quot;</span>))</code></pre></div>
+<p>You will recognize the call to <code>RandomExp()</code> as the same call you performed earlier in the chapter, in order to randomize subjects into treatment groups after blocking for <strong>sex</strong> and <strong>athlete</strong>. This time, however, the call to <code>RandomExp()</code> is preceded by a call to <code>set.seed()</code>. This call “starts out” the randomization from a fixed point in R—called a <em>seed</em>—so that no matter how many times you run the above code chunk you will get the same results each time.</p>
+<p>The seed is the integer that is supplied to the <code>set.seed()</code> function. This time, the seed was 314159: the first few digits of the number <span class="math inline">\(\pi\)</span>. In general, you should choose a seed that stands for something familiar, so that others who examine your code can see that you did not just keep on trying out different seeds until you got the sort of results you wanted.</p>
+</div>
+<div id="subjects-and-the-population" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Subjects and the Population</h3>
+<p>So far we have highlighted a major advantage of experiments over observational studies, namely that in an experiment you have the opportunity to reduce or eliminate the effect of confounding factors by the appropriate use of such techniques as randomization, blocking, matched pairs, and so on.</p>
+<p>However, researchers wishing to perform experiments on human subjects face a problem that does not crop up—at least not in such an extreme form—in the course of conducting an observational study. The problem is one of <em>consent</em>.</p>
+<p>You can’t just <em>compel</em> people do one thing or another. You can’t grab people at random off the street and assign a value of an explanatory variable to them:</p>
+<blockquote>
+<p>“Hey, you, there! Yes, you! Come over here! You are hereby inducted into my experiment. Um, wait a minute while I flip this coin. OK, it’s settled: you will ____ [insert <code>smoke</code> if toss was heads, <code>not smoke</code> if toss was Tails] for the next twenty years! Got it?”</p>
+</blockquote>
+<p>Since people must consent to be in an experiment, the set of people who are willing to be in the experiment may be quite different from the population at large. It is well known, for instance, that people who volunteer for medical experiments tend to be more educated and to have higher incomes than those who refuse to participate in such experiments. Anyone who would consent to be part of the Knife or Gun experiment (see the previous section) would have to be stark raving mad—surely that makes them different from the general population.</p>
+<p>In general:</p>
+<blockquote>
+<p>If the subjects differ from the general population in ways that are associated with how they respond to the different treatments available in the experiment, then the results of the experiment can at most be said to apply to the subjects themselves.</p>
+</blockquote>
+<p>In such a case we must exercise a great deal of caution when applying our results to some larger population.</p>
+</div>
+<div id="statistical-significance" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> Statistical Significance</h3>
+<p>Even when the subjects are quite different from the population, and we are reduced to wondering whether the the treatments made a difference <em>for those subjects only</em>, statistical significance is still an issue. Consider once again the Knife or Gun experiment.</p>
+<p>Who did yell louder, in the experiment: the subjects who were killed by knife, or the subjects who were killed by gun? Let’s see:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(volume~means,<span class="dt">data=</span>knifeorgunblock)</code></pre></div>
+<pre><code>##   means  min     Q1 median     Q3  max  mean        sd  n missing
+## 1   gun 40.3 45.925  53.25 59.925 64.5 53.00  8.761152 10       0
+## 2 knife 61.2 65.200  72.00 77.125 90.9 73.13 10.071528 10       0</code></pre>
+<p>A nice graphical tool for small data sets is a strip plot, which we combine here with a violin plot (see Figure [Knife or Gun?]):</p>
+<div class="figure"><span id="fig:knifegunstripplot"></span>
+<img src="bookdown-demo_files/figure-html/knifegunstripplot-1.png" alt="Knife or Gun?  Apparently those slain by Knife yell louder!" width="672" />
+<p class="caption">
+Figure 6.4: Knife or Gun? Apparently those slain by Knife yell louder!
+</p>
+</div>
+<p>Hmm, it appears the subjects who were slain by knife yelled louder: the volume-points, and their violin, is somewhat higher than the points and violin for those slain by a gun.</p>
+<p>But are the results statistically significant? By this question we do NOT mean:</p>
+<blockquote>
+<p>“Could the difference reasonably be ascribed to chance variation in the process of sampling subjects from the population?”</p>
+</blockquote>
+<p>These subjects aren’t a random sample from the population at all. Maybe they were the ONLY 20 people in the world who would agree to be part of the experiment, so there was no chance at all involved in their selection.</p>
+<p>Instead, the question of statistical significance addresses the randomness that <em>was</em> at play in the experiment: namely, the random assignment of subjects to Knife or Gun group.</p>
+<p>So we are REALLY asking:</p>
+<blockquote>
+<p>“Is the observed difference in dying screams due to the means of slaying, or is is reasonable to believe that in the random process of assigning subjects to groups, a lot of naturally loud yellers just happened to get into the Knife group?”</p>
+</blockquote>
+<p>In any experiment where randomization was employed, the question of statistical significance is meaningful, and it can always be thought of as asking:</p>
+<blockquote>
+<p>“Do the results indicate that X causes Y, or is reasonable to ascribe the observed difference between the treatment groups to chance variation in the assignment of the subjects to their groups?”</p>
+</blockquote>
+<p>See the GeekNotes for some preliminary assessment of statistical significance in some of the experiments discussed in this chapter.</p>
+</div>
+</div>
+<div id="terminology-for-experiments" class="section level2">
+<h2><span class="header-section-number">6.5</span> Terminology for Experiments</h2>
+<p>Here follows a list of technical terms, associated with experiments and observational studies, that we would like you to know. If a term has already been introduced, then it is simply listed below with its definition. If it has not been discussed yet, then we offer a brief explanation and/or examples.</p>
+<dl>
+<dt>Observational Study</dt>
+<dd><p>In an <em>observational study</em> researchers simply observe or question the subjects. In particular, they measure the values of the explanatory variable <span class="math inline">\(X\)</span> and measure the values of the response variable <span class="math inline">\(Y\)</span>, for each subject.</p>
+</dd>
+<dt>Experiment</dt>
+<dd><p>In an <em>experiment</em> researchers manipulate something and observe the effects of the manipulation on a response variable.</p>
+</dd>
+<dd><p>Most commonly, the manipulation consists in assigning the values of an explanatory variable of <span class="math inline">\(X\)</span> to the subjects.</p>
+</dd>
+<dt>Confounding Variable</dt>
+<dd><p>In a study with an explanatory variable <span class="math inline">\(X\)</span> and a response variable <span class="math inline">\(Y\)</span>, the variable <span class="math inline">\(Z\)</span> is called a <em>confounding</em> variable if it meets the following three conditions:</p>
+</dd>
+</dl>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>It is a third variable (different from X and different from Y);</li>
+<li>It is associated with X, but not caused by X.</li>
+<li>It is a causal factor in Y (is at least part of the cause of Y)</li>
+</ol>
+</blockquote>
+<dl>
+<dt>Experimental Units</dt>
+<dd><p>The <em>experimental units</em> (also called the <em>individuals</em>) are the subjects in an experiment.</p>
+</dd>
+</dl>
+<p>Subjects do not have to be human beings, or animals. Recall, for example, the matched-pair shoe experiment in which the subjects were the 40 feet of the twenty human participants!</p>
+<dl>
+<dt>Treatment Groups</dt>
+<dd><p>The <em>treatment groups</em> of an experiment are the groups into which the subjects are divided.</p>
+</dd>
+<dt>Control Group</dt>
+<dd><p>If one group in an experiment is not treated in any special way, or is present for comparative purposes, then this group is often called the <em>control group</em>.</p>
+</dd>
+<dt>Single-Blind Experiment</dt>
+<dd><p>If the subjects in an experiment do not know which treatment group they are in, then the experiment is said to be <em>sinble-blinded</em>.</p>
+</dd>
+<dd><p>If the people who measure the response variable do not know which groups the subjects are in, then the experiment is also-said to be <em>single-blinded</em>.</p>
+</dd>
+<dt>Placebo</dt>
+<dd><p>A <em>placebo</em> is an inert substance given to subjects in the control group. It resembles the substances given to subjects in the other treatment groups, and thus allows the experiment to be single-blinded.</p>
+</dd>
+<dt>Double-Blinded Experiment</dt>
+<dd><p>If neither the subjects nor the people responsible for measuring the response variable know the group assignments of the subjects, then the experiment is said to be <em>double-blinded</em>.</p>
+</dd>
+</dl>
+<p>Blinding is useful as a means of reducing bias. If subjects know their treatment group, then this knowledge can affect their behavior in ways that have a bearing on the response variable. For example, in a study on the effectiveness of a vaccine against a particular diseases, subjects who know they are receiving the vaccine may behave more recklessly than subjects who know that they are in a control group (not receiving any vaccine). These differences in behavior could bias the study against the vaccine.</p>
+<p>The people who are responsible for measuring the response variable could “skew” the measurements in one direction or another, if they have some stake in the outcome of the experiment. Keeping these researchers in the dark as to the group assignment of subjects with whom they work can reduce bias that arises from a desire to have the experiment “succeed”.</p>
+<dl>
+<dt>Replication</dt>
+<dd><p>An experiment is said to involve <em>replication</em> if each the treatment group contains more than one subject. (The more subjects there are in each group, the more replication the experiment has.)</p>
+</dd>
+<dt>Double-Dummy Design</dt>
+<dd><p>A <em>double-dummy</em> design is a procedure to blind an experiment, even when the treatments don’t resemble each other at all.</p>
+</dd>
+</dl>
+<p>A classic example of a double-dummy design is an experiment to compare two methods of delivering nicotine to the bodies of people who desire two quit smoking. One method involves wearing a patch that delivers nicotine through the skin, and the other involves chewing gum that contains nicotine. In a double-dummy experiment:</p>
+<ul>
+<li>Members of the Patch Group wear a real nicotine patch, and chew a gum that looks and tastes like real nicotine gum but which actually contains no nicotine;</li>
+<li>Members of the Gum Group chew real nicotine gum, and wear a patch that looks the same as a nicotine patch but which delivers no nicotine.</li>
+</ul>
+<p>In neither group would subjects be able to tell which group – Patch or Gum – they are in.</p>
+</div>
+<div id="thoughts-on-r-5" class="section level2">
+<h2><span class="header-section-number">6.6</span> Thoughts on R</h2>
+<div id="new-r-functions-2" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> New R-functions</h3>
+<p>Just one new R-function to learn: <code>RandomExp()</code>, for completely randomized designs and for blocking. Here are some examples of its use. Suppose you have a data frame called <code>MyData</code>, that contains the list of subjects, and possibly some other variables of interest for which you might like to block.</p>
+<p>For a completely randomized design into two groups with groups sizes <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span>, with group names “Group.A” and “Group.B”, use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RandomExp</span>(MyData,<span class="dt">sizes=</span><span class="kw">c</span>(n1,n2),
+          <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;Group.A&quot;</span>,<span class="st">&quot;Group.B&quot;</span>)</code></pre></div>
+<p>For three groups (“Group.1”, “Group.2” and “Group.3”) with sizes <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span> and <span class="math inline">\(n_3\)</span>, blocking with respect to the variable <strong>Var</strong>, use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RandomExp</span>(MyData,<span class="dt">sizes=</span><span class="kw">c</span>(n1,n2,n3),
+    <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;Group.1&quot;</span>,<span class="st">&quot;Group.2&quot;</span>,<span class="st">&quot;Group.3&quot;</span>),
+    <span class="dt">block=</span><span class="st">&quot;Var&quot;</span>)</code></pre></div>
+<p>To block for two variables <strong>Var1</strong> and <strong>Var2</strong> at once, use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RandomExp</span>(MyData,<span class="dt">sizes=</span><span class="kw">c</span>(n1,n2,n3),
+    <span class="dt">groups=</span><span class="kw">c</span>(<span class="st">&quot;Group.1&quot;</span>,<span class="st">&quot;Group.2&quot;</span>,<span class="st">&quot;Group.3&quot;</span>),
+    <span class="dt">block=</span><span class="kw">c</span>(<span class="st">&quot;Var1&quot;</span>,<span class="st">&quot;Var2&quot;</span>))</code></pre></div>
+<p>Make sure that the group sizes sum to the number of rows in the data frame, and that the blocking variables are factors.</p>
+</div>
+<div id="book-chapter-notation" class="section level3">
+<h3><span class="header-section-number">6.6.2</span> “Book-Chapter” Notation</h3>
+<p>Sometimes you have to manipulate variables in a data frame directly, outside of the context of a function that takes formula-data input. In such a case, you can use what we call “book-and-chapter” notation to help R locate the variables of interest.</p>
+<p>If variable <strong>Var</strong> is in data frame <code>MyData</code>, then R can locate it if you use a <code>$</code>-sign and write it as:</p>
+<blockquote>
+<p><code>Mydata$Var</code></p>
+</blockquote>
+<p>For example, to compute the difference of two variables in <code>MyData</code>, you could use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diff &lt;-<span class="st"> </span>MyData$Var1 -<span class="st"> </span>MyData$Var2</code></pre></div>
+<p>The data frame <code>MyData</code> is like a book, and the <code>$</code>-sign instructs R to look inside the “book” <code>MyData</code> at “chapters” <strong>Var1</strong> and <strong>Var2</strong>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sampling-and-surveys.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-probability.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="book_assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-Design.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

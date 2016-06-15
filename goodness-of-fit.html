@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Elementary Statistics with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision.">
+  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Elementary Statistics with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  <meta name="github-repo" content="homerhanumat/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Elementary Statistics with R" />
+  
+  <meta name="twitter:description" content="These are course notes for MAT 111 at Georgetown College. They are greatly in need of revision." />
+  
+
+<meta name="author" content="Rebekah Robinson and Homer White">
+
+<meta name="date" content="2016-06-14">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="tests-of-significance-1.html">
+<link rel="next" href="appendix-geek-notes.html">
+
+<script src="book_assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="book_assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Elementary Statistics With R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-are-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> What are R and RStudio?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#panels-and-tabs"><i class="fa fa-check"></i><b>1.1.1</b> Panels and Tabs</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#differences-between-rscript-and-rmarkdown-files"><i class="fa fa-check"></i><b>1.1.2</b> Differences Between RScript and RMarkdown Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#basic-r"><i class="fa fa-check"></i><b>1.1.3</b> Basic R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#lets-play-cards"><i class="fa fa-check"></i><b>1.2</b> Let’s play cards!</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#the-game"><i class="fa fa-check"></i><b>1.2.1</b> The Game</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#the-results"><i class="fa fa-check"></i><b>1.2.2</b> The Results</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#the-conclusion"><i class="fa fa-check"></i><b>1.2.3</b> The Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>1.3</b> Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#thoughts-on-r"><i class="fa fa-check"></i><b>1.4</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html"><i class="fa fa-check"></i><b>2</b> Describing Patterns in Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#data-basics"><i class="fa fa-check"></i><b>2.1</b> Data Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#getting-data-in-r"><i class="fa fa-check"></i><b>2.1.1</b> Getting Data in R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#variable-types"><i class="fa fa-check"></i><b>2.1.2</b> Variable Types</a></li>
+<li class="chapter" data-level="2.1.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.1.3</b> Descriptive Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#outline"><i class="fa fa-check"></i><b>2.2</b> Outline</a></li>
+<li class="chapter" data-level="2.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-factor-variable"><i class="fa fa-check"></i><b>2.3</b> One Factor Variable</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#tables"><i class="fa fa-check"></i><b>2.3.1</b> Tables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts."><i class="fa fa-check"></i><b>2.3.2</b> Barcharts.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-factor-variables"><i class="fa fa-check"></i><b>2.4</b> Two Factor Variables</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#two-way-tables"><i class="fa fa-check"></i><b>2.4.1</b> Two-Way Tables</a></li>
+<li class="chapter" data-level="2.4.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#barcharts-again"><i class="fa fa-check"></i><b>2.4.2</b> Barcharts Again</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#one-numerical-variable"><i class="fa fa-check"></i><b>2.5</b> One Numerical Variable</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-measures"><i class="fa fa-check"></i><b>2.5.1</b> Numerical Measures</a></li>
+<li class="chapter" data-level="2.5.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools"><i class="fa fa-check"></i><b>2.5.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#factor-and-numerical-variable"><i class="fa fa-check"></i><b>2.6</b> Factor and Numerical Variable</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#numerical-tools"><i class="fa fa-check"></i><b>2.6.1</b> Numerical Tools</a></li>
+<li class="chapter" data-level="2.6.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#graphical-tools-1"><i class="fa fa-check"></i><b>2.6.2</b> Graphical Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#choice-of-measures"><i class="fa fa-check"></i><b>2.7</b> Choice of Measures</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-skewness"><i class="fa fa-check"></i><b>2.7.1</b> Mean, Median and Skewness</a></li>
+<li class="chapter" data-level="2.7.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#mean-median-and-outliers"><i class="fa fa-check"></i><b>2.7.2</b> Mean, Median and Outliers</a></li>
+<li class="chapter" data-level="2.7.3" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#meansd-vs.medianiqr"><i class="fa fa-check"></i><b>2.7.3</b> Mean/SD vs. Median/IQR</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#bell-shaped-distributions"><i class="fa fa-check"></i><b>2.8</b> Bell-Shaped Distributions</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#the-68-95-rule"><i class="fa fa-check"></i><b>2.8.1</b> The 68-95 Rule</a></li>
+<li class="chapter" data-level="2.8.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#z-scores"><i class="fa fa-check"></i><b>2.8.2</b> <span class="math inline">\(z\)</span>-scores</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#reading-in-statistics"><i class="fa fa-check"></i><b>2.9</b> Reading in Statistics</a></li>
+<li class="chapter" data-level="2.10" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#thoughts-on-r-1"><i class="fa fa-check"></i><b>2.10</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#new-r-functions"><i class="fa fa-check"></i><b>2.10.1</b> New R Functions</a></li>
+<li class="chapter" data-level="2.10.2" data-path="describing-patterns-in-data.html"><a href="describing-patterns-in-data.html#those-pesky-formulas"><i class="fa fa-check"></i><b>2.10.2</b> Those Pesky Formulas!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html"><i class="fa fa-check"></i><b>3</b> Relationships Between Two Factor Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#the-descriptive-aspect"><i class="fa fa-check"></i><b>3.2</b> The Descriptive Aspect</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#terminology-for-two-way-tables"><i class="fa fa-check"></i><b>3.2.1</b> Terminology for Two-Way Tables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#detecting-and-describing-relationships"><i class="fa fa-check"></i><b>3.2.2</b> Detecting and Describing Relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#the-idea-of-inference"><i class="fa fa-check"></i><b>3.3</b> The Idea of Inference</a></li>
+<li class="chapter" data-level="3.4" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#tests-of-significance"><i class="fa fa-check"></i><b>3.4</b> Tests of Significance</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#five-step-procedure"><i class="fa fa-check"></i><b>3.4.1</b> Five Step Procedure</a></li>
+<li class="chapter" data-level="3.4.2" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#more-on-the-chi-square-statistic"><i class="fa fa-check"></i><b>3.4.2</b> More on the Chi-Square Statistic</a></li>
+<li class="chapter" data-level="3.4.3" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#chisqtestgc"><i class="fa fa-check"></i><b>3.4.3</b> <code>chisqtestGC()</code></a></li>
+<li class="chapter" data-level="3.4.4" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#working-with-summary-data"><i class="fa fa-check"></i><b>3.4.4</b> Working With Summary Data</a></li>
+<li class="chapter" data-level="3.4.5" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#simulating-p-values"><i class="fa fa-check"></i><b>3.4.5</b> Simulating P-Values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#simpsons-paradox"><i class="fa fa-check"></i><b>3.5</b> Simpson’s Paradox</a></li>
+<li class="chapter" data-level="3.6" data-path="relationships-between-two-factor-variables.html"><a href="relationships-between-two-factor-variables.html#thoughts-on-r-2"><i class="fa fa-check"></i><b>3.6</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html"><i class="fa fa-check"></i><b>4</b> Relationships Between Two Numerical Variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#outline-1"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
+<li class="chapter" data-level="4.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#statistical-relationships"><i class="fa fa-check"></i><b>4.2</b> Statistical Relationships</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#scatterplots"><i class="fa fa-check"></i><b>4.2.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="4.2.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#correlation"><i class="fa fa-check"></i><b>4.2.2</b> Correlation</a></li>
+<li class="chapter" data-level="4.2.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#regression-equation"><i class="fa fa-check"></i><b>4.2.3</b> Regression Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#cautions"><i class="fa fa-check"></i><b>4.3</b> Cautions</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#extrapolation"><i class="fa fa-check"></i><b>4.3.1</b> Extrapolation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#influential-observations"><i class="fa fa-check"></i><b>4.3.2</b> Influential Observations</a></li>
+<li class="chapter" data-level="4.3.3" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#association-versus-causation"><i class="fa fa-check"></i><b>4.3.3</b> Association versus Causation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#simpsons-paradox-1"><i class="fa fa-check"></i><b>4.3.4</b> Simpson’s Paradox</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#curvilinear-fits"><i class="fa fa-check"></i><b>4.4</b> Curvilinear Fits</a></li>
+<li class="chapter" data-level="4.5" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#thoughts-on-r-3"><i class="fa fa-check"></i><b>4.5</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="relationships-between-two-numerical-variables.html"><a href="relationships-between-two-numerical-variables.html#new-r-functions-1"><i class="fa fa-check"></i><b>4.5.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html"><i class="fa fa-check"></i><b>5</b> Sampling and Surveys</a><ul>
+<li class="chapter" data-level="5.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#population-versus-sample"><i class="fa fa-check"></i><b>5.2</b> Population versus Sample</a></li>
+<li class="chapter" data-level="5.3" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#types-of-samples"><i class="fa fa-check"></i><b>5.3</b> Types of Samples</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#random-sampling"><i class="fa fa-check"></i><b>5.3.1</b> Random Sampling</a></li>
+<li class="chapter" data-level="5.3.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#comparison-of-sampling-methods"><i class="fa fa-check"></i><b>5.3.2</b> Comparison of Sampling Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#bias-in-surveys"><i class="fa fa-check"></i><b>5.4</b> Bias in Surveys</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#selection-bias"><i class="fa fa-check"></i><b>5.4.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#nonresopnse-bias"><i class="fa fa-check"></i><b>5.4.2</b> Nonresopnse Bias</a></li>
+<li class="chapter" data-level="5.4.3" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#response-bias"><i class="fa fa-check"></i><b>5.4.3</b> Response Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="sampling-and-surveys.html"><a href="sampling-and-surveys.html#thoughts-on-r-4"><i class="fa fa-check"></i><b>5.5</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="design-of-studies.html"><a href="design-of-studies.html"><i class="fa fa-check"></i><b>6</b> Design of Studies</a><ul>
+<li class="chapter" data-level="6.1" data-path="design-of-studies.html"><a href="design-of-studies.html#observational-studies-and-experiments"><i class="fa fa-check"></i><b>6.1</b> Observational Studies and Experiments</a></li>
+<li class="chapter" data-level="6.2" data-path="design-of-studies.html"><a href="design-of-studies.html#why-perform-experiments"><i class="fa fa-check"></i><b>6.2</b> Why Perform Experiments?</a></li>
+<li class="chapter" data-level="6.3" data-path="design-of-studies.html"><a href="design-of-studies.html#experimental-designs"><i class="fa fa-check"></i><b>6.3</b> Experimental Designs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="design-of-studies.html"><a href="design-of-studies.html#completely-randomized-designs"><i class="fa fa-check"></i><b>6.3.1</b> Completely Randomized Designs</a></li>
+<li class="chapter" data-level="6.3.2" data-path="design-of-studies.html"><a href="design-of-studies.html#randomized-block-designs"><i class="fa fa-check"></i><b>6.3.2</b> Randomized Block Designs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="design-of-studies.html"><a href="design-of-studies.html#matched-pair-designs"><i class="fa fa-check"></i><b>6.3.3</b> Matched Pair Designs</a></li>
+<li class="chapter" data-level="6.3.4" data-path="design-of-studies.html"><a href="design-of-studies.html#repeated-measure-designs"><i class="fa fa-check"></i><b>6.3.4</b> Repeated-Measure Designs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="design-of-studies.html"><a href="design-of-studies.html#considerations-about-experiments"><i class="fa fa-check"></i><b>6.4</b> Considerations About Experiments</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="design-of-studies.html"><a href="design-of-studies.html#reproducibility"><i class="fa fa-check"></i><b>6.4.1</b> Reproducibility</a></li>
+<li class="chapter" data-level="6.4.2" data-path="design-of-studies.html"><a href="design-of-studies.html#subjects-and-the-population"><i class="fa fa-check"></i><b>6.4.2</b> Subjects and the Population</a></li>
+<li class="chapter" data-level="6.4.3" data-path="design-of-studies.html"><a href="design-of-studies.html#statistical-significance"><i class="fa fa-check"></i><b>6.4.3</b> Statistical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="design-of-studies.html"><a href="design-of-studies.html#terminology-for-experiments"><i class="fa fa-check"></i><b>6.5</b> Terminology for Experiments</a></li>
+<li class="chapter" data-level="6.6" data-path="design-of-studies.html"><a href="design-of-studies.html#thoughts-on-r-5"><i class="fa fa-check"></i><b>6.6</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="design-of-studies.html"><a href="design-of-studies.html#new-r-functions-2"><i class="fa fa-check"></i><b>6.6.1</b> New R-functions</a></li>
+<li class="chapter" data-level="6.6.2" data-path="design-of-studies.html"><a href="design-of-studies.html#book-chapter-notation"><i class="fa fa-check"></i><b>6.6.2</b> “Book-Chapter” Notation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="basic-probability.html"><a href="basic-probability.html"><i class="fa fa-check"></i><b>7</b> Basic Probability</a><ul>
+<li class="chapter" data-level="7.1" data-path="basic-probability.html"><a href="basic-probability.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="basic-probability.html"><a href="basic-probability.html#probability"><i class="fa fa-check"></i><b>7.2</b> Probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="basic-probability.html"><a href="basic-probability.html#subjective-probability"><i class="fa fa-check"></i><b>7.2.1</b> Subjective Probability</a></li>
+<li class="chapter" data-level="7.2.2" data-path="basic-probability.html"><a href="basic-probability.html#theoretical-probability"><i class="fa fa-check"></i><b>7.2.2</b> Theoretical Probability</a></li>
+<li class="chapter" data-level="7.2.3" data-path="basic-probability.html"><a href="basic-probability.html#long-run-frequency-probability"><i class="fa fa-check"></i><b>7.2.3</b> Long-run Frequency Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="basic-probability.html"><a href="basic-probability.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>7.3</b> What is a Random Variable?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="basic-probability.html"><a href="basic-probability.html#notation"><i class="fa fa-check"></i><b>7.3.1</b> Notation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="basic-probability.html"><a href="basic-probability.html#discrete-random-variables"><i class="fa fa-check"></i><b>7.4</b> Discrete Random Variables</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="basic-probability.html"><a href="basic-probability.html#probability-distribution-functions-for-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.1</b> Probability Distribution Functions for Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.2" data-path="basic-probability.html"><a href="basic-probability.html#expectation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.2</b> Expectation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.3" data-path="basic-probability.html"><a href="basic-probability.html#standard-deviation-of-discrete-random-variables"><i class="fa fa-check"></i><b>7.4.3</b> Standard Deviation of Discrete Random Variables</a></li>
+<li class="chapter" data-level="7.4.4" data-path="basic-probability.html"><a href="basic-probability.html#using-ev-and-sd-to-evaluate-a-game"><i class="fa fa-check"></i><b>7.4.4</b> Using EV and SD to Evaluate a Game</a></li>
+<li class="chapter" data-level="7.4.5" data-path="basic-probability.html"><a href="basic-probability.html#independence"><i class="fa fa-check"></i><b>7.4.5</b> Independence</a></li>
+<li class="chapter" data-level="7.4.6" data-path="basic-probability.html"><a href="basic-probability.html#a-special-discrete-random-variable-binomial-random-variable"><i class="fa fa-check"></i><b>7.4.6</b> A Special Discrete Random Variable: Binomial Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="basic-probability.html"><a href="basic-probability.html#continuous-random-variables"><i class="fa fa-check"></i><b>7.5</b> Continuous Random Variables</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="basic-probability.html"><a href="basic-probability.html#probability-density-functions-for-continuous-random-variables"><i class="fa fa-check"></i><b>7.5.1</b> Probability Density Functions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="7.5.2" data-path="basic-probability.html"><a href="basic-probability.html#a-special-continuous-random-variable-normal-random-variable"><i class="fa fa-check"></i><b>7.5.2</b> A Special Continuous Random Variable: Normal Random Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="basic-probability.html"><a href="basic-probability.html#approximating-binomial-probabilities"><i class="fa fa-check"></i><b>7.6</b> Approximating Binomial Probabilities</a></li>
+<li class="chapter" data-level="7.7" data-path="basic-probability.html"><a href="basic-probability.html#thoughts-on-r-6"><i class="fa fa-check"></i><b>7.7</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="basic-probability.html"><a href="basic-probability.html#new-r-functions-3"><i class="fa fa-check"></i><b>7.7.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html"><i class="fa fa-check"></i><b>8</b> Probability in Sampling</a><ul>
+<li class="chapter" data-level="8.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-population-and-the-sample"><i class="fa fa-check"></i><b>8.1</b> The Population and the Sample</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#parameters"><i class="fa fa-check"></i><b>8.1.1</b> Parameters</a></li>
+<li class="chapter" data-level="8.1.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#statistics-1"><i class="fa fa-check"></i><b>8.1.2</b> Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#from-questions-to-parameters"><i class="fa fa-check"></i><b>8.2</b> From Questions to Parameters</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#one-mean"><i class="fa fa-check"></i><b>8.2.1</b> One Mean</a></li>
+<li class="chapter" data-level="8.2.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#one-proportion"><i class="fa fa-check"></i><b>8.2.2</b> One Proportion</a></li>
+<li class="chapter" data-level="8.2.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#difference-of-two-means"><i class="fa fa-check"></i><b>8.2.3</b> Difference of Two Means</a></li>
+<li class="chapter" data-level="8.2.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#difference-of-two-proportions"><i class="fa fa-check"></i><b>8.2.4</b> Difference of Two Proportions</a></li>
+<li class="chapter" data-level="8.2.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#mean-of-differences"><i class="fa fa-check"></i><b>8.2.5</b> Mean of Differences</a></li>
+<li class="chapter" data-level="8.2.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-basic-five-parameters"><i class="fa fa-check"></i><b>8.2.6</b> The “Basic Five” Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#parameters-in-experiments"><i class="fa fa-check"></i><b>8.3</b> Parameters in Experiments</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#anchoring-in-m111survey"><i class="fa fa-check"></i><b>8.3.1</b> Anchoring in m111survey</a></li>
+<li class="chapter" data-level="8.3.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#knife-or-gun-again"><i class="fa fa-check"></i><b>8.3.2</b> Knife or Gun (Again)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#more-anchoring"><i class="fa fa-check"></i><b>8.3.3</b> More Anchoring</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#ev-and-sd-of-estimators"><i class="fa fa-check"></i><b>8.4</b> EV and SD of Estimators</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-one-mean"><i class="fa fa-check"></i><b>8.4.1</b> Estimating One Mean</a></li>
+<li class="chapter" data-level="8.4.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-difference-of-two-means"><i class="fa fa-check"></i><b>8.4.2</b> Estimating the Difference of Two Means</a></li>
+<li class="chapter" data-level="8.4.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-one-proportion"><i class="fa fa-check"></i><b>8.4.3</b> Estimating One Proportion</a></li>
+<li class="chapter" data-level="8.4.4" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-difference-of-two-proportions"><i class="fa fa-check"></i><b>8.4.4</b> Estimating the Difference of Two Proportions</a></li>
+<li class="chapter" data-level="8.4.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimating-the-mean-of-differences"><i class="fa fa-check"></i><b>8.4.5</b> Estimating the Mean of Differences</a></li>
+<li class="chapter" data-level="8.4.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#properties-of-ev-and-sd-of-estimators"><i class="fa fa-check"></i><b>8.4.6</b> Properties of EV and SD of Estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#estimators-shape-of-the-distribution"><i class="fa fa-check"></i><b>8.5</b> Estimators: Shape of the Distribution</a></li>
+<li class="chapter" data-level="8.6" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#probability-for-estimators"><i class="fa fa-check"></i><b>8.6</b> Probability for Estimators</a></li>
+<li class="chapter" data-level="8.7" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#inference-with-estimators"><i class="fa fa-check"></i><b>8.7</b> Inference With Estimators</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#we-are-not-deities"><i class="fa fa-check"></i><b>8.7.1</b> We Are Not Deities</a></li>
+<li class="chapter" data-level="8.7.2" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#practice-with-estimator-and-se"><i class="fa fa-check"></i><b>8.7.2</b> Practice With Estimator and SE</a></li>
+<li class="chapter" data-level="8.7.3" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#the-68-95-rule-for-estimation"><i class="fa fa-check"></i><b>8.7.3</b> The 68-95 Rule for Estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#summary-of-formulas"><i class="fa fa-check"></i><b>8.8</b> Summary of Formulas</a></li>
+<li class="chapter" data-level="8.9" data-path="probability-in-sampling.html"><a href="probability-in-sampling.html#thoughts-on-r-7"><i class="fa fa-check"></i><b>8.9</b> Thoughts on R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>9</b> Confidence Intervals</a><ul>
+<li class="chapter" data-level="9.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#introduction-4"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#chapter-outline"><i class="fa fa-check"></i><b>9.2</b> Chapter Outline</a></li>
+<li class="chapter" data-level="9.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#one-population-mean-mu"><i class="fa fa-check"></i><b>9.3</b> One Population Mean <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps"><i class="fa fa-check"></i><b>9.3.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.3.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood"><i class="fa fa-check"></i><b>9.3.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.3.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-and-further-ideas"><i class="fa fa-check"></i><b>9.3.3</b> Additional Example, and Further Ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#difference-of-two-population-means-mu_1-mu_2"><i class="fa fa-check"></i><b>9.4</b> Difference of Two Population Means, <span class="math inline">\(\mu_1-\mu_2\)</span></a><ul>
+<li class="chapter" data-level="9.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-1"><i class="fa fa-check"></i><b>9.4.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-1"><i class="fa fa-check"></i><b>9.4.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.4.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example"><i class="fa fa-check"></i><b>9.4.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#mean-of-differences-mu_d"><i class="fa fa-check"></i><b>9.5</b> Mean of Differences, <span class="math inline">\(\mu_d\)</span></a><ul>
+<li class="chapter" data-level="9.5.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-2"><i class="fa fa-check"></i><b>9.5.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.5.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-2"><i class="fa fa-check"></i><b>9.5.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.5.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-1"><i class="fa fa-check"></i><b>9.5.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="confidence-intervals.html"><a href="confidence-intervals.html#one-population-proportion-p"><i class="fa fa-check"></i><b>9.6</b> One Population Proportion, <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="9.6.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-3"><i class="fa fa-check"></i><b>9.6.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.6.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-3"><i class="fa fa-check"></i><b>9.6.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.6.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-2"><i class="fa fa-check"></i><b>9.6.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="confidence-intervals.html"><a href="confidence-intervals.html#difference-of-two-population-proportions-p_1-p_2"><i class="fa fa-check"></i><b>9.7</b> Difference of Two Population Proportions, <span class="math inline">\(p_1-p_2\)</span></a><ul>
+<li class="chapter" data-level="9.7.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#the-four-steps-4"><i class="fa fa-check"></i><b>9.7.1</b> The Four Steps</a></li>
+<li class="chapter" data-level="9.7.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#under-the-hood-4"><i class="fa fa-check"></i><b>9.7.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="9.7.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#additional-example-3"><i class="fa fa-check"></i><b>9.7.3</b> Additional Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="confidence-intervals.html"><a href="confidence-intervals.html#thoughts-on-r-8"><i class="fa fa-check"></i><b>9.8</b> Thoughts on R</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#new-r-functions-4"><i class="fa fa-check"></i><b>9.8.1</b> New R Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html"><i class="fa fa-check"></i><b>10</b> Tests of Significance</a><ul>
+<li class="chapter" data-level="10.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introduction-5"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#one-population-mean-mu-1"><i class="fa fa-check"></i><b>10.2</b> One Population Mean <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introductory-research-question"><i class="fa fa-check"></i><b>10.2.1</b> Introductory Research Question</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps"><i class="fa fa-check"></i><b>10.2.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-and-further-ideas"><i class="fa fa-check"></i><b>10.2.3</b> Under the Hood, and Further Ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#difference-of-two-population-means-mu_1-mu_2-1"><i class="fa fa-check"></i><b>10.3</b> Difference of Two Population Means, <span class="math inline">\(\mu_1-\mu_2\)</span></a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-difference-of-two-means"><i class="fa fa-check"></i><b>10.3.1</b> The Difference of Two Means</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-1"><i class="fa fa-check"></i><b>10.3.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-5"><i class="fa fa-check"></i><b>10.3.3</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples"><i class="fa fa-check"></i><b>10.3.4</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#mean-of-differences-mu_d-1"><i class="fa fa-check"></i><b>10.4</b> Mean of Differences <span class="math inline">\(\mu_d\)</span></a><ul>
+<li class="chapter" data-level="10.4.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#introductory-research-question-1"><i class="fa fa-check"></i><b>10.4.1</b> Introductory Research Question</a></li>
+<li class="chapter" data-level="10.4.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-2"><i class="fa fa-check"></i><b>10.4.2</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.4.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-6"><i class="fa fa-check"></i><b>10.4.3</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.4.4" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples-1"><i class="fa fa-check"></i><b>10.4.4</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#one-population-proportion-p-1"><i class="fa fa-check"></i><b>10.5</b> One Population Proportion <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-3"><i class="fa fa-check"></i><b>10.5.1</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.5.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#under-the-hood-7"><i class="fa fa-check"></i><b>10.5.2</b> Under the Hood</a></li>
+<li class="chapter" data-level="10.5.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#additional-examples-2"><i class="fa fa-check"></i><b>10.5.3</b> Additional Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#difference-of-two-proportions-p_1-p_2"><i class="fa fa-check"></i><b>10.6</b> Difference of Two Proportions <span class="math inline">\(p_1-p_2\)</span></a><ul>
+<li class="chapter" data-level="10.6.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-five-steps-4"><i class="fa fa-check"></i><b>10.6.1</b> The Five Steps</a></li>
+<li class="chapter" data-level="10.6.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#working-with-summary-data-1"><i class="fa fa-check"></i><b>10.6.2</b> Working With Summary Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#further-considerations-about-significance-tests"><i class="fa fa-check"></i><b>10.7</b> Further Considerations About Significance Tests</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#types-of-error"><i class="fa fa-check"></i><b>10.7.1</b> Types of Error</a></li>
+<li class="chapter" data-level="10.7.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-dangers-of-limited-reporting"><i class="fa fa-check"></i><b>10.7.2</b> The Dangers of Limited Reporting</a></li>
+<li class="chapter" data-level="10.7.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#the-dangers-of-data-snooping"><i class="fa fa-check"></i><b>10.7.3</b> The Dangers of Data-Snooping</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#thoughts-about-r"><i class="fa fa-check"></i><b>10.8</b> Thoughts About R</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#new-code-to-learn"><i class="fa fa-check"></i><b>10.8.1</b> New Code to Learn?</a></li>
+<li class="chapter" data-level="10.8.2" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#old-descriptive-friends"><i class="fa fa-check"></i><b>10.8.2</b> Old Descriptive Friends</a></li>
+<li class="chapter" data-level="10.8.3" data-path="tests-of-significance-1.html"><a href="tests-of-significance-1.html#adding-a-variable-to-a-data-frame"><i class="fa fa-check"></i><b>10.8.3</b> Adding a Variable to a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> Goodness of Fit</a><ul>
+<li class="chapter" data-level="11.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#the-gamblers-die"><i class="fa fa-check"></i><b>11.1</b> The Gambler’s Die</a></li>
+<li class="chapter" data-level="11.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#chisqtestgc-for-goodness-of-fit"><i class="fa fa-check"></i><b>11.2</b> chisqtestGC() for Goodness of Fit</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#the-gamblers-die-as-a-test-of-significance"><i class="fa fa-check"></i><b>11.2.1</b> The Gambler’s Die as a Test of Significance</a></li>
+<li class="chapter" data-level="11.2.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#facts-about-chi2-goodness-of-fit"><i class="fa fa-check"></i><b>11.2.2</b> Facts About <span class="math inline">\(\chi^2\)</span> Goodness of Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-seating-preference"><i class="fa fa-check"></i><b>11.3</b> Further Example: Seating Preference</a></li>
+<li class="chapter" data-level="11.4" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-nexus-attendance"><i class="fa fa-check"></i><b>11.4</b> Further Example: Nexus Attendance</a></li>
+<li class="chapter" data-level="11.5" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#further-example-too-good-to-be-true"><i class="fa fa-check"></i><b>11.5</b> Further Example: Too Good to be True?</a></li>
+<li class="chapter" data-level="11.6" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#thoughts-about-r-1"><i class="fa fa-check"></i><b>11.6</b> Thoughts About R</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#names-for-elements-in-a-list"><i class="fa fa-check"></i><b>11.6.1</b> Names for Elements in a List</a></li>
+<li class="chapter" data-level="11.6.2" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#quick-null-probabilities"><i class="fa fa-check"></i><b>11.6.2</b> Quick Null Probabilities</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html"><i class="fa fa-check"></i><b>12</b> Appendix: Geek Notes</a><ul>
+<li class="chapter" data-level="12.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-2"><i class="fa fa-check"></i><b>12.1</b> Chapter 2</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-structure"><i class="fa fa-check"></i><b>12.1.1</b> More on Structure</a></li>
+<li class="chapter" data-level="12.1.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#fancier-histograms"><i class="fa fa-check"></i><b>12.1.2</b> Fancier Histograms</a></li>
+<li class="chapter" data-level="12.1.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#combined-plots"><i class="fa fa-check"></i><b>12.1.3</b> Combined Plots</a></li>
+<li class="chapter" data-level="12.1.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#adding-rugs"><i class="fa fa-check"></i><b>12.1.4</b> Adding Rugs</a></li>
+<li class="chapter" data-level="12.1.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#tuning-density-plots"><i class="fa fa-check"></i><b>12.1.5</b> Tuning Density Plots</a></li>
+<li class="chapter" data-level="12.1.6" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-standard-deviation"><i class="fa fa-check"></i><b>12.1.6</b> More on Standard Deviation</a></li>
+<li class="chapter" data-level="12.1.7" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#cleveland-dotplots"><i class="fa fa-check"></i><b>12.1.7</b> Cleveland Dotplots</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-3"><i class="fa fa-check"></i><b>12.2</b> Chapter 3</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#fixed-and-random-effects-in-simulation"><i class="fa fa-check"></i><b>12.2.1</b> Fixed and Random effects in Simulation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-4"><i class="fa fa-check"></i><b>12.3</b> Chapter 4</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#point-shapes-in-scatterplots-using-pch"><i class="fa fa-check"></i><b>12.3.1</b> Point Shapes in Scatterplots using <code>pch</code></a></li>
+<li class="chapter" data-level="12.3.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#scatterplot-matrix"><i class="fa fa-check"></i><b>12.3.2</b> Scatterplot Matrix</a></li>
+<li class="chapter" data-level="12.3.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-rationale-for-values-of-the-correlation-coefficient-r"><i class="fa fa-check"></i><b>12.3.3</b> The Rationale for Values of the Correlation Coefficient, <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="12.3.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#computation-of-the-coefficients-in-the-regression-equation"><i class="fa fa-check"></i><b>12.3.4</b> Computation of the Coefficients in the Regression Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-5"><i class="fa fa-check"></i><b>12.4</b> Chapter 5</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-rbind-function"><i class="fa fa-check"></i><b>12.4.1</b> The <code>rbind()</code> Function</a></li>
+<li class="chapter" data-level="12.4.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-cbind-function"><i class="fa fa-check"></i><b>12.4.2</b> The <code>cbind()</code> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-6"><i class="fa fa-check"></i><b>12.5</b> Chapter 6</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#the-role-of-limits-in-density-plots"><i class="fa fa-check"></i><b>12.5.1</b> The Role of Limits in Density Plots</a></li>
+<li class="chapter" data-level="12.5.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-about-legends"><i class="fa fa-check"></i><b>12.5.2</b> More about Legends</a></li>
+<li class="chapter" data-level="12.5.3" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#more-on-strip-plots"><i class="fa fa-check"></i><b>12.5.3</b> More on Strip-plots</a></li>
+<li class="chapter" data-level="12.5.4" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>12.5.4</b> Assessing Statistical Significance</a></li>
+<li class="chapter" data-level="12.5.5" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#interaction"><i class="fa fa-check"></i><b>12.5.5</b> Interaction</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-8"><i class="fa fa-check"></i><b>12.6</b> Chapter 8</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#we-lied-about-the-sd-formulas"><i class="fa fa-check"></i><b>12.6.1</b> We Lied About the SD Formulas!</a></li>
+<li class="chapter" data-level="12.6.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#are-we-only-ever-interested-in-population-parameters"><i class="fa fa-check"></i><b>12.6.2</b> Are We Only Ever Interested in Population Parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#chapter-9"><i class="fa fa-check"></i><b>12.7</b> Chapter 9</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#distinction-between-t-and-z-in-confidence-intervals-for-means"><i class="fa fa-check"></i><b>12.7.1</b> Distinction Between <span class="math inline">\(t\)</span> and <span class="math inline">\(z\)</span> in Confidence Intervals for Means</a></li>
+<li class="chapter" data-level="12.7.2" data-path="appendix-geek-notes.html"><a href="appendix-geek-notes.html#how-does-r-find-df"><i class="fa fa-check"></i><b>12.7.2</b> How Does R Find <span class="math inline">\(df\)</span>?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Elementary Statistics with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="goodness-of-fit" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Goodness of Fit</h1>
+<p>At the beginning of Chapter Two our very first foray into Descriptive Statistics concerned exploring the distribution of a single factor variable. In this Chapter we will introduce a way to address inferential aspects of Research Questions about one factor variable.</p>
+<div id="the-gamblers-die" class="section level2">
+<h2><span class="header-section-number">11.1</span> The Gambler’s Die</h2>
+<p>Imagine that you are the Sheriff of a small town in the Wild, Wild West. A professional gambler comes to town, and sets up shop in the local saloon. He claims to play with a fair die, but he wins so much that the locals have begun to mutter that his die is loaded. Since loaded dice are illegal in your town, it is up to you to investigate. You impound the die.</p>
+<p>Ideally, you would take the die apart to see if it is weighted in one direction or another, but the gambler claims that it is his “lucky” die, and he begs you to do it no harm. You decide to roll it a few times, instead.</p>
+<p>There are other pressing law enforcement matters in the town—gunfights, and the like—so you have time only for sixty rolls. The results of the rolls are in the Table [60 Rolls of a Die].</p>
+<table>
+<caption>60 Rolls of a Die</caption>
+<thead>
+<tr class="header">
+<th align="left"><strong>Spots</strong></th>
+<th align="left">One</th>
+<th align="left">Two</th>
+<th align="left">Three</th>
+<th>Four</th>
+<th align="left">Five</th>
+<th align="left">Six</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Freq</strong></td>
+<td align="left">8</td>
+<td align="left">18</td>
+<td align="left">11</td>
+<td>7</td>
+<td align="left">9</td>
+<td align="left">7</td>
+</tr>
+</tbody>
+</table>
+<p>At once your eye is drawn to the rather large number of two-spots. After all, if the six-sided die is really fair then the chance of a two-spot on any given roll is only 1 in 6, so you would expect only about ten twos in 60 rolls—give or take a few, of course, for chance variation.</p>
+<p>The locals notice the large number of twos as well. They pull out their computers, fire up R, and perform a quick One-Proportion test with <code>binomtestGC()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binomtestGC</span>(<span class="dt">x=</span><span class="dv">18</span>,<span class="dt">n=</span><span class="dv">60</span>,<span class="dt">p=</span><span class="dv">1</span>/<span class="dv">6</span>)</code></pre></div>
+<pre><code>## Exact Binomial Procedures for a Single Proportion p:
+##  Results based on Summary Data
+## 
+## Descriptive Results:  18 successes in 60 trials
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.3 
+## SE(p.hat):    0.0592 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.188451            0.432083             
+## 
+## Test of Significance:
+## 
+##  H_0:  p = 0.1666667 
+##  H_a:  p != 0.1666667 
+## 
+##  P-value:        P = 0.0089</code></pre>
+<p>The results show that if the die is really fair, then the chance of 18 or more twos in sixty rolls is only about 0.009, which is less than 1%. The locals prepare to ride the gambler out of town on a rail.</p>
+<p>You, on the other hand, know about Data Snooping, the dangerous practice of performing a test on the basis of a pattern you notice in your data. You know that it’s not really fair to concoct a test on the proportion of twos, simply because the twos grab your attention: after all, the tally of the 60 rolls has six counts—one for each side of the die—and it stands to reason that one or more of the counts might depart quite a bit from its expected value of 10, just by chance variation.</p>
+<p>What you need is a test that takes all of the data, not just the count of twos, into account in an even-handed way. This need puts you in mind of the <span class="math inline">\(\chi^2\)</span>-statistic from Chapter Three:</p>
+<p><span class="math display">\[\chi^2=\sum_{\text{all cells}} \frac{(\text{Observed}-\text{Expected})^2}{\text{Expected}}.\]</span></p>
+<p>You table of counts has six cells, and if the die is fair then the expected count for each cell is 10—one-sixth of the 60 rolls. You compute the <span class="math inline">\(\chi^2\)</span>-statistic for the tally of the sixty rolls:</p>
+<p><span class="math display">\[\chi^2 = \frac{(8-10)^2}{10}+\frac{(18-10)^2}{10}+\frac{(11-10)^2}{10} \\
++\frac{(7-10)^2}{10}+\frac{(9-10)^2}{10}+\frac{(7-10)^2}{10} \\
+= 8.8.\]</span></p>
+<p>The result is 8.8. But you wonder: is this value too big to be explained as just due to chance variation in the sixty rolls of a fair die?</p>
+<p>Fortunately you have access to a simulator that will perform the following task:</p>
+<ul>
+<li>it will roll a fair die 60 times;</li>
+<li>it will tally the results, getting a table of observed counts;</li>
+<li>it will compute the <span class="math inline">\(\chi^2\)</span>-statistic for the table thus obtained;</li>
+<li>it will repeat the preceding three steps as many times as you like, keeping track of the results and checking to see how many of them exceed the 8.8 value that you got in your actual study of the gambler’s die.</li>
+</ul>
+<p>In order to use the simulator, you need to put together the table of observed counts:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">throws &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">one=</span><span class="dv">8</span>,<span class="dt">two=</span><span class="dv">18</span>,<span class="dt">three=</span><span class="dv">11</span>,
+            <span class="dt">four=</span><span class="dv">7</span>,<span class="dt">five=</span><span class="dv">9</span>,<span class="dt">six=</span><span class="dv">7</span>)</code></pre></div>
+<p>You also need to make a list of the probabilities for getting each of the six possible sides. These probabilities are based on the temporary assumption that the die really is fair, so they are all equal to <span class="math inline">\(1/6\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NullProbs &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>/<span class="dv">6</span>,<span class="dv">6</span>)</code></pre></div>
+<p>Now you are ready to put this information into the simulator, the function <code>SlowGoodness()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SlowGoodness</span>(throws,NullProbs)</code></pre></div>
+<p>Try the simulator for a good number of re-samples. It does not seem terribly unlikely that a fair die would produce a 60-roll tally with a <span class="math inline">\(\chi^2\)</span>-statistic of 8.8 or more. Certainly the chance appears to be much larger than the 1% figure you were getting from <code>binomtestGC()</code>. Maybe the gambler is honest, after all, and the large number of twos was just a fluke.</p>
+</div>
+<div id="chisqtestgc-for-goodness-of-fit" class="section level2">
+<h2><span class="header-section-number">11.2</span> chisqtestGC() for Goodness of Fit</h2>
+<p>The above procedure can be formulated in terms of a test of significance, which is called a <em>goodness-of-fit</em> test because it tests whether the observed values of some factor variable can reasonably be said to “fit” a given distribution.</p>
+<div id="the-gamblers-die-as-a-test-of-significance" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> The Gambler’s Die as a Test of Significance</h3>
+<p>In the foregoing study the factor variable at issue was <strong>spots</strong>, the number of spots on the upward-facing die, after it is thrown. The given distribution is the set of probabilities for each side that amounts to the gambler’s claim that the die is fair. These “Null” probabilities appear in Table [Fair Die Probabilities].</p>
+<table>
+<caption>Fair Die Probabilities</caption>
+<thead>
+<tr class="header">
+<th align="left"><strong>Spots</strong></th>
+<th align="left">One</th>
+<th align="left">Two</th>
+<th align="left">Three</th>
+<th>Four</th>
+<th align="left">Five</th>
+<th align="left">Six</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Prob</strong></td>
+<td align="left">1/6</td>
+<td align="left">1/6</td>
+<td align="left">1/6</td>
+<td>1/6</td>
+<td align="left">1/6</td>
+<td align="left">1/6</td>
+</tr>
+</tbody>
+</table>
+<p>Now we are ready for the test.</p>
+<p><strong>Step One</strong>: Statement of Hypotheses</p>
+<blockquote>
+<p><span class="math inline">\(H_0\)</span>: The die is fair (all sides have probability <span class="math inline">\(1/6\)</span>).</p>
+</blockquote>
+<blockquote>
+<p><span class="math inline">\(H_a\)</span>: The die is weighted (at least one side has probability <span class="math inline">\(\neq 1/6\)</span>)</p>
+</blockquote>
+<p><strong>Step Two</strong>: Safety Check and Test Statistic</p>
+<p>For safety, all that is needed is to know that the 60 tosses of the die were random.</p>
+<p>As for the test statistic and other information needed in future steps, we run <code>chisqtestGC()</code>. We must provide</p>
+<ul>
+<li>the table of observed counts, and</li>
+<li>an argument <code>p</code> that gives the probabilities that go with the Null Hypothesis.</li>
+</ul>
+<p>We also plan to perform simulations in order to compute the P-value, so:</p>
+<ul>
+<li>We must set the argument <code>simulate.p.value</code> to TRUE;</li>
+<li>We should choose the number of re-samples, indicated by the argument <code>B</code>. We’ll set <code>B</code> to 2500.</li>
+<li>For reproducibility of results, we should set a seed in advance with the <code>set.seed()</code> function. Quite arbitrarily, we’ll set the seed to 12345.</li>
+</ul>
+<p>The function call is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">12345</span>)
+throws &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">one=</span><span class="dv">8</span>,<span class="dt">two=</span><span class="dv">18</span>,<span class="dt">three=</span><span class="dv">11</span>,
+            <span class="dt">four=</span><span class="dv">7</span>,<span class="dt">five=</span><span class="dv">9</span>,<span class="dt">six=</span><span class="dv">7</span>)
+NullProbs &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>/<span class="dv">6</span>,<span class="dv">6</span>)
+<span class="kw">chisqtestGC</span>(throws,<span class="dt">p=</span>NullProbs,
+             <span class="dt">simulate.p.value=</span>T,<span class="dt">B=</span><span class="dv">2500</span>)</code></pre></div>
+<pre><code>## Pearson&#39;s chi-squared test with simulated p-value 
+##   (based on 2500 resamples) 
+## 
+##       Observed counts Expected by Null Contr to chisq stat
+## one                 8               10                 0.4
+## two                18               10                 6.4
+## three              11               10                 0.1
+## four                7               10                 0.9
+## five                9               10                 0.1
+## six                 7               10                 0.9
+## 
+## 
+## Chi-Square Statistic = 8.8 
+## Degrees of Freedom of the table = 5 
+## P-Value = 0.1152</code></pre>
+<p>Note that the output gives the <span class="math inline">\(\chi^2\)</span>-statistic as 8.8.</p>
+<p><strong>Step Three</strong>: P-value</p>
+<p>The simulated approximation to the P-value is 0.1148.</p>
+<blockquote>
+<p><strong>Interpretation of P-Value</strong>: <em>If the die is fair, then there is about an 11.48% of getting a <span class="math inline">\(\chi^2\)</span>-statistic at least as large as the one we got in our study of the gambler’s die.</em></p>
+</blockquote>
+<p><strong>Step Four</strong>: Decision</p>
+<blockquote>
+<p>Since <span class="math inline">\(P=0.1148 &gt; 0.05\)</span>, we do not reject the Null.</p>
+</blockquote>
+<p><strong>Step Five</strong> Conclusion</p>
+<blockquote>
+<p>This study did not provide strong evidence that the gambler’s die was loaded.</p>
+</blockquote>
+</div>
+<div id="facts-about-chi2-goodness-of-fit" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Facts About <span class="math inline">\(\chi^2\)</span> Goodness of Fit</h3>
+<p>Mathematicians have studied the <span class="math inline">\(\chi^2\)</span>-statistic under conditions where sample size is “big enough”, and they have discovered the following:</p>
+<ul>
+<li>When the Null Hypothesis is true, its EV is <span class="math inline">\(df\)</span>, the “degrees of freedom.”</li>
+<li>In the goodness-of-fit situation—i.e., when one factor variable is under investigation—the <span class="math inline">\(df\)</span> figure is:</li>
+</ul>
+<p><span class="math display">\[df=\text{number of cells}-1.\]</span></p>
+<ul>
+<li>The standard deviation of the <span class="math inline">\(\chi^2\)</span>-statistic is:</li>
+</ul>
+<p><span class="math display">\[SD(\chi^2)=\sqrt{2 \times df}.\]</span></p>
+<p>Thus, in the Gambler’s Die study,</p>
+<p><span class="math display">\[df=6-1=5,\]</span></p>
+<p>so if the die is fair then we would expect the <span class="math inline">\(\chi^2\)</span>-statistic to be around 5, give or take</p>
+<p><span class="math display">\[\sqrt{2 \times 5}=\sqrt{10} \approx 3.16\]</span></p>
+<p>or so. From this point of view, the 8.8 value that we got does not seem very unlikely, if the Null is right: it is not much more than one SD above the EV.</p>
+<p>As for what sample size counts as “big enough”&quot; the results we stated above are quite accurate if the Null’s expected cell counts are all at least five. Mathematicians have even discovered a family of random variables, known as the <span class="math inline">\(\chi^2\)</span> family, such that at large sample sizes the <span class="math inline">\(\chi^2\)</span>-statistic behaves like one of the members of this family, the member with the degrees of freedom given by the “cells minus one” formula. Figure [Chi-Square df=5] shows a density curve for the <span class="math inline">\(\chi^2\)</span> curve with 5 degrees of freedom, with the area under the curve after 8.8 shaded in. Note that the area is quite close to the P-value that we obtained through simulation.</p>
+<div class="figure"><span id="fig:chisqdf5"></span>
+<img src="bookdown-demo_files/figure-html/chisqdf5-1.png" alt="Chi-Square df=5" width="672" />
+<p class="caption">
+Figure 11.1: Chi-Square df=5
+</p>
+</div>
+<p>Since at large sample sizes the <span class="math inline">\(\chi^2\)</span> density curve will deliver approximately the right P-value, we usually don’t ask for simulation. For the Gambler’s Die study, the function call would be:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisqtestGC</span>(throws,<span class="dt">p=</span>NullProbs)</code></pre></div>
+<p>If you would like to produce a graph of the P-value, you can do so by setting the <code>graph</code> argument to <code>TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisqtestGC</span>(throws,<span class="dt">p=</span>NullProbs,<span class="dt">graph=</span>T)</code></pre></div>
+<p>If you have chose to simulate, you can get a graph of the re-sampled <span class="math inline">\(\chi^2\)</span>-statistics:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisqtestGC</span>(throws,<span class="dt">p=</span>NullProbs,
+             <span class="dt">simulate.p.value=</span>T,<span class="dt">B=</span><span class="dv">2500</span>,
+             <span class="dt">graph=</span><span class="ot">TRUE</span>)</code></pre></div>
+<p>If any of the expected cell counts are below five, <code>chisqtestGC()</code> will issue a warning, in which case you should re-run the test using simulation.</p>
+</div>
+</div>
+<div id="further-example-seating-preference" class="section level2">
+<h2><span class="header-section-number">11.3</span> Further Example: Seating Preference</h2>
+<p>Recalling the seating-preference variable <strong>seat</strong> in the <code>m111survey</code> data frame, one might ask the following</p>
+<blockquote>
+<p><strong>Research Qeestion</strong>: <em>In the Georgetown College population, is there equal perference for each type of seat: front, middle and back?</em></p>
+</blockquote>
+<p>In this Research Question, we are interested in the distribution of a single factor variable: <strong>seat</strong>. We can use the <span class="math inline">\(\chi^2\)</span>-goodness of fit test to see whether the data in the <code>m111survey</code> provide strong evidence that the GC population is not indifferent to seat-location.</p>
+<p><strong>Step One</strong>: Statement of Hypotheses</p>
+<p>If the GC population is indifferent, then the proportion of the populations that prefers each type of seat will be <span class="math inline">\(1/3\)</span>, for each of the three possible values of <strong>seat</strong>.</p>
+<p>The Null Hypotheses may then be stated as:</p>
+<blockquote>
+<p><span class="math inline">\(H_0\)</span>: Each of the three types of seat is preferred by one-third of the GC population.</p>
+</blockquote>
+<p>The Alternative disagrees:</p>
+<blockquote>
+<p><span class="math inline">\(H_a\)</span>: At least one of the three proportions claimed by the Null is wrong.</p>
+</blockquote>
+<p><strong>Step Two</strong>: Safety Check and Test Statistic</p>
+<p>For safety, we must assume that the students in <code>m111survey</code> are like a simple random sample from the GC population, at least as far as seating preference is concerned.</p>
+<p>For the test statistic and other information needed in subsequent steps, we can use formula-data input to call <code>chisqtestGC()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisqtestGC</span>(~seat,<span class="dt">data=</span>m111survey,
+            <span class="dt">p=</span><span class="kw">c</span>(<span class="dv">1</span>/<span class="dv">3</span>,<span class="dv">1</span>/<span class="dv">3</span>,<span class="dv">1</span>/<span class="dv">3</span>))</code></pre></div>
+<pre><code>## Chi-squared test for given probabilities 
+## 
+##          Observed counts Expected by Null Contr to chisq stat
+## 1_front               27            23.67                0.47
+## 2_middle              32            23.67                2.93
+## 3_back                12            23.67                5.75
+## 
+## 
+## Chi-Square Statistic = 9.1549 
+## Degrees of Freedom of the table = 2 
+## P-Value = 0.0103</code></pre>
+<p>We see that the P-value is about 0.01, which is less than our “cut-off” of 0.05, so we reject the Null and conclude that this data provided strong evidence that GC students are not equally likely to prefer any of the three seating locations. (The middle appears to be most desired.)</p>
+</div>
+<div id="further-example-nexus-attendance" class="section level2">
+<h2><span class="header-section-number">11.4</span> Further Example: Nexus Attendance</h2>
+<p>A Nexus event held at Georgetown College in April of the Spring semester was attended by 200 students. The class breakdown of the students is given in Table [Nexus Attendance].</p>
+<table>
+<caption>Nexus Attendance</caption>
+<thead>
+<tr class="header">
+<th align="left"><strong>Class</strong></th>
+<th>Fresh</th>
+<th>Soph</th>
+<th align="left">Junior</th>
+<th>Senior</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Freq</strong></td>
+<td>62</td>
+<td>27</td>
+<td align="left">33</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose that is is known that the distribution of class rank at Georgetown College is as follows:</p>
+<ul>
+<li>30% freshmen,</li>
+<li>25% sophomores,</li>
+<li>25% juniors,</li>
+<li>20% seniors.</li>
+</ul>
+<p>We are interested in the following</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>Is the attendance at April Nexus events like a random sample of GC students?</em></p>
+</blockquote>
+<p>Note that in this Research Question the distribution of the variable <strong>Class Rank</strong> in the GC population in NOT at issue: everyone knows that it is given by the percentages above. What is at issue is whether the data on this Nexus event show that students are not attending randomly, in the sense that one’s likelihood of attending a Nexus event in April might be associated with one’s class rank.</p>
+<p>In this study the hypotheses should be stated as:</p>
+<blockquote>
+<p><span class="math inline">\(H_0\)</span>: Attendance at the event was random.</p>
+</blockquote>
+<blockquote>
+<p><span class="math inline">\(H_a\)</span>: Likelihood of attendance depended on class rank.</p>
+</blockquote>
+<p>Information needed for the remaining four steps comes from the following R-code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Nexus &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">fresh=</span><span class="dv">62</span>,<span class="dt">soph=</span><span class="dv">27</span>,<span class="dt">junior=</span><span class="dv">33</span>,<span class="dt">senior=</span><span class="dv">80</span>)
+NullClass &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.30</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.20</span>)
+<span class="kw">chisqtestGC</span>(Nexus,<span class="dt">p=</span>NullClass)</code></pre></div>
+<pre><code>## Chi-squared test for given probabilities 
+## 
+##        Observed counts Expected by Null Contr to chisq stat
+## fresh               62             60.6                0.03
+## soph                27             50.5               10.94
+## junior              33             50.5                6.06
+## senior              80             40.4               38.82
+## 
+## 
+## Chi-Square Statistic = 55.8482 
+## Degrees of Freedom of the table = 3 
+## P-Value = 0</code></pre>
+<p>The <span class="math inline">\(\chi^2\)</span> statistic was about 55.8. If the Null is true, then it should have been about 3 (the degrees of freedom), give or take</p>
+<p><span class="math display">\[\sqrt{2 \times 3}=\sqrt{6} \approx 2.45\]</span></p>
+<p>or so. A value of 55.8 looks very bad for the Null!</p>
+<p>In fact, if the Null is right then the chance of getting a <span class="math inline">\(\chi^2\)</span>-statistic of 55.8 or more is about <span class="math inline">\(4.5 \times 10^{-12}\)</span>, which is a very tiny number indeed. We reject the Null. This event provided strong evidence that, in April, Nexus attendance depends on class rank.</p>
+<p>In fact, from the test output we see that the Null expected about 40.4 seniors to attend, whereas 80 in fact did. Apparently GC seniors are scrambling for last-minute Nexus credits!</p>
+</div>
+<div id="further-example-too-good-to-be-true" class="section level2">
+<h2><span class="header-section-number">11.5</span> Further Example: Too Good to be True?</h2>
+<p>Imagine that a statistics professor gives a student the following Homework assignment:</p>
+<blockquote>
+<p><strong>Assignment</strong>: <em>Familiarize yourself with chance variation by rolling a fair die 6000 times. Turn in a tally of your results.</em></p>
+</blockquote>
+<p>Most students would find the assignment rather onerous!</p>
+<p>Now suppose that the next day the student hands in the results shown in Table [6000 Rolls of a Fair Die?].</p>
+<table>
+<caption>6000 Rolls of a Fair Die?</caption>
+<thead>
+<tr class="header">
+<th align="left"><strong>Spots</strong></th>
+<th align="left">One</th>
+<th align="left">Two</th>
+<th align="left">Three</th>
+<th>Four</th>
+<th align="left">Five</th>
+<th align="left">Six</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Freq</strong></td>
+<td align="left">1003</td>
+<td align="left">998</td>
+<td align="left">999</td>
+<td>1002</td>
+<td align="left">1001</td>
+<td align="left">997</td>
+</tr>
+</tbody>
+</table>
+<p>The professor observes that each cell count is quite close to what would be expected in 6000 rolls of a fair die. But are the counts perhaps TOO close to what would be expected? In other words:</p>
+<blockquote>
+<p><strong>Research Question</strong>: <em>Is the observed fit “too good to be true”?</em></p>
+</blockquote>
+<p>Consider running a <span class="math inline">\(\chi^2\)</span>-goodness of fit test on the data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AllegedRolls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">one=</span><span class="dv">1003</span>,<span class="dt">two=</span><span class="dv">998</span>,<span class="dt">three=</span><span class="dv">999</span>,
+            <span class="dt">four=</span><span class="dv">1002</span>,<span class="dt">five=</span><span class="dv">1001</span>,<span class="dt">six=</span><span class="dv">997</span>)
+FairProbs &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>/<span class="dv">6</span>,<span class="dv">6</span>)
+<span class="kw">chisqtestGC</span>(AllegedRolls,<span class="dt">p=</span>FairProbs)</code></pre></div>
+<pre><code>## Chi-squared test for given probabilities 
+## 
+##       Observed counts Expected by Null Contr to chisq stat
+## one              1003             1000                0.01
+## two               998             1000                0.00
+## three             999             1000                0.00
+## four             1002             1000                0.00
+## five             1001             1000                0.00
+## six               997             1000                0.01
+## 
+## 
+## Chi-Square Statistic = 0.028 
+## Degrees of Freedom of the table = 5 
+## P-Value = 1</code></pre>
+<p>As one might have guessed from the close agreement between observed and expected counts, the <span class="math inline">\(\chi^2\)</span> statistic is quite small, so the P-value—the chance of getting at least this value in 6000 rolls of a fair die—is quite large: it is nearly 100%, in fact.</p>
+<p>But think of it the other way around: if the table turned in by the student really was the result of tossing a fair die 6000 times, then what is the chance of getting such a small <span class="math inline">\(\chi^2\)</span>-statistic? It would have to be 1 minus the P-value given in the test output:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="fl">-0.9999931</span></code></pre></div>
+<pre><code>## [1] 6.9e-06</code></pre>
+<p>This is a very small chance indeed! It would be reasonable to infer that the student made up the tally table, but did not allow for a realistic amount of chance variation away from the expected cell counts!</p>
+</div>
+<div id="thoughts-about-r-1" class="section level2">
+<h2><span class="header-section-number">11.6</span> Thoughts About R</h2>
+<div id="names-for-elements-in-a-list" class="section level3">
+<h3><span class="header-section-number">11.6.1</span> Names for Elements in a List</h3>
+<p>When you are working with summary data, you have to provide <code>chisqtestGC()</code> with a tally of the observed counts. The output for the test is most readable if you also provide names for each of the possible values of the factor variable under study. You can do so as you create the lists of observed counts. For example, if your variable has three possible values called “a”, “b” and “c”, with counts 13, 12 and 27 respectively, then you can create a named tally as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ObsCounts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a=</span><span class="dv">13</span>,<span class="dt">b=</span><span class="dv">12</span>,<span class="dt">c=</span><span class="dv">27</span>)</code></pre></div>
+</div>
+<div id="quick-null-probabilities" class="section level3">
+<h3><span class="header-section-number">11.6.2</span> Quick Null Probabilities</h3>
+<p>For goodness of fit tests, <code>chisqtestGC()</code> requires that the <code>p</code> argument be set to the list of proportions claimed by the Null for the factor variable under study. If these values are all the same, then you can write them quickly using the <code>rep()</code> function.</p>
+<p><code>rep()</code> repeats a given value a given number of times. For example to get 7 threes, just type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dv">3</span>,<span class="dv">7</span>)</code></pre></div>
+<pre><code>## [1] 3 3 3 3 3 3 3</code></pre>
+<p>If there are eight null probabilities and they are all the same, then each would be <span class="math inline">\(1/8\)</span>, so you could set them as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MyNulls &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>/<span class="dv">8</span>,<span class="dv">8</span>)
+MyNulls</code></pre></div>
+<pre><code>## [1] 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tests-of-significance-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-geek-notes.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="book_assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="book_assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11-GoodnessOfFit.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
